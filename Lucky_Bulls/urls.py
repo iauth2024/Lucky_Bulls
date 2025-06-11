@@ -13,7 +13,7 @@ from .views import (
     delete_screener,
 )
 from Lucky_Bulls import views
-
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     # Home page
@@ -37,7 +37,8 @@ urlpatterns = [
     # Performance Tracking Page
     path('performance/', views.performance_page, name='performance_page'),
 
-
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
     # Screener Management
      path('screeners/', screener_list, name='screener_list'),
     

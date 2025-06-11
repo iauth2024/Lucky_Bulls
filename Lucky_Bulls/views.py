@@ -341,8 +341,8 @@ from .models import MonitorControl
 
 from django.shortcuts import render, redirect
 from .models import MonitorControl, Screener
-
-# Monitor Control Views
+from django.contrib.auth.decorators import login_required
+@login_required
 def index_view(request):
     control, created = MonitorControl.objects.get_or_create(id=1, defaults={'is_active': True})
     screeners = Screener.objects.all()
