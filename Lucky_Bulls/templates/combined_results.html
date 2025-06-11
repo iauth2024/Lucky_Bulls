@@ -1,0 +1,296 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid px-4 py-4">
+    <!-- Header with Home Button -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="display-5 fw-bold text-primary">
+                <i class="fas fa-chart-pie me-2"></i>Combined Screener Results
+            </h1>
+            <p class="text-muted">Analyze stocks across multiple screeners</p>
+        </div>
+        <a href="/" class="btn btn-outline-primary">
+            <i class="fas fa-home me-1"></i> Home
+        </a>
+    </div>
+
+    <!-- Filter Card -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-light">
+            <h5 class="mb-0"><i class="fas fa-filter me-2"></i>Filter Options</h5>
+        </div>
+        <div class="card-body">
+            <form method="get" class="row g-3 align-items-end">
+                <div class="col-md-4">
+                    <label for="screener" class="form-label">Screener</label>
+                    <select name="screener" id="screener" class="form-select">
+                        <option value="ALL" {% if selected_screener == 'ALL' %}selected{% endif %}>All Screeners</option>
+                        {% for screener in screeners %}
+                            <option value="{{ screener.name }}" {% if selected_screener == screener.name %}selected{% endif %}>
+                                {{ screener.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="date_filter" class="form-label">Time Period</label>
+                    <select name="date_filter" id="date_filter" class="form-select">
+                        {% for value, label in date_filters %}
+                            <option value="{{ value }}" {% if selected_date_filter == value %}selected{% endif %}>
+                                {{ label }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="fas fa-filter me-1"></i> Apply
+                    </button>
+                </div>
+                <div class="col-md-2">
+                    <a href="?" class="btn btn-outline-secondary w-100">
+                        <i class="fas fa-sync-alt me-1"></i> Reset
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Search Box -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body p-2">
+            <div class="input-group">
+                <span class="input-group-text bg-transparent border-0">
+                    <i class="fas fa-search text-muted"></i>
+                </span>
+                <input type="text" id="searchInput" class="form-control border-0" placeholder="Search by stock name or symbol...">
+                <button class="btn btn-outline-secondary" type="button" id="clearSearch">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Performers Section -->
+    {% if top_performers %}
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-light">
+            <h5 class="mb-0"><i class="fas fa-trophy text-warning me-2"></i>Top Performing Stocks</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                {% for stock in top_performers|slice:":3" %}
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-start border-4 border-warning">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h5 class="card-title mb-1">{{ stock.name }}</h5>
+                                    <p class="text-muted small mb-2">{{ stock.nsecode }} | {{ stock.bsecode }}</p>
+                                </div>
+                                <span class="badge bg-warning text-dark">#{{ forloop.counter }}</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge bg-primary me-1">{{ stock.screener_count }} Screeners</span>
+                                    <span class="badge bg-{% if stock.per_chg >= 0 %}success{% else %}danger{% endif %}">
+                                        {{ stock.per_chg }}%
+                                    </span>
+                                </div>
+                                <h6 class="mb-0">₹{{ stock.close }}</h6>
+                            </div>
+                            <hr class="my-2">
+                            <div class="small">
+                                <span class="text-muted">Appears in:</span>
+                                {% for screener in stock.screeners|slice:":3" %}
+                                    <span class="badge bg-light text-dark me-1">{{ screener }}</span>
+                                {% endfor %}
+                                {% if stock.screeners|length > 3 %}
+                                    <span class="badge bg-light text-dark">+{{ stock.screeners|length|add:"-3" }} more</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Main Results Section -->
+    {% for screener_name, data in combined_data.items %}
+    <div class="card shadow-sm mb-4 screener-section">
+        <div class="card-header bg-light d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">
+                <i class="fas fa-chart-line me-2"></i>{{ screener_name }}
+                <span class="badge bg-primary ms-2">{{ data|length }} stocks</span>
+            </h5>
+            <button class="btn btn-sm btn-outline-primary toggle-table" data-target="{{ screener_name|slugify }}">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+        <div class="card-body p-0" id="{{ screener_name|slugify }}">
+            {% if data %}
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>#</th>
+                            <th>Symbol</th>
+                            <th>Name</th>
+                            <th>BSE Code</th>
+                            <th>Change %</th>
+                            <th>Price</th>
+                            <th>Volume</th>
+                            <th>Date</th>
+                            <th>Screeners</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entry in data %}
+                        <tr class="{% if entry.screener_count > 1 %}table-warning{% endif %}">
+                            <td>{{ forloop.counter }}</td>
+                            <td>
+                                <strong>{{ entry.nsecode }}</strong>
+                                {% if entry.screener_count > 1 %}
+                                <span class="badge bg-warning text-dark ms-1" title="Appears in {{ entry.screener_count }} screeners">
+                                    {{ entry.screener_count }}x
+                                </span>
+                                {% endif %}
+                            </td>
+                            <td>{{ entry.name }}</td>
+                            <td>{{ entry.bsecode }}</td>
+                            <td class="fw-bold text-{% if entry.per_chg >= 0 %}success{% else %}danger{% endif %}">
+                                {{ entry.per_chg }}%
+                            </td>
+                            <td>₹{{ entry.close }}</td>
+                            <td>{{ entry.volume|floatformat:0 }}</td>
+                            <td>{{ entry.date|default:"-" }}</td>
+                            <td>
+                                {% for screener in entry.all_screeners|slice:":3" %}
+                                    <span class="badge bg-light text-dark me-1">{{ screener }}</span>
+                                {% endfor %}
+                                {% if entry.all_screeners|length > 3 %}
+                                    <span class="badge bg-light text-dark">+{{ entry.all_screeners|length|add:"-3" }}</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="text-center py-4">
+                <i class="fas fa-info-circle fa-2x text-muted mb-3"></i>
+                <p class="text-muted">No stocks found for this screener</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% empty %}
+    <div class="card shadow-sm">
+        <div class="card-body text-center py-5">
+            <i class="fas fa-chart-pie fa-3x text-muted mb-3"></i>
+            <h4 class="text-muted">No screener data available</h4>
+            <p class="text-muted">Try adjusting your filters or check back later</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<style>
+    .card {
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .card-header {
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .table th {
+        white-space: nowrap;
+    }
+    .table td {
+        vertical-align: middle;
+    }
+    .badge {
+        font-weight: 500;
+        padding: 5px 8px;
+    }
+    .screener-section {
+        transition: all 0.3s ease;
+    }
+    .toggle-table .fa-chevron-down {
+        transition: transform 0.3s ease;
+    }
+    .toggle-table.collapsed .fa-chevron-down {
+        transform: rotate(-90deg);
+    }
+    .table-warning {
+        background-color: rgba(255,193,7,0.1);
+    }
+    .form-select, .form-control {
+        border-radius: 8px;
+        padding: 10px 15px;
+    }
+</style>
+
+<script>
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const tables = document.querySelectorAll('.table');
+        
+        tables.forEach(table => {
+            const rows = table.querySelectorAll('tbody tr');
+            let hasMatches = false;
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    row.style.display = '';
+                    hasMatches = true;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+            
+            // Show/hide entire screener section based on matches
+            const section = table.closest('.screener-section');
+            if (section) {
+                section.style.display = hasMatches ? '' : 'none';
+            }
+        });
+    });
+
+    // Clear search
+    document.getElementById('clearSearch').addEventListener('click', function() {
+        document.getElementById('searchInput').value = '';
+        document.querySelectorAll('.table tbody tr, .screener-section').forEach(el => {
+            el.style.display = '';
+        });
+    });
+
+    // Toggle tables
+    document.querySelectorAll('.toggle-table').forEach(button => {
+        button.addEventListener('click', function() {
+            const target = this.getAttribute('data-target');
+            const tableBody = document.getElementById(target);
+            this.classList.toggle('collapsed');
+            
+            if (tableBody.style.display === 'none') {
+                tableBody.style.display = '';
+            } else {
+                tableBody.style.display = 'none';
+            }
+        });
+    });
+
+    // Initialize all tables as expanded
+    document.querySelectorAll('.card-body[id]').forEach(el => {
+        el.style.display = '';
+    });
+</script>
+{% endblock %}

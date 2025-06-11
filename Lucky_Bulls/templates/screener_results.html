@@ -1,0 +1,270 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <!-- Filters Section -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form method="GET" class="form-inline">
+                        <div class="form-group mr-3">
+                            <label for="screener" class="mr-2">Screener:</label>
+                            <select name="screener" id="screener" class="form-control">
+                                <option value="ALL" {% if screener_name == "ALL" %}selected{% endif %}>All Screeners</option>
+                                {% for name in screener_names %}
+                                    <option value="{{ name }}" {% if screener_name == name %}selected{% endif %}>{{ name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group mr-3">
+                            <label for="days" class="mr-2">Days:</label>
+                            <select name="days" id="days" class="form-control">
+                                {% for days in valid_days %}
+                                    <option value="{{ days }}" {% if days_selection == days %}selected{% endif %}>{{ days }} days</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Apply Filters</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lucky Bull Stocks -->
+    <div class="card mb-4">
+        <div class="card-header bg-warning text-white">
+            <h4>Lucky Bull Stocks (Appearing in multiple screeners)</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Screeners</th>
+                            <th>Price</th>
+                            <th>Change (%)</th>
+                            <th>Last {{ days_selection }} Days Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for stock in lucky_bull_page_obj %}
+                        <tr>
+                            <td>{{ stock.symbol }}</td>
+                            <td>
+                                {% for screener in stock.screener_names %}
+                                    <span class="badge badge-primary">{{ screener }}</span>
+                                {% endfor %}
+                            </td>
+                            <td>{{ stock.close|default:"N/A" }}</td>
+                            <td class="{% if stock.perChange and stock.perChange > 0 %}text-success{% elif stock.perChange and stock.perChange < 0 %}text-danger{% endif %}">
+                                {{ stock.perChange|default:"N/A" }}%
+                            </td>
+                            <td>
+                                {% if stock.historical_data %}
+                                    <div style="height: 30px; width: 150px;">
+                                        <canvas class="mini-chart" 
+                                                data-symbol="{{ stock.symbol }}"
+                                                data-days="{{ days_selection }}"
+                                                data-values="{{ stock.historical_data|join:',' }}">
+                                        </canvas>
+                                    </div>
+                                {% else %}
+                                    No data
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="5" class="text-center">No lucky bull stocks found</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Pagination for Lucky Bull Stocks -->
+            {% if lucky_bull_page_obj.has_other_pages %}
+            <nav aria-label="Lucky Bull Stocks pagination">
+                <ul class="pagination justify-content-center">
+                    {% if lucky_bull_page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?screener={{ screener_name }}&days={{ days_selection }}&lucky_bull_page=1" aria-label="First">
+                            &laquo;&laquo;
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?screener={{ screener_name }}&days={{ days_selection }}&lucky_bull_page={{ lucky_bull_page_obj.previous_page_number }}" aria-label="Previous">
+                            &laquo;
+                        </a>
+                    </li>
+                    {% endif %}
+                    
+                    {% for num in lucky_bull_page_obj.paginator.page_range %}
+                        {% if lucky_bull_page_obj.number == num %}
+                        <li class="page-item active">
+                            <span class="page-link">{{ num }}</span>
+                        </li>
+                        {% elif num > lucky_bull_page_obj.number|add:'-3' and num < lucky_bull_page_obj.number|add:'3' %}
+                        <li class="page-item">
+                            <a class="page-link" href="?screener={{ screener_name }}&days={{ days_selection }}&lucky_bull_page={{ num }}">{{ num }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% if lucky_bull_page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?screener={{ screener_name }}&days={{ days_selection }}&lucky_bull_page={{ lucky_bull_page_obj.next_page_number }}" aria-label="Next">
+                            &raquo;
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?screener={{ screener_name }}&days={{ days_selection }}&lucky_bull_page={{ lucky_bull_page_obj.paginator.num_pages }}" aria-label="Last">
+                            &raquo;&raquo;
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Other Stocks -->
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h4>Other Stocks</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Screener</th>
+                            <th>Price</th>
+                            <th>Change (%)</th>
+                            <th>Last {{ days_selection }} Days Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for stock in other_stocks_page_obj %}
+                        <tr>
+                            <td>{{ stock.symbol }}</td>
+                            <td>{{ stock.screener_names.0 }}</td>
+                            <td>{{ stock.close|default:"N/A" }}</td>
+                            <td class="{% if stock.perChange and stock.perChange > 0 %}text-success{% elif stock.perChange and stock.perChange < 0 %}text-danger{% endif %}">
+                                {{ stock.perChange|default:"N/A" }}%
+                            </td>
+                            <td>
+                                {% if stock.historical_data %}
+                                    <div style="height: 30px; width: 150px;">
+                                        <canvas class="mini-chart" 
+                                                data-symbol="{{ stock.symbol }}"
+                                                data-days="{{ days_selection }}"
+                                                data-values="{{ stock.historical_data|join:',' }}">
+                                        </canvas>
+                                    </div>
+                                {% else %}
+                                    No data
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="5" class="text-center">No other stocks found</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Pagination for Other Stocks -->
+            {% if other_stocks_page_obj.has_other_pages %}
+            <nav aria-label="Other Stocks pagination">
+                <ul class="pagination justify-content-center">
+                    {% if other_stocks_page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?screener={{ screener_name }}&days={{ days_selection }}&other_stocks_page=1" aria-label="First">
+                            &laquo;&laquo;
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?screener={{ screener_name }}&days={{ days_selection }}&other_stocks_page={{ other_stocks_page_obj.previous_page_number }}" aria-label="Previous">
+                            &laquo;
+                        </a>
+                    </li>
+                    {% endif %}
+                    
+                    {% for num in other_stocks_page_obj.paginator.page_range %}
+                        {% if other_stocks_page_obj.number == num %}
+                        <li class="page-item active">
+                            <span class="page-link">{{ num }}</span>
+                        </li>
+                        {% elif num > other_stocks_page_obj.number|add:'-3' and num < other_stocks_page_obj.number|add:'3' %}
+                        <li class="page-item">
+                            <a class="page-link" href="?screener={{ screener_name }}&days={{ days_selection }}&other_stocks_page={{ num }}">{{ num }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% if other_stocks_page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?screener={{ screener_name }}&days={{ days_selection }}&other_stocks_page={{ other_stocks_page_obj.next_page_number }}" aria-label="Next">
+                            &raquo;
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?screener={{ screener_name }}&days={{ days_selection }}&other_stocks_page={{ other_stocks_page_obj.paginator.num_pages }}" aria-label="Last">
+                            &raquo;&raquo;
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Chart.js for mini charts -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize mini charts
+    const charts = document.querySelectorAll('.mini-chart');
+    charts.forEach(chart => {
+        const ctx = chart.getContext('2d');
+        const values = chart.dataset.values.split(',').map(Number);
+        const symbol = chart.dataset.symbol;
+        const days = parseInt(chart.dataset.days);
+        
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: Array.from({length: days}, (_, i) => i+1),
+                datasets: [{
+                    label: symbol,
+                    data: values,
+                    borderColor: values[values.length-1] >= values[0] ? '#28a745' : '#dc3545',
+                    borderWidth: 1,
+                    fill: false,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                legend: { display: false },
+                scales: {
+                    x: { display: false },
+                    y: { display: false }
+                }
+            }
+        });
+    });
+});
+</script>
+{% endblock %}
