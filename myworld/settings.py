@@ -24,8 +24,14 @@ SECRET_KEY = 'django-insecure-t7@56+@$0kgqmd5ko2)0h!-kc8y5!o3m*tx#^u$i4jf48#niz5
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+ALLOWED_HOSTS = [
+   
+    'lucky-bulls.onrender.com',
+    'lucky-bulls-zscb.onrender.com',  # ✅ NEW Render URL
+    '127.0.0.1',
+    'localhost',
+]
 
-ALLOWED_HOSTS = ['luckybulls-813d8e990491.herokuapp.com',  'lucky-bulls.onrender.com','127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
