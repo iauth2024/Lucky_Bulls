@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trading Dashboard - {% block title %}{% endblock %}</title>
+    <title>Trading Dashboard - {% block title %}{% endblock title %}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
         /* Custom CSS for sidebar and content layout */
@@ -35,32 +35,52 @@
             font-size: 1.5rem;
             padding: 0 20px 15px 20px;
         }
+        /* Highlight active menu item */
+        .sidebar .nav-link.active {
+            background-color: #495057;
+            border-left: 4px solid #0d6efd;
+        }
     </style>
+    {% block extra_css %}{% endblock extra_css %}
 </head>
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
         <a class="navbar-brand" href="{% url 'index' %}">Trading Dashboard</a>
         <nav class="nav flex-column">
-            <a class="nav-link" href="{% url 'index' %}">🏠 Home</a>
-            <a class="nav-link" href="{% url 'trading_data' %}">📊 Trading Data</a>
-            <a class="nav-link" href="{% url 'trading_account_list' %}">🏦 Manage Accounts</a>
-            <a class="nav-link" href="{% url 'screener_results' %}">📈 Screener Results</a>
-            <a class="nav-link" href="{% url 'combined_results' %}">🔄 Combined Results</a>
-            <a class="nav-link" href="{% url 'performance_page' %}">📊 Performance</a>
-            <a class="nav-link" href="{% url 'add_screener' %}">➕ Add Screener</a>
-            <a class="nav-link" href="{% url 'screener_list' %}">📜 Screener List</a>
-  
-            
+            <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'index' %}">🏠 Home</a>
+            <a class="nav-link {% if 'trading_data' in request.path %}active{% endif %}" href="{% url 'trading_data' %}">📊 Trading Data</a>
+            <a class="nav-link {% if 'trading_account' in request.path %}active{% endif %}" href="{% url 'trading_account_list' %}">🏦 Manage Accounts</a>
+            <a class="nav-link {% if 'stocks' in request.path %}active{% endif %}" href="{% url 'stock_page' %}">📈 Stock Analysis</a>
+            <a class="nav-link {% if 'screener_results' in request.path %}active{% endif %}" href="{% url 'screener_results' %}">🔍 Screener Results</a>
+            <a class="nav-link {% if 'performance' in request.path %}active{% endif %}" href="{% url 'performance_page' %}">📊 Performance</a>
+            <a class="nav-link {% if 'add_screener' in request.path %}active{% endif %}" href="{% url 'add_screener' %}">➕ Add Screener</a>
+            <a class="nav-link {% if 'screener_list' in request.path %}active{% endif %}" href="{% url 'screener_list' %}">📜 Screener List</a>
+            <a class="nav-link {% if 'fetch_halal_stocks' in request.path %}active{% endif %}" <a href="{% url 'fetch-halal-stocks' %}">Halal Stocks</a>
         </nav>
     </div>
 
     <!-- Main Content Area -->
     <div class="content">
-        {% block content %}
-        {% endblock %}
+        {% block content %}{% endblock content %}
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    {% block extra_js %}{% endblock extra_js %}
+    
+    <!-- Optional: Add active class highlighting script -->
+    <script>
+        // Highlight active menu item based on current URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.sidebar .nav-link');
+            const currentPath = window.location.pathname;
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

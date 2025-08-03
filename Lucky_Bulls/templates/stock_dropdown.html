@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chartink Screener Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #4361ee;
+      --secondary-color: #3f37c9;
+      --background-color: #f8f9fa;
+      --card-color: #ffffff;
+      --text-color: #333333;
+      --border-color: #e0e0e0;
+      --success-color: #4caf50;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h2 {
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .screener-selector {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      background-color: var(--card-color);
+      width: 300px;
+      cursor: pointer;
+    }
+    .refresh-btn {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    .refresh-btn:hover {
+      background-color: var(--secondary-color);
+    }
+    .screener-card {
+      background-color: var(--card-color);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      margin-bottom: 30px;
+    }
+    .screener-title {
+      color: var(--primary-color);
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .screener-condition {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+      background: #f5f5f5;
+      padding: 10px;
+      border-radius: 4px;
+      word-break: break-word;
+    }
+    .table-container {
+      overflow-x: auto;
+      margin-top: 15px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+    th {
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+    tr:nth-child(even) {
+      background-color: rgba(67, 97, 238, 0.05);
+    }
+    tr:hover {
+      background-color: rgba(67, 97, 238, 0.1);
+    }
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+    .spinner {
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top: 4px solid var(--primary-color);
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 10px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .no-results {
+      text-align: center;
+      padding: 30px;
+      color: #666;
+    }
+    .stocks-cell {
+      max-width: 300px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .stocks-cell:hover {
+      white-space: normal;
+      overflow: visible;
+    }
+    .date-cell {
+      white-space: nowrap;
+    }
+    .screener-stats {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+    .stat-box {
+      background: #f5f5f5;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .stat-box strong {
+      color: var(--primary-color);
+    }
+    .lucky-bulls-section {
+      margin-bottom: 40px;
+    }
+    .lucky-bulls-card {
+      background-color: var(--card-color);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+    }
+    .lucky-bulls-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .lucky-stock {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .stock-name {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--primary-color);
+      margin-bottom: 5px;
+    }
+    .stock-count {
+      font-size: 14px;
+      color: #666;
+    }
+    .stock-screeners {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .screener-badge {
+      display: inline-block;
+      background-color: rgba(67, 97, 238, 0.1);
+      color: var(--primary-color);
+      padding: 3px 8px;
+      border-radius: 12px;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      font-size: 12px;
+    }
+    .halal-tick {
+      color: #4CAF50;
+      margin-left: 5px;
+      font-weight: bold;
+    }
+    .stock-item {
+      display: inline-block;
+      margin-right: 10px;
+      margin-bottom: 5px;
+      position: relative;
+    }
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+      .screener-card {
+        padding: 15px;
+      }
+      th, td {
+        padding: 8px 10px;
+        font-size: 14px;
+      }
+      .screener-stats {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .lucky-bulls-grid {
+        grid-template-columns: 1fr;
+      }
+      .screener-selector {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Chartink Screener Dashboard</h2>
+
+    <div class="dashboard-header">
+      <select class="screener-selector" id="screener-selector">
+        <option value="">Select a Screener</option>
+        {% for screener in screeners %}
+          <option value="{{ screener.id }}">{{ screener.name }}</option>
+        {% endfor %}
+      </select>
+      <button class="refresh-btn" id="refresh-screener">Refresh</button>
+    </div>
+
+    <div class="lucky-bulls-section">
+      <h3>Lucky Bulls - Top Stocks in Multiple Screeners (Last 7 Days)</h3>
+      <div class="lucky-bulls-card">
+        <div class="loading" id="lucky-bulls-loading">
+          <div class="spinner"></div>
+          <p>Identifying Lucky Bulls...</p>
+        </div>
+        <div id="lucky-bulls-content"></div>
+      </div>
+    </div>
+
+    <div id="dashboard-content">
+      <!-- Selected screener data will be inserted here -->
+    </div>
+
+    <div class="loading" id="global-loading">
+      <div class="spinner"></div>
+      <p>Loading screener data...</p>
+    </div>
+  </div>
+
+  <script>
+    let allScreenersData = []; // Store all screeners data for Lucky Bulls analysis
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Load screener list and initialize
+      loadScreenerList();
+      
+      // Set up dropdown change event
+      document.getElementById('screener-selector').addEventListener('change', function() {
+        const screenerId = this.value;
+        if (screenerId) {
+          loadScreenerData(screenerId);
+        } else {
+          document.getElementById('dashboard-content').innerHTML = '';
+        }
+      });
+
+      // Set up refresh button
+      document.getElementById('refresh-screener').addEventListener('click', function() {
+        const screenerId = document.getElementById('screener-selector').value;
+        if (screenerId) {
+          loadScreenerData(screenerId);
+        }
+      });
+    });
+
+    function loadScreenerList() {
+      fetch('/fetch-screener-list/')
+        .then(res => {
+          if (!res.ok) throw new Error('Failed to fetch screener list');
+          return res.json();
+        })
+        .then(screeners => {
+          allScreenersData = screeners; // Store for Lucky Bulls
+          const selector = document.getElementById('screener-selector');
+          selector.innerHTML = '<option value="">Select a Screener</option>';
+          screeners.forEach(screener => {
+            const option = document.createElement('option');
+            option.value = screener.id;
+            option.textContent = screener.name;
+            selector.appendChild(option);
+          });
+          // Load Lucky Bulls data
+          analyzeLuckyBulls(screeners);
+        })
+        .catch(error => {
+          console.error('Error loading screener list:', error);
+          document.getElementById('dashboard-content').innerHTML = `
+            <div class="no-results">
+              <p>Failed to load screener list. Please try again.</p>
+            </div>
+          `;
+        });
+    }
+
+    function loadScreenerData(screenerId) {
+      const dashboard = document.getElementById('dashboard-content');
+      const loading = document.getElementById('global-loading');
+      
+      dashboard.innerHTML = '';
+      loading.style.display = 'block';
+
+      fetch(`/fetch-screener/${screenerId}/`)
+        .then(res => {
+          if (!res.ok) throw new Error('Network response was not ok');
+          return res.json();
+        })
+        .then(screener => {
+          loading.style.display = 'none';
+          
+          if (screener.error) {
+            dashboard.innerHTML = `
+              <div class="no-results">
+                <p>${screener.error}</p>
+              </div>
+            `;
+            return;
+          }
+
+          const card = createScreenerCard(screener);
+          dashboard.appendChild(card);
+
+          // Update allScreenersData with the new data for Lucky Bulls
+          const index = allScreenersData.findIndex(s => s.id === screener.id);
+          if (index !== -1) {
+            allScreenersData[index] = screener;
+          } else {
+            allScreenersData.push(screener);
+          }
+          analyzeLuckyBulls(allScreenersData);
+        })
+        .catch(error => {
+          loading.style.display = 'none';
+          dashboard.innerHTML = `
+            <div class="no-results">
+              <p>Failed to load screener data. Please try again.</p>
+            </div>
+          `;
+          console.error('Error:', error);
+        });
+    }
+
+    function createScreenerCard(screener) {
+      const card = document.createElement('div');
+      card.className = 'screener-card';
+      
+      const totalDays = screener.data.length;
+      const stocksCount = screener.data.map(day => {
+        const stocks = day.Stocks.split(',').map(s => s.trim()).filter(s => s);
+        return {
+          count: stocks.length,
+          halal: stocks.filter(stock => day.HalalStatus[stock]).length
+        };
+      });
+      
+      const avgStocks = totalDays ? stocksCount.reduce((a, b) => a + b.count, 0) / totalDays : 0;
+      const avgHalal = totalDays ? stocksCount.reduce((a, b) => a + b.halal, 0) / totalDays : 0;
+      const maxStocks = totalDays ? Math.max(...stocksCount.map(s => s.count)) : 0;
+
+      card.innerHTML = `
+        <h3 class="screener-title">
+          <span>${screener.name}</span>
+          <button class="refresh-btn refresh-single" data-id="${screener.id}">Refresh</button>
+        </h3>
+        <div class="screener-condition" title="${screener.condition}">${screener.condition}</div>
+        <div class="screener-stats">
+          <div class="stat-box"><strong>${totalDays}</strong> days of data</div>
+          <div class="stat-box">Avg <strong>${avgStocks.toFixed(1)}</strong> stocks/day</div>
+          <div class="stat-box">Avg <strong>${avgHalal.toFixed(1)}</strong> Halal/day</div>
+          <div class="stat-box">Max <strong>${maxStocks}</strong> stocks</div>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Stocks (Halal marked with ✓)</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${screener.data.map(day => {
+                const stocks = day.Stocks.split(',').map(s => s.trim()).filter(s => s);
+                return `
+                  <tr>
+                    <td class="date-cell">${day.Date}</td>
+                    <td class="stocks-cell">
+                      ${stocks.map(stock => `
+                        <span class="stock-item">
+                          ${stock}
+                          ${day.HalalStatus[stock] ? '<span class="halal-tick">✓</span>' : ''}
+                        </span>
+                      `).join('')}
+                    </td>
+                  </tr>
+                `;
+              }).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+
+      card.querySelector('.refresh-single').addEventListener('click', function() {
+        loadScreenerData(this.getAttribute('data-id'));
+      });
+
+      return card;
+    }
+
+    function analyzeLuckyBulls(allScreenerData) {
+      const loading = document.getElementById('lucky-bulls-loading');
+      const content = document.getElementById('lucky-bulls-content');
+      
+      loading.style.display = 'block';
+      content.innerHTML = '';
+
+      try {
+        const sevenDaysAgo = new Date();
+        sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+        
+        const stockMap = {};
+        const halalStocks = new Set();
+
+        allScreenerData.forEach(screener => {
+          if (screener.data) {
+            screener.data.forEach(day => {
+              Object.entries(day.HalalStatus || {}).forEach(([stock, isHalal]) => {
+                if (isHalal) halalStocks.add(stock);
+              });
+
+              const dayDate = new Date(day.Date);
+              if (dayDate >= sevenDaysAgo) {
+                const stocks = day.Stocks.split(',').map(s => s.trim()).filter(s => s);
+                stocks.forEach(stock => {
+                  if (!stockMap[stock]) {
+                    stockMap[stock] = { count: 0, screeners: new Set() };
+                  }
+                  stockMap[stock].count++;
+                  stockMap[stock].screeners.add(screener.name);
+                });
+              }
+            });
+          }
+        });
+
+        const luckyBulls = Object.entries(stockMap)
+          .map(([stock, data]) => ({
+            stock,
+            count: data.count,
+            screeners: Array.from(data.screeners),
+            isHalal: halalStocks.has(stock)
+          }))
+          .filter(item => item.screeners.length >= 2)
+          .sort((a, b) => b.count - a.count);
+
+        if (luckyBulls.length === 0) {
+          content.innerHTML = `
+            <div class="no-results">
+              <p>No Lucky Bulls found in the last 7 days. Try expanding your screeners or time range.</p>
+            </div>
+          `;
+        } else {
+          let html = `
+            <div class="lucky-bulls-stats">
+              <p>Found ${luckyBulls.length} stocks appearing in multiple screeners:</p>
+            </div>
+            <div class="lucky-bulls-grid">
+          `;
+          luckyBulls.forEach(bull => {
+            html += `
+              <div class="lucky-stock">
+                <div class="stock-name">
+                  ${bull.stock}
+                  ${bull.isHalal ? '<span class="halal-tick">✓</span>' : ''}
+                </div>
+                <div class="stock-count">Appeared ${bull.count} times</div>
+                <div class="stock-screeners">
+                  ${bull.screeners.map(screener => `
+                    <span class="screener-badge">${screener}</span>
+                  `).join('')}
+                </div>
+              </div>
+            `;
+          });
+          html += `</div>`;
+          content.innerHTML = html;
+        }
+      } catch (error) {
+        console.error('Error analyzing Lucky Bulls:', error);
+        content.innerHTML = `
+          <div class="no-results">
+            <p>Failed to analyze Lucky Bulls. Please try again.</p>
+          </div>
+        `;
+      } finally {
+        loading.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>

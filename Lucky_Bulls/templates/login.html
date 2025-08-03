@@ -1,17 +1,198 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Lucky Bulls</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #2ecc71;
+            --dark-green: #27ae60;
+            --light-green: #d5f5e3;
+            --bull-red: #e74c3c;
+            --gold: #f39c12;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .banner {
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .banner::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: -10%;
+            width: 120%;
+            height: 100px;
+            background: white;
+            transform: rotate(-2deg);
+            z-index: 1;
+        }
+        
+        .login-container {
+            max-width: 500px;
+            margin: -40px auto 0;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .login-card {
+            border: none;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .login-header {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .login-body {
+            padding: 30px;
+            background-color: white;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 0.25rem rgba(46, 204, 113, 0.25);
+        }
+        
+        .btn-login {
+            background-color: var(--primary-green);
+            border: none;
+            width: 100%;
+            padding: 12px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-login:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-2px);
+        }
+        
+        .error-message {
+            color: var(--bull-red);
+            background-color: #fdeded;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--bull-red);
+        }
+        
+        .bull-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .form-label {
+            font-weight: 500;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-    <h2>Login</h2>
-    {% if form.errors %}
-        <p style="color:red;">Invalid username or password</p>
-    {% endif %}
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
+    <!-- Lucky Bulls-Inspired Banner -->
+    <div class="banner text-center py-5">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">LUCKY <span class="bull-icon">🐂</span> BULLS</h1>
+            <p class="lead fs-4">INSTANT TRADES. INSTANT GAINS!</p>
+            <div class="mt-4">
+                <span class="badge bg-light text-dark fs-6 fw-normal mx-2">
+                    <i class="fas fa-bolt me-2"></i>Real-time Alerts
+                </span>
+                <span class="badge bg-light text-dark fs-6 fw-normal mx-2">
+                    <i class="fas fa-chart-line me-2"></i>Smart Screening
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Container -->
+    <div class="container login-container">
+        <div class="card login-card">
+            <div class="login-header">
+                <h3><i class="fas fa-lock me-2"></i>Member Login</h3>
+            </div>
+            <div class="card-body login-body">
+                {% if form.errors %}
+                <div class="error-message">
+                    <i class="fas fa-exclamation-circle me-2"></i>
+                    Invalid username or password. Please try again.
+                </div>
+                {% endif %}
+                
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="mb-4">
+                        <label for="id_username" class="form-label">Username</label>
+                        <input type="text" name="username" id="id_username" 
+                               class="form-control form-control-lg" 
+                               placeholder="Enter your username" required>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="id_password" class="form-label">Password</label>
+                        <input type="password" name="password" id="id_password" 
+                               class="form-control form-control-lg" 
+                               placeholder="Enter your password" required>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">
+                                Remember me
+                            </label>
+                        </div>
+                        <a href="#" class="text-decoration-none" style="color: var(--primary-green);">
+                            Forgot password?
+                        </a>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-login btn-lg">
+                        <i class="fas fa-sign-in-alt me-2"></i>LOGIN
+                    </button>
+                    
+                    <div class="text-center mt-4">
+                        <p class="text-muted">New to Lucky Bulls? 
+                            <a href="#" class="text-decoration-none fw-bold" style="color: var(--primary-green);">
+                                Create an account
+                            </a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -723,121 +723,296 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-def combined_results(request):
-    """
-    Fetch and combine screener data for all active screeners, sorted by date.
-    Optionally filter by screener name and date filter from GET params.
-    """
-    # Get filters from request, default to ALL screeners and all time
-    selected_screener = request.GET.get('screener', 'ALL')
-    selected_date_filter = request.GET.get('date_filter', 'all_time')
 
-    # Date filter options for dropdown
-    date_filters = [
-        ("today", "Today"),
-        ("yesterday", "Yesterday"),
-        ("this_week", "This Week"),
-        ("last_week", "Last Week"),
-        ("all_time", "All Time")
-    ]
+from django.shortcuts import render
+from .models import Screener
 
+def stock_page(request):
     screeners = Screener.objects.filter(is_active=True)
-    combined_data = {}
-
-    # Define a helper function for date filtering
-    def filter_entries_by_date(entries, date_filter):
-        if not entries:
-            return entries
-        today = datetime.today().date()
-
-        def parse_date(d):
-            try:
-                return datetime.fromisoformat(d).date()
-            except Exception:
-                return None
-
-        filtered = []
-        for e in entries:
-            entry_date = parse_date(e.get('date'))
-            if not entry_date:
-                continue
-            if date_filter == "today" and entry_date == today:
-                filtered.append(e)
-            elif date_filter == "yesterday" and entry_date == (today - timedelta(days=1)):
-                filtered.append(e)
-            elif date_filter == "this_week":
-                start_week = today - timedelta(days=today.weekday())
-                end_week = start_week + timedelta(days=6)
-                if start_week <= entry_date <= end_week:
-                    filtered.append(e)
-            elif date_filter == "last_week":
-                start_last_week = (today - timedelta(days=today.weekday() + 7))
-                end_last_week = start_last_week + timedelta(days=6)
-                if start_last_week <= entry_date <= end_last_week:
-                    filtered.append(e)
-            elif date_filter == "all_time":
-                filtered.append(e)
-        return filtered
-
-    for screener in screeners:
-        # If a specific screener is selected, skip others
-        if selected_screener != 'ALL' and screener.name != selected_screener:
-            continue
-
-        logger.info(f"Fetching data for screener: {screener.name}")
-        screener_data = fetch_screener_data({"scan_clause": screener.condition}, screener.name)
-        logger.info(f"Raw data for {screener.name}: {len(screener_data or [])} entries")
-
-        if not screener_data:
-            # Fallback to Stock model data
-            stock_data = Stock.objects.filter(screener=screener).values(
-                'nsecode', 'name', 'bsecode', 'per_chg', 'close', 'volume'
-            )
-            screener_data = list(stock_data)
-            logger.info(f"Fallback to {len(screener_data)} Stock entries for {screener.name}")
-
-        if not screener_data:
-            continue
-
-        # Add 'date' field based on Performance.triggered_at or now()
-        valid_screener_data = []
-        for entry in screener_data:
-            try:
-                if not entry.get('nsecode'):
-                    logger.warning(f"Missing 'nsecode' in entry: {entry}")
-                    continue
-                performance = Performance.objects.filter(
-                    symbol=entry.get('nsecode'),
-                    screener=screener
-                ).first()
-                entry['date'] = performance.triggered_at.isoformat() if performance else now().isoformat()
-                valid_screener_data.append(entry)
-            except Exception as e:
-                logger.warning(f"Error processing entry for {entry.get('nsecode', 'unknown')}: {e}")
-                continue
-
-        # Filter entries by date filter
-        filtered_data = filter_entries_by_date(valid_screener_data, selected_date_filter)
-
-        # Sort by date descending
-        screener_data_sorted = sorted(
-            filtered_data,
-            key=lambda x: datetime.fromisoformat(x.get('date', '1970-01-01')),
-            reverse=True
-        )
-
-        combined_data[screener.name] = screener_data_sorted
-
-    # Pass dropdown options and selected filters to template
-    context = {
-        'combined_data': combined_data,
-        'screeners': screeners,
-        'date_filters': date_filters,
-        'selected_screener': selected_screener,
-        'selected_date_filter': selected_date_filter,
-    }
-
-    return render(request, 'combined_results.html', context)
+    return render(request, 'stock_dropdown.html', {'screeners': screeners})
 
     # Wrapper to convert list of dicts to DataFrame with 'date' column
+from django.http import JsonResponse
+from .models import Screener
+import requests
+from bs4 import BeautifulSoup as bs
+import datetime
+
+def fetch_chartink_data(request, screener_id):
+    try:
+        screener = Screener.objects.get(id=screener_id, is_active=True)
+
+        with requests.session() as s:
+            r_data = s.get("https://chartink.com/screener/process")
+            soup = bs(r_data.content, "lxml")
+            meta = soup.find("meta", {"name": "csrf-token"})["content"]
+
+            headers = {"x-csrf-token": meta}
+            payload = {"scan_clause": screener.condition}
+            response = s.post("https://chartink.com/backtest/process", headers=headers, data=payload).json()
+
+            dates = response["metaData"][0]["tradeTimes"]
+            stocks = response["aggregatedStockList"]
+
+            final_data = []
+            for i in range(len(dates)):
+                stk = []
+                if stocks[i]:
+                    for j in range(len(stocks[i])):
+                        if j % 3 == 0:
+                            stk.append(stocks[i][j])
+                    final_data.append({
+                        "Date": datetime.datetime.fromtimestamp(dates[i] / 1000).strftime('%Y-%m-%d'),
+                        "Stocks": ', '.join(stk)
+                    })
+
+            return JsonResponse(final_data, safe=False)
+    except Screener.DoesNotExist:
+        return JsonResponse({'error': 'Screener not found'}, status=404)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
+from django.http import JsonResponse
+from .models import Screener
+import requests
+from bs4 import BeautifulSoup as bs
+import datetime
+
+from .models import HalalStock
+
+def fetch_all_screeners(request):
+    try:
+        active_screeners = Screener.objects.filter(is_active=True)
+        all_screener_data = []
+        halal_stocks = set(HalalStock.objects.all().values_list('ticker', flat=True))
+        
+        for screener in active_screeners:
+            screener_data = fetch_screener_data(screener)
+            if screener_data:
+                processed_data = []
+                for day in screener_data:
+                    stocks = [s.strip() for s in day['Stocks'].split(',') if s.strip()]
+                    halal_status = {stock: stock in halal_stocks for stock in stocks}
+                    processed_data.append({
+                        'Date': day['Date'],
+                        'Stocks': day['Stocks'],
+                        'HalalStatus': halal_status
+                    })
+                
+                all_screener_data.append({
+                    'id': screener.id,
+                    'name': screener.name,
+                    'condition': screener.condition,
+                    'data': processed_data
+                })
+        
+        return JsonResponse(all_screener_data, safe=False)
+        
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
+def fetch_screener_data(screener):
+    try:
+        with requests.session() as s:
+            r_data = s.get("https://chartink.com/screener/process")
+            soup = bs(r_data.content, "lxml")
+            meta = soup.find("meta", {"name": "csrf-token"})["content"]
+
+            headers = {"x-csrf-token": meta}
+            payload = {"scan_clause": screener.condition}
+            response = s.post("https://chartink.com/backtest/process", 
+                            headers=headers, 
+                            data=payload).json()
+
+            dates = response["metaData"][0]["tradeTimes"]
+            stocks = response["aggregatedStockList"]
+
+            final_data = []
+            for i in range(len(dates)):
+                stk = []
+                if stocks[i]:
+                    for j in range(len(stocks[i])):
+                        if j % 3 == 0:
+                            stk.append(stocks[i][j])
+                    final_data.append({
+                        "Date": datetime.datetime.fromtimestamp(dates[i] / 1000).strftime('%Y-%m-%d'),
+                        "Stocks": ', '.join(stk)
+                    })
+
+            return final_data
+    except Exception as e:
+        print(f"Error fetching data for screener {screener.id}: {str(e)}")
+        return []
     
+from django.shortcuts import render
+from .models import HalalStock
+
+from django.http import JsonResponse
+from .models import HalalStock
+
+from django.shortcuts import render
+from django.http import JsonResponse
+from django.core.paginator import Paginator, EmptyPage
+from django.views.decorators.http import require_GET
+from .models import Screener, HalalStock
+import requests
+from bs4 import BeautifulSoup as bs
+import datetime
+import logging
+
+logger = logging.getLogger(__name__)
+
+def stock_page(request):
+    screeners = Screener.objects.filter(is_active=True)
+    return render(request, 'stock_list.html', {'screeners': screeners})
+
+@require_GET
+def fetch_screener_list(request):
+    try:
+        screeners = Screener.objects.filter(is_active=True).values('id', 'name', 'condition')
+        return JsonResponse(list(screeners), safe=False)
+    except Exception as e:
+        logger.error(f"Error fetching screener list: {str(e)}", exc_info=True)
+        return JsonResponse({'error': 'Internal server error'}, status=500)
+
+@require_GET
+def fetch_all_screeners(request):
+    try:
+        screeners = Screener.objects.filter(is_active=True)
+        halal_stocks = set(HalalStock.objects.values_list('company_name', flat=True))
+        screener_data = []
+        
+        for screener in screeners:
+            data = fetch_screener_data(screener)
+            for day in data:
+                day['HalalStatus'] = {stock: stock in halal_stocks for stock in day['Stocks'].split(', ') if stock}
+            screener_data.append({
+                'id': screener.id,
+                'name': screener.name,
+                'condition': screener.condition,
+                'data': data
+            })
+        
+        return JsonResponse(screener_data, safe=False)
+    except Exception as e:
+        logger.error(f"Error fetching all screeners: {str(e)}", exc_info=True)
+        return JsonResponse({'error': 'Internal server error'}, status=500)
+
+@require_GET
+def fetch_chartink_data(request, screener_id):
+    try:
+        screener = Screener.objects.get(id=screener_id, is_active=True)
+        halal_stocks = set(HalalStock.objects.values_list('company_name', flat=True))
+        
+        data = fetch_screener_data(screener)
+        for day in data:
+            day['HalalStatus'] = {stock: stock in halal_stocks for stock in day['Stocks'].split(', ') if stock}
+        
+        return JsonResponse({
+            'id': screener.id,
+            'name': screener.name,
+            'condition': screener.condition,
+            'data': data
+        }, safe=False)
+    except Screener.DoesNotExist:
+        return JsonResponse({'error': 'Screener not found'}, status=404)
+    except Exception as e:
+        logger.error(f"Error fetching data for screener {screener_id}: {str(e)}", exc_info=True)
+        return JsonResponse({'error': str(e)}, status=500)
+
+def fetch_screener_data(screener):
+    try:
+        with requests.session() as s:
+            r_data = s.get("https://chartink.com/screener/process")
+            if r_data.status_code != 200:
+                logger.error(f"Failed GET screener/process: {r_data.status_code}")
+                return []
+
+            soup = bs(r_data.content, "lxml")
+            meta_tag = soup.find("meta", {"name": "csrf-token"})
+            if not meta_tag:
+                logger.error("CSRF token not found in page!")
+                return []
+
+            meta = meta_tag.get("content")
+            headers = {"x-csrf-token": meta}
+            payload = {"scan_clause": screener.condition}
+            
+            r_post = s.post("https://chartink.com/backtest/process", headers=headers, data=payload)
+            if r_post.status_code != 200:
+                logger.error(f"POST failed: {r_post.status_code}")
+                return []
+            
+            response = r_post.json()
+            if "metaData" not in response or "aggregatedStockList" not in response:
+                logger.error(f"Unexpected response: {response}")
+                return []
+
+            dates = response["metaData"][0]["tradeTimes"]
+            stocks = response["aggregatedStockList"]
+
+            final_data = []
+            for i in range(len(dates)):
+                stk = []
+                if stocks[i]:
+                    for j in range(len(stocks[i])):
+                        if j % 3 == 0:
+                            stk.append(stocks[i][j])
+                    final_data.append({
+                        "Date": datetime.datetime.fromtimestamp(dates[i] / 1000).strftime('%Y-%m-%d'),
+                        "Stocks": ', '.join(stk)
+                    })
+
+            return final_data
+
+    except Exception as e:
+        logger.error(f"Error fetching data for screener {screener.id}: {str(e)}")
+        return []
+
+@require_GET
+def fetch_halal_stocks(request):
+    try:
+        page_number = request.GET.get('page', 1)
+        page_size = request.GET.get('page_size', 50)
+        
+        try:
+            page_number = int(page_number)
+            page_size = int(page_size)
+        except ValueError:
+            return render(request, 'error.html', {
+                'error': 'Invalid page number or size'
+            }, status=400)
+        
+        page_size = min(max(page_size, 10), 100)
+        
+        stocks = HalalStock.objects.all().order_by('company_name')
+        
+        paginator = Paginator(stocks, page_size)
+        
+        try:
+            page_obj = paginator.page(page_number)
+        except EmptyPage:
+            return render(request, 'halal_stocks.html', {
+                'error': 'Page not found',
+                'stocks': [],
+                'pagination': None
+            }, status=404)
+        
+        context = {
+            'stocks': page_obj.object_list,
+            'pagination': {
+                'has_previous': page_obj.has_previous(),
+                'has_next': page_obj.has_next(),
+                'previous_page_number': page_obj.previous_page_number() if page_obj.has_previous() else None,
+                'next_page_number': page_obj.next_page_number() if page_obj.has_next() else None,
+                'current_page': page_obj.number,
+                'total_pages': paginator.num_pages,
+            },
+            'search_query': request.GET.get('q', ''),
+        }
+        
+        return render(request, 'halal_stocks.html', context)
+        
+    except Exception as e:
+        logger.error(f"Error fetching halal stocks: {str(e)}", exc_info=True)
+        return render(request, 'error.html', {
+            'error': 'Internal server error'
+        }, status=500)

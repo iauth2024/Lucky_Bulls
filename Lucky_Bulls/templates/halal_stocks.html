@@ -1,0 +1,283 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}
+<style>
+    body {
+        background: #f8fafc;
+    }
+
+    .halal-stocks-section {
+        max-width: 960px;
+        margin: 2rem auto;
+        padding: 1rem;
+    }
+
+    .halal-stocks-card {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        padding: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        color: #1e293b;
+    }
+
+    .search-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .search-input {
+        flex: 1;
+        padding: 0.6rem 1rem;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.2s;
+    }
+
+    .search-input:focus {
+        border-color: #3b82f6;
+        outline: none;
+    }
+
+    .refresh-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        background: #3b82f6;
+        color: #fff;
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+
+    .refresh-btn:hover {
+        background: #2563eb;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    table.halal-stocks-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table.halal-stocks-table th,
+    table.halal-stocks-table td {
+        padding: 0.75rem;
+        text-align: left;
+        border-bottom: 1px solid #e2e8f0;
+        font-size: 0.95rem;
+    }
+
+    table.halal-stocks-table th {
+        background: #f1f5f9;
+        color: #475569;
+        font-weight: 600;
+    }
+
+    table.halal-stocks-table tr:hover {
+        background: #f9fafb;
+    }
+
+    .halal-badge {
+        display: inline-block;
+        background: #16a34a;
+        color: #fff;
+        padding: 0.2rem 0.5rem;
+        border-radius: 6px;
+        font-size: 0.75rem;
+    }
+
+    .no-results {
+        text-align: center;
+        color: #64748b;
+        margin-top: 1rem;
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-top: 1rem;
+    }
+
+    .pagination-link {
+        color: #3b82f6;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .pagination-link:hover {
+        text-decoration: underline;
+    }
+
+    .current-page {
+        color: #334155;
+        font-weight: 600;
+    }
+
+    .search-loading {
+        display: none;
+        margin-left: 10px;
+    }
+
+    svg {
+        vertical-align: middle;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.querySelector('.search-input');
+    const tableBody = document.querySelector('.halal-stocks-table tbody');
+    const rows = Array.from(tableBody.querySelectorAll('tr'));
+    const noResults = document.querySelector('.no-results');
+    const searchLoading = document.createElement('div');
+    searchLoading.className = 'search-loading';
+    searchLoading.innerHTML = `
+        <svg width="20" height="20" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#3b82f6">
+            <g fill="none" fill-rule="evenodd">
+                <g transform="translate(1 1)" stroke-width="2">
+                    <circle stroke-opacity=".3" cx="18" cy="18" r="18"/>
+                    <path d="M36 18c0-9.94-8.06-18-18-18">
+                        <animateTransform
+                            attributeName="transform"
+                            type="rotate"
+                            from="0 18 18"
+                            to="360 18 18"
+                            dur="1s"
+                            repeatCount="indefinite"/>
+                    </path>
+                </g>
+            </g>
+        </svg>
+    `;
+    searchInput.insertAdjacentElement('afterend', searchLoading);
+
+    function debounce(func, wait) {
+        let timeout;
+        return function() {
+            const context = this, args = arguments;
+            clearTimeout(timeout);
+            timeout = setTimeout(function() {
+                func.apply(context, args);
+            }, wait);
+        };
+    }
+
+    function filterStocks(searchTerm) {
+        searchLoading.style.display = 'inline-block';
+        setTimeout(() => {
+            let hasMatches = false;
+            const term = searchTerm.toLowerCase();
+            rows.forEach(row => {
+                const companyName = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+                const ticker = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
+                const isVisible = companyName.includes(term) || ticker.includes(term);
+                row.style.display = isVisible ? '' : 'none';
+                if (isVisible) hasMatches = true;
+            });
+            if (searchTerm && !hasMatches) {
+                noResults.style.display = 'block';
+                noResults.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#94a3b8" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                    </svg>
+                    <h4>No stocks match "${searchTerm}"</h4>
+                    <p>Try a different search term</p>
+                `;
+            } else {
+                noResults.style.display = 'none';
+            }
+            searchLoading.style.display = 'none';
+        }, 300);
+    }
+
+    searchInput.addEventListener('input', debounce(function(e) {
+        filterStocks(e.target.value.trim());
+    }, 300));
+
+    noResults.style.display = 'none';
+});
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="halal-stocks-section">
+    <h3>🕌 Halal Stocks List</h3>
+    <div class="halal-stocks-card">
+        <div class="search-container">
+            <form method="GET" action="{% url 'fetch-halal-stocks' %}" class="search-form" onsubmit="return false;">
+                <input type="text" class="search-input" name="q" 
+                       placeholder="🔍 Search by company name or ticker..."
+                       value="{{ search_query }}"
+                       aria-label="Search stocks">
+            </form>
+            <a href="{% url 'fetch-halal-stocks' %}" class="refresh-btn">
+                🔄 Refresh
+            </a>
+        </div>
+
+        {% if stocks %}
+        <div class="table-container">
+            <table class="halal-stocks-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Company Name</th>
+                        <th>Ticker</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in stocks %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ stock.company_name }}</td>
+                        <td><strong>{{ stock.ticker }}</strong></td>
+                        <td><span class="halal-badge">Verified</span></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="no-results" style="display: none;"></div>
+        {% if pagination and pagination.total_pages > 1 %}
+        <div class="pagination">
+            {% if pagination.has_previous %}
+                <a href="?page={{ pagination.previous_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}" class="pagination-link">&larr; Previous</a>
+            {% endif %}
+            <span class="current-page">Page {{ pagination.current_page }} of {{ pagination.total_pages }}</span>
+            {% if pagination.has_next %}
+                <a href="?page={{ pagination.next_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}" class="pagination-link">Next &rarr;</a>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% else %}
+        <div class="no-results">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#94a3b8" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+            </svg>
+            <h4>{% if error %}{{ error }}{% else %}No Halal stocks found{% endif %}</h4>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

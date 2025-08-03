@@ -8,6 +8,7 @@ from .views import (
     TradingAccountUpdateView,
     TradingAccountDeleteView,
     add_screener,
+    
    
     edit_screener,
     delete_screener,
@@ -21,18 +22,27 @@ urlpatterns = [
 
     # Trading Data
     path('trading_data/', trading_data_view, name='trading_data'),
+    path('stocks/', views.stock_page, name='stock_page'),
+  
+
+    path('fetch-screener-list/', views.fetch_screener_list, name='fetch_screener_list'),
+    path('fetch-screener/<int:screener_id>/', views.fetch_chartink_data, name='fetch_chartink_data'),
+ 
+
 
     # Trading Accounts
     path('accounts/', TradingAccountListView.as_view(), name='trading_account_list'),
     path('accounts/add/', TradingAccountCreateView.as_view(), name='trading_account_add'),
     path('accounts/<int:pk>/edit/', TradingAccountUpdateView.as_view(), name='trading_account_edit'),
     path('accounts/<int:pk>/delete/', TradingAccountDeleteView.as_view(), name='trading_account_delete'),
-
+    path('fetch-halal-stocks/', views.fetch_halal_stocks, name='fetch-halal-stocks'),
+    path('fetch-all-screeners/', views.fetch_all_screeners, name='fetch_all_screeners'),
+    
     # Screener Results
     path('screener_results/', views.screener_results, name='screener_results'),
 
     # Combined Screener Results
-    path('combined_results/', views.combined_results, name='combined_results'),
+   
 
     # Performance Tracking Page
     path('performance/', views.performance_page, name='performance_page'),
@@ -44,6 +54,7 @@ urlpatterns = [
     
     # Add Screener
     path('screeners/add/', add_screener, name='add_screener'),
+    path('fetch-halal-stocks/', views.fetch_halal_stocks, name='fetch-halal-stocks'),
     
     # Edit Screener
     path('screeners/edit/<int:screener_id>/', edit_screener, name='edit_screener'),

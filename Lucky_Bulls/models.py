@@ -69,7 +69,12 @@ class Screener(models.Model):
     def __str__(self):
         return self.name
 
-
+class HalalStock(models.Model):
+    company_name = models.CharField(max_length=255)
+    ticker = models.CharField(max_length=50, unique=True)
+    
+    def __str__(self):
+        return f"{self.ticker} - {self.company_name}"
 # Stock Model
 class Stock(models.Model):
     nsecode = models.CharField(max_length=20)
