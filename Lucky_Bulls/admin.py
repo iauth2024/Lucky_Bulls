@@ -25,6 +25,8 @@ class ScreenerAdmin(admin.ModelAdmin):
 # Register MonitorControl with custom admin class
 @admin.register(MonitorControl)
 class MonitorControlAdmin(admin.ModelAdmin):
-    list_display = ('is_active', 'updated_at')
+    list_display = ('monitor_type', 'is_active', 'updated_at')
     list_editable = ('is_active',)
-    list_display_links = ('updated_at',)  # Make 'updated_at' the clickable link instead of 'is_active'
+    list_filter = ('monitor_type',)
+    search_fields = ('monitor_type',)
+    list_display_links = ('monitor_type',)

@@ -3,7 +3,6 @@
 {% block title %}Lucky 🚀 Bulls{% endblock title %}
 
 {% block content %}
-<!-- Lucky Bulls-Inspired Banner -->
 <div class="banner text-center py-5" style="background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); color: white; border-radius: 10px;">
     <h1 class="display-4 fw-bold">LUCKY 🚀 BULLS</h1>
     <p class="lead">INSTANT TRADES. INSTANT GAINS!</p>
@@ -12,125 +11,127 @@
     </div>
 </div>
 
-<div class="container mt-5">
-    <!-- Monitor Control Toggle -->
-    <div class="card shadow-sm mb-4 border-0">
-        <div class="card-body d-flex justify-content-between align-items-center">
-            <div>
-                <h5 class="card-title mb-1">Monitor Control Panel</h5>
-                <p class="text-muted small mb-0">System status: 
-                    <span class="badge bg-{% if control.is_active %}success{% else %}danger{% endif %} rounded-pill">
-                        {{ control.is_active|yesno:"ACTIVE,INACTIVE" }}
-                    </span>
-                </p>
-            </div>
-            <form method="post" class="d-flex align-items-center">
-                {% csrf_token %}
-                <div class="form-check form-switch me-3">
-                    <input class="form-check-input" type="checkbox" name="is_active" id="monitorSwitch" {% if control.is_active %}checked{% endif %}>
-                    <label class="form-check-label" for="monitorSwitch"></label>
-                </div>
-                <button type="submit" class="btn btn-{% if control.is_active %}outline-danger{% else %}outline-success{% endif %} btn-sm">
-                    Turn {% if control.is_active %}Off{% else %}On{% endif %}
-                </button>
-            </form>
+<!-- Monitor Control Panel -->
+<div class="card shadow-sm mb-4 border-0">
+    <div class="card-body d-flex justify-content-between align-items-center">
+        <div>
+            <h5 class="card-title mb-1">Monitor Control Panel</h5>
+            <p class="text-muted small mb-0">
+                System status:
+                <span class="badge bg-{% if control.is_active %}success{% else %}danger{% endif %} rounded-pill">
+                    {{ control.is_active|yesno:"ACTIVE,INACTIVE" }}
+                </span>
+            </p>
         </div>
-        <div class="card-footer text-muted small d-flex justify-content-between align-items-center">
-            <span>Last Updated: {{ control.updated_at|date:"F d, Y H:i" }}</span>
-            {% if control.is_active %}
-                <span class="text-success"><i class="bi bi-check-circle-fill"></i> System operational</span>
-            {% else %}
-                <span class="text-danger"><i class="bi bi-exclamation-triangle-fill"></i> System paused</span>
-            {% endif %}
+        <form method="post" action="{% url 'index_view' %}" class="d-flex align-items-center">
+            {% csrf_token %}
+            <div class="form-check form-switch me-3">
+                <input class="form-check-input" type="checkbox" name="is_active" id="monitorSwitch" onchange="this.form.submit()" {% if control.is_active %}checked{% endif %}>
+                <label class="form-check-label" for="monitorSwitch">Monitoring</label>
+            </div>
+            <div class="form-check form-switch me-3">
+                <input class="form-check-input" type="checkbox" name="alerts_enabled" id="alertsSwitch" onchange="this.form.submit()" {% if alerts_enabled %}checked{% endif %}>
+                <label class="form-check-label" for="alertsSwitch">Alerts</label>
+            </div>
+            <div class="form-check form-switch me-3">
+                <input class="form-check-input" type="checkbox" name="copytrading_enabled" id="copySwitch" onchange="this.form.submit()" {% if copytrading_enabled %}checked{% endif %}>
+                <label class="form-check-label" for="copySwitch">Copy Trading</label>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer text-muted small d-flex justify-content-between align-items-center">
+        <span>Last Updated: {{ control.updated_at|date:"F d, Y H:i" }}</span>
+        {% if control.is_active %}
+            <span class="text-success"><i class="bi bi-check-circle-fill"></i> System operational</span>
+        {% else %}
+            <span class="text-danger"><i class="bi bi-exclamation-triangle-fill"></i> System paused</span>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Dashboard Buttons -->
+<div class="row g-4 mb-5">
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 hover-card">
+            <div class="card-body text-center">
+                <div class="icon-circle bg-primary-light mb-3 mx-auto">
+                    <h5 class="mb-0">📊</h5>
+                </div>
+                <h5 class="card-title text-primary">Trading Data</h5>
+                <p class="card-text text-muted">Real-time trading insights</p>
+                <a href="{% url 'trading_data' %}" class="btn btn-primary w-100 stretched-link">Explore</a>
+            </div>
         </div>
     </div>
-
-    <!-- Dashboard Buttons -->
-    <div class="row g-4 mb-5">
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm border-0 hover-card">
-                <div class="card-body text-center">
-                    <div class="icon-circle bg-primary-light mb-3 mx-auto">
-                        <h5 class="mb-0">📊</h5>
-                    </div>
-                    <h5 class="card-title text-primary">Trading Data</h5>
-                    <p class="card-text text-muted">Real-time trading insights</p>
-                    <a href="{% url 'trading_data' %}" class="btn btn-primary w-100 stretched-link">Explore</a>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 hover-card">
+            <div class="card-body text-center">
+                <div class="icon-circle bg-secondary-light mb-3 mx-auto">
+                    <h5 class="mb-0">🏦</h5>
                 </div>
+                <h5 class="card-title text-secondary">Accounts</h5>
+                <p class="card-text text-muted">Manage trading accounts</p>
+                <a href="{% url 'trading_account_list' %}" class="btn btn-secondary w-100 stretched-link">Manage</a>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm border-0 hover-card">
-                <div class="card-body text-center">
-                    <div class="icon-circle bg-secondary-light mb-3 mx-auto">
-                        <h5 class="mb-0">🏦</h5>
-                    </div>
-                    <h5 class="card-title text-secondary">Accounts</h5>
-                    <p class="card-text text-muted">Manage trading accounts</p>
-                    <a href="{% url 'trading_account_list' %}" class="btn btn-secondary w-100 stretched-link">Manage</a>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 hover-card">
+            <div class="card-body text-center">
+                <div class="icon-circle bg-info-light mb-3 mx-auto">
+                    <h5 class="mb-0">📈</h5>
                 </div>
+                <h5 class="card-title text-info">Stock Analysis</h5>
+                <p class="card-text text-muted">Detailed stock metrics</p>
+                <a href="{% url 'stock_page' %}" class="btn btn-info w-100 stretched-link">Analyze</a>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm border-0 hover-card">
-                <div class="card-body text-center">
-                    <div class="icon-circle bg-info-light mb-3 mx-auto">
-                        <h5 class="mb-0">📈</h5>
-                    </div>
-                    <h5 class="card-title text-info">Stock Analysis</h5>
-                    <p class="card-text text-muted">Detailed stock metrics</p>
-                    <a href="{% url 'stock_page' %}" class="btn btn-info w-100 stretched-link">Analyze</a>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 hover-card">
+            <div class="card-body text-center">
+                <div class="icon-circle bg-success-light mb-3 mx-auto">
+                    <h5 class="mb-0">🔍</h5>
                 </div>
+                <h5 class="card-title text-success">Screener Results</h5>
+                <p class="card-text text-muted">View screener outputs</p>
+                <a href="{% url 'screener_results' %}" class="btn btn-success w-100 stretched-link">View</a>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm border-0 hover-card">
-                <div class="card-body text-center">
-                    <div class="icon-circle bg-success-light mb-3 mx-auto">
-                        <h5 class="mb-0">🔍</h5>
-                    </div>
-                    <h5 class="card-title text-success">Screener Results</h5>
-                    <p class="card-text text-muted">View screener outputs</p>
-                    <a href="{% url 'screener_results' %}" class="btn btn-success w-100 stretched-link">View</a>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 hover-card">
+            <div class="card-body text-center">
+                <div class="icon-circle bg-warning-light mb-3 mx-auto">
+                    <h5 class="mb-0">📊</h5>
                 </div>
+                <h5 class="card-title text-warning">Performance</h5>
+                <p class="card-text text-muted">Track trading metrics</p>
+                <a href="{% url 'performance_page' %}" class="btn btn-warning w-100 stretched-link">Track</a>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm border-0 hover-card">
-                <div class="card-body text-center">
-                    <div class="icon-circle bg-warning-light mb-3 mx-auto">
-                        <h5 class="mb-0">📊</h5>
-                    </div>
-                    <h5 class="card-title text-warning">Performance</h5>
-                    <p class="card-text text-muted">Track trading metrics</p>
-                    <a href="{% url 'performance_page' %}" class="btn btn-warning w-100 stretched-link">Track</a>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 hover-card">
+            <div class="card-body text-center">
+                <div class="icon-circle bg-primary-light mb-3 mx-auto">
+                    <h5 class="mb-0">➕</h5>
                 </div>
+                <h5 class="card-title text-primary">Add Screener</h5>
+                <p class="card-text text-muted">Create new screener</p>
+                <a href="{% url 'add_screener' %}" class="btn btn-outline-primary w-100 stretched-link">Create</a>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm border-0 hover-card">
-                <div class="card-body text-center">
-                    <div class="icon-circle bg-primary-light mb-
-
-3 mx-auto">
-                        <h5 class="mb-0">➕</h5>
-                    </div>
-                    <h5 class="card-title text-primary">Add Screener</h5>
-                    <p class="card-text text-muted">Create new screener</p>
-                    <a href="{% url 'add_screener' %}" class="btn btn-outline-primary w-100 stretched-link">Create</a>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 hover-card">
+            <div class="card-body text-center">
+                <div class="icon-circle bg-danger-light mb-3 mx-auto">
+                    <h5 class="mb-0">💼</h5>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm border-0 hover-card">
-                <div class="card-body text-center">
-                    <div class="icon-circle bg-danger-light mb-3 mx-auto">
-                        <h5 class="mb-0">💼</h5>
-                    </div>
-                    <h5 class="card-title text-danger">Portfolio</h5>
-                    <p class="card-text text-muted">Halal Stocks</p>
-                    <a href="{% url 'fetch-halal-stocks' %}" class="btn btn-danger w-100 stretched-link">View</a>
-                </div>
+                <h5 class="card-title text-danger">Portfolio</h5>
+                <p class="card-text text-muted">Halal Stocks</p>
+                <a href="{% url 'fetch-halal-stocks' %}" class="btn btn-danger w-100 stretched-link">View</a>
             </div>
         </div>
     </div>
@@ -139,7 +140,7 @@
 <style>
     .banner {
         margin-bottom: 30px;
-       _blend: none; /* Remove box-shadow to avoid duplication */
+        box-shadow: none;
     }
     .hover-card {
         transition: transform 0.3s, box-shadow 0.3s;

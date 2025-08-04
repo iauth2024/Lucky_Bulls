@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monitor Control</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .toggle-container {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Toggle Controls</h1>
+
+    <div class="toggle-container">
+        <label>Monitoring: </label>
+        <input type="checkbox" id="monitoring-toggle" {% if monitoring %}checked{% endif %}>
+    </div>
+
+    <div class="toggle-container">
+        <label>Alerts: </label>
+        <input type="checkbox" id="alerts-toggle" {% if alerts %}checked{% endif %}>
+    </div>
+
+    <div class="toggle-container">
+        <label>Copy Trading: </label>
+        <input type="checkbox" id="copytrading-toggle" {% if copy_trading %}checked{% endif %}>
+    </div>
+
+    <script>
+        function updateMonitor(type, isActive) {
+            $.ajax({
+                url: "/toggle-monitor/",
+                method: "POST",
+                data: {
+                    'monitor_type': type,
+                    'is_active': isActive,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    console.log(response.message);
+                },
+                error: function() {
+                    alert("Something went wrong while updating: " + type);
+                }
+            });
+        }
+
+        $('#monitoring-toggle').change(function() {
+            updateMonitor('monitoring', this.checked);
+        });
+
+        $('#alerts-toggle').change(function() {
+            updateMonitor('alerts', this.checked);
+        });
+
+        $('#copytrading-toggle').change(function() {
+            updateMonitor('copy_trading', this.checked);
+        });
+    </script>
+</body>
+</html>

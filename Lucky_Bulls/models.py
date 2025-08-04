@@ -39,8 +39,15 @@ class TradingAccount(models.Model):
 
 from django.db import models
 
+from django.db import models
+
 class MonitorControl(models.Model):
-    is_active = models.BooleanField(default=True)  # True = ON, False = OFF
+    MONITOR_TYPES = [
+        ('alerts', 'Alerts'),
+        ('copy_trading', 'Copy Trading'),
+    ]
+    monitor_type = models.CharField(max_length=50, choices=MONITOR_TYPES, unique=True)
+    is_active = models.BooleanField(default=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
@@ -48,7 +55,9 @@ class MonitorControl(models.Model):
         verbose_name_plural = "Monitor Controls"
 
     def __str__(self):
-        return f"Monitor Active: {self.is_active}"
+        return f"{self.monitor_type} Active: {self.is_active}"
+
+
 class OrderMapping(models.Model):
     master_order_id = models.CharField(max_length=100)
     child_client_id = models.CharField(max_length=100)

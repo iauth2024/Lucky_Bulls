@@ -9,21 +9,26 @@ from .views import (
     TradingAccountDeleteView,
     add_screener,
     
-   
+    
+    
     edit_screener,
     delete_screener,
 )
+from .views import monitor_control_view
+
 from Lucky_Bulls import views
 from django.contrib.auth import views as auth_views
-
+from .views import monitor_control_view, toggle_monitor_view
 urlpatterns = [
     # Home page
-    path('', index_view, name='index'), 
-
+    path('', views.index_view, name='index_view'), 
+    path('monitor/', monitor_control_view, name='monitor_control'),
+    path('toggle-monitor/', toggle_monitor_view, name='toggle_monitor'),
+    path('toggle/<str:monitor_type>/', toggle_monitor_view, name='toggle_monitor'),
     # Trading Data
     path('trading_data/', trading_data_view, name='trading_data'),
     path('stocks/', views.stock_page, name='stock_page'),
-  
+    path('monitor-control/', monitor_control_view, name='monitor_control'),
 
     path('fetch-screener-list/', views.fetch_screener_list, name='fetch_screener_list'),
     path('fetch-screener/<int:screener_id>/', views.fetch_chartink_data, name='fetch_chartink_data'),

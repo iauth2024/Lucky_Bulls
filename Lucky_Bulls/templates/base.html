@@ -46,9 +46,9 @@
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
-        <a class="navbar-brand" href="{% url 'index' %}">Trading Dashboard</a>
+        <a class="navbar-brand" href="{% url 'index_view' %}">Trading Dashboard</a>
         <nav class="nav flex-column">
-            <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'index' %}">🏠 Home</a>
+            <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'index_view' %}">🏠 Home</a>
             <a class="nav-link {% if 'trading_data' in request.path %}active{% endif %}" href="{% url 'trading_data' %}">📊 Trading Data</a>
             <a class="nav-link {% if 'trading_account' in request.path %}active{% endif %}" href="{% url 'trading_account_list' %}">🏦 Manage Accounts</a>
             <a class="nav-link {% if 'stocks' in request.path %}active{% endif %}" href="{% url 'stock_page' %}">📈 Stock Analysis</a>

@@ -342,18 +342,53 @@ from .models import MonitorControl
 from django.shortcuts import render, redirect
 from .models import MonitorControl, Screener
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from .models import MonitorControl, Screener
+
+@login_required
+def monitor_control_view(request):
+    monitoring = MonitorControl.objects.get_or_create(monitor_type='monitoring')[0].is_active
+    alerts = MonitorControl.objects.get_or_create(monitor_type='alerts')[0].is_active
+    copy_trading = MonitorControl.objects.get_or_create(monitor_type='copy_trading')[0].is_active
+
+    return render(request, 'monitor_control.html', {
+        'monitoring': monitoring,
+        'alerts': alerts,
+        'copy_trading': copy_trading
+    })
+
+def toggle_monitor_view(request, monitor_type):
+    control, created = MonitorControl.objects.get_or_create(monitor_type=monitor_type)
+    control.is_active = not control.is_active
+    control.save()
+    return redirect('monitor_control')
 @login_required
 def index_view(request):
-    control, created = MonitorControl.objects.get_or_create(id=1, defaults={'is_active': True})
+    monitoring, _ = MonitorControl.objects.get_or_create(monitor_type='monitoring', defaults={'is_active': True})
+    alerts, _ = MonitorControl.objects.get_or_create(monitor_type='alerts', defaults={'is_active': True})
+    copy_trading, _ = MonitorControl.objects.get_or_create(monitor_type='copy_trading', defaults={'is_active': True})
     screeners = Screener.objects.all()
 
     if request.method == 'POST':
-        is_active = request.POST.get('is_active') == 'on'
-        control.is_active = is_active
-        control.save()
+        monitoring.is_active = 'is_active' in request.POST
+        alerts.is_active = 'alerts_enabled' in request.POST
+        copy_trading.is_active = 'copytrading_enabled' in request.POST
+
+        monitoring.save()
+        alerts.save()
+        copy_trading.save()
+
         return redirect('index_view')
 
-    return render(request, 'index.html', {'control': control, 'screeners': screeners})
+    return render(request, 'index.html', {
+        'control': monitoring,
+        'alerts_enabled': alerts.is_active,
+        'copytrading_enabled': copy_trading.is_active,
+        'screeners': screeners,
+    })
+
+
 # Screener Views
 # class ScreenerList(ListView):
 #     model = Screener
