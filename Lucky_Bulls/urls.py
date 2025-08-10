@@ -8,6 +8,7 @@ from .views import (
     TradingAccountUpdateView,
     TradingAccountDeleteView,
     add_screener,
+    screener_results,
     
     
     

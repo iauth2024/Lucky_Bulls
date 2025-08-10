@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chartink Screener Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
     :root {
       --primary-color: #4361ee;
@@ -14,6 +15,8 @@
       --text-color: #333333;
       --border-color: #e0e0e0;
       --success-color: #4caf50;
+      --warning-color: #ff9800;
+      --danger-color: #f44336;
     }
     body {
       font-family: 'Roboto', sans-serif;
@@ -70,6 +73,7 @@
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       padding: 25px;
+      margin-bottom: 30px;
     }
     .loading {
       display: none;
@@ -150,7 +154,7 @@
       display: inline-block;
       background-color: var(--success-color);
       color: white;
-      width: 20px;c
+      width: 20px;
       height: 20px;
       border-radius: 50%;
       text-align: center;
@@ -167,6 +171,118 @@
       font-size: 12px;
       margin-left: 8px;
     }
+    
+    /* Screener Table Styles */
+    .screener-table-container {
+      overflow-x: auto;
+      margin-top: 20px;
+      background-color: var(--card-color);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+    .screener-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .screener-table th, 
+    .screener-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .screener-table th {
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: 500;
+      position: sticky;
+      top: 0;
+    }
+    .screener-table tr:hover {
+      background-color: rgba(67, 97, 238, 0.05);
+    }
+    .screener-name-cell {
+      font-weight: 500;
+      color: var(--primary-color);
+      white-space: nowrap;
+    }
+    .date-header {
+      white-space: nowrap;
+      text-align: center !important;
+    }
+    .stock-cell {
+      max-width: 300px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .stock-count {
+      display: inline-block;
+      min-width: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .positive {
+      color: var(--success-color);
+    }
+    .negative {
+      color: var(--danger-color);
+    }
+    .neutral {
+      color: var(--warning-color);
+    }
+    .screener-table-controls {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      align-items: center;
+    }
+    .date-range-selector {
+      display: flex;
+      gap: 10px;
+    }
+    .date-range-btn {
+      padding: 5px 10px;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      background-color: var(--card-color);
+      cursor: pointer;
+    }
+    .date-range-btn.active {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+    .search-box {
+      padding: 8px 12px;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      min-width: 250px;
+    }
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 200px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -100px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -178,7 +294,9 @@
         <option value="">Select a Screener</option>
         <option value="all" selected>All Screeners</option>
       </select>
-      <button class="refresh-btn" id="refresh-screener">Refresh</button>
+      <button class="refresh-btn" id="refresh-screener">
+        <i class="fas fa-sync-alt"></i> Refresh
+      </button>
     </div>
 
     <div class="lucky-bulls-section">
@@ -192,7 +310,31 @@
       </div>
     </div>
 
-    <div id="dashboard-content"></div>
+    <div id="dashboard-content">
+      <div class="screener-table-container">
+        <div class="screener-table-controls">
+          <div class="date-range-selector">
+            <button class="date-range-btn active" data-days="7">7 Days</button>
+            <button class="date-range-btn" data-days="14">14 Days</button>
+            <button class="date-range-btn" data-days="30">30 Days</button>
+            <button class="date-range-btn" data-days="90">90 Days</button>
+            <button class="date-range-btn" data-days="0">All</button>
+          </div>
+          <input type="text" class="search-box" id="screener-search" placeholder="Search screeners or stocks...">
+        </div>
+        <table class="screener-table" id="screener-data-table">
+          <thead>
+            <tr>
+              <th>Screener Name</th>
+              <!-- Dates will be inserted here by JavaScript -->
+            </tr>
+          </thead>
+          <tbody id="screener-data-body">
+            <!-- Data will be inserted here by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
 
     <div class="loading" id="global-loading">
       <div class="spinner"></div>
@@ -202,33 +344,76 @@
 
   <script>
     let allScreenersData = [];
+    let currentDateRange = 7;
 
     document.addEventListener('DOMContentLoaded', () => {
       loadAllScreenersForLuckyBulls();
+      setupEventListeners();
+    });
 
-      document.getElementById('screener-selector').addEventListener('change', function () {
+    function setupEventListeners() {
+      // Screener selector change
+      document.getElementById('screener-selector').addEventListener('change', function() {
         const id = this.value;
         if (id === 'all') {
           loadAllScreeners();
         } else if (id) {
           loadScreenerByCacheOrFetch(id);
-        } else {
-          document.getElementById('dashboard-content').innerHTML = '';
         }
       });
 
-      document.getElementById('refresh-screener').addEventListener('click', function () {
+      // Refresh button
+      document.getElementById('refresh-screener').addEventListener('click', function() {
         const btn = this;
         btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-sync-alt fa-spin"></i> Refreshing...';
+        
         const id = document.getElementById('screener-selector').value;
         if (id === 'all') {
           loadAllScreeners();
         } else if (id) {
           loadScreenerData(id);
         }
-        setTimeout(() => btn.disabled = false, 1000);
+        
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fas fa-sync-alt"></i> Refresh';
+        }, 1000);
       });
-    });
+
+      // Date range buttons
+      document.querySelectorAll('.date-range-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.date-range-btn').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          currentDateRange = parseInt(this.dataset.days);
+          updateScreenerTable();
+        });
+      });
+
+      // Search box
+      document.getElementById('screener-search').addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#screener-data-body tr');
+        
+        rows.forEach(row => {
+          const screenerName = row.querySelector('.screener-name-cell').textContent.toLowerCase();
+          let hasMatch = screenerName.includes(searchTerm);
+          
+          if (!hasMatch) {
+            // Check stock cells for matches
+            const stockCells = row.querySelectorAll('.stock-cell');
+            stockCells.forEach(cell => {
+              if (cell.textContent.toLowerCase().includes(searchTerm)) {
+                hasMatch = true;
+              }
+            });
+          }
+          
+          row.style.display = hasMatch ? '' : 'none';
+        });
+      });
+    }
 
     function loadAllScreenersForLuckyBulls() {
       fetch('/fetch-all-screeners/')
@@ -237,7 +422,7 @@
           allScreenersData = data;
           loadScreenerList(data);
           analyzeLuckyBulls(data);
-          loadAllScreeners(); // Load all by default
+          updateScreenerTable();
         })
         .catch(() => {
           analyzeLuckyBulls([]);
@@ -255,56 +440,124 @@
       });
     }
 
-    function loadAllScreeners() {
-      const dash = document.getElementById('dashboard-content');
-      const load = document.getElementById('global-loading');
-      dash.innerHTML = '';
-      load.style.display = 'block';
-
-      fetch('/fetch-all-screeners/')
-        .then(res => res.json())
-        .then(data => {
-          load.style.display = 'none';
-          allScreenersData = data;
-          data.forEach(s => dash.appendChild(createScreenerCard(s)));
-          analyzeLuckyBulls(data);
-        })
-        .catch(() => {
-          load.style.display = 'none';
-          dash.innerHTML = `<div class="no-results"><p>Failed to load all screener data.</p></div>`;
-        });
-    }
-
-    function loadScreenerByCacheOrFetch(id) {
-      const cached = allScreenersData.find(s => s.id == id);
-      if (cached) {
-        document.getElementById('dashboard-content').innerHTML = '';
-        const card = createScreenerCard(cached);
-        document.getElementById('dashboard-content').appendChild(card);
+    function updateScreenerTable() {
+  if (allScreenersData.length === 0) return;
+  
+  const tableHead = document.querySelector('#screener-data-table thead tr');
+  const tableBody = document.getElementById('screener-data-body');
+  
+  // Clear existing data
+  while (tableHead.children.length > 1) {
+    tableHead.removeChild(tableHead.lastChild);
+  }
+  tableBody.innerHTML = '';
+  
+  // Get unique dates from all screeners within the date range
+  const allDates = getAllDatesWithinRange();
+  if (allDates.length === 0) {
+    tableBody.innerHTML = `<tr><td colspan="${allDates.length + 1}" class="no-results">No data available for the selected date range</td></tr>`;
+    return;
+  }
+  
+  // Add date headers
+  allDates.forEach(date => {
+    const th = document.createElement('th');
+    th.className = 'date-header';
+    th.textContent = formatDateHeader(date);
+    tableHead.appendChild(th);
+  });
+  
+  // Add screener rows
+  allScreenersData.forEach(screener => {
+    const row = document.createElement('tr');
+    
+    // Screener name cell
+    const nameCell = document.createElement('td');
+    nameCell.className = 'screener-name-cell';
+    nameCell.textContent = screener.name;
+    row.appendChild(nameCell);
+    
+    // Add data for each date
+    allDates.forEach(date => {
+      const cell = document.createElement('td');
+      cell.className = 'stock-cell';
+      
+      const dayData = findDayData(screener.data, date);
+      if (dayData) {
+        const stocks = dayData.Stocks.split(',').map(s => s.trim()).filter(s => s);
+        const halalStocks = Object.entries(dayData.HalalStatus || {})
+          .filter(([_, isHalal]) => isHalal)
+          .map(([stock, _]) => stock);
+        
+        // Display stock symbols instead of count
+        if (stocks.length > 0) {
+          const displayedStocks = stocks.length > 3 
+            ? `${stocks.slice(0, 3).join(', ')} +${stocks.length - 3} more` 
+            : stocks.join(', ');
+          
+          cell.innerHTML = `
+            <div class="tooltip">
+              ${displayedStocks}
+              ${halalStocks.length > 0 ? `<span class="halal-label">${halalStocks.length} Halal</span>` : ''}
+              <span class="tooltiptext">${stocks.join(', ')}</span>
+            </div>
+          `;
+        } else {
+          cell.textContent = '-';
+        }
+        
+        // Add color coding based on count (optional)
+        if (stocks.length > 10) {
+          cell.classList.add('positive');
+        } else if (stocks.length < 5) {
+          cell.classList.add('negative');
+        } else {
+          cell.classList.add('neutral');
+        }
       } else {
-        loadScreenerData(id);
+        cell.textContent = '-';
       }
+      
+      row.appendChild(cell);
+    });
+    
+    tableBody.appendChild(row);
+  });
+}
+    
+    function getAllDatesWithinRange() {
+      const allDates = new Set();
+      const cutoffDate = currentDateRange > 0 ? 
+        new Date(Date.now() - currentDateRange * 24 * 60 * 60 * 1000) : 
+        null;
+      
+      allScreenersData.forEach(screener => {
+        if (screener.data) {
+          screener.data.forEach(day => {
+            const dayDate = new Date(day.Date);
+            if (!cutoffDate || dayDate >= cutoffDate) {
+              allDates.add(day.Date);
+            }
+          });
+        }
+      });
+      
+      // Convert to array and sort by date (newest first)
+      return Array.from(allDates).sort((a, b) => new Date(b) - new Date(a));
     }
-
-    function loadScreenerData(id) {
-      const dash = document.getElementById('dashboard-content');
-      const load = document.getElementById('global-loading');
-      dash.innerHTML = '';
-      load.style.display = 'block';
-
-      fetch(`/fetch-screener/${id}/`)
-        .then(res => res.json())
-        .then(data => {
-          load.style.display = 'none';
-          allScreenersData = allScreenersData.filter(s => s.id != id).concat(data);
-          const card = createScreenerCard(data);
-          dash.appendChild(card);
-          analyzeLuckyBulls(allScreenersData);
-        })
-        .catch(() => {
-          load.style.display = 'none';
-          dash.innerHTML = `<div class="no-results"><p>Failed to load screener data.</p></div>`;
-        });
+    
+    function findDayData(screenerData, date) {
+      if (!screenerData) return null;
+      return screenerData.find(day => day.Date === date);
+    }
+    
+    function formatDateHeader(dateStr) {
+      const date = new Date(dateStr);
+      return date.toLocaleDateString('en-US', { 
+        month: 'short', 
+        day: 'numeric',
+        year: date.getFullYear() !== new Date().getFullYear() ? '2-digit' : undefined
+      });
     }
 
     function analyzeLuckyBulls(allScreenerData) {
@@ -350,7 +603,7 @@
             screeners: Array.from(data.screeners),
             isHalal: halalStocks.has(stock)
           }))
-          .filter(item => item.count >= 7)
+          .filter(item => item.count >= 3) // Changed from 7 to 3 for more results
           .sort((a, b) => {
             if (a.isHalal && !b.isHalal) return -1;
             if (!a.isHalal && b.isHalal) return 1;
@@ -377,13 +630,6 @@
       } finally {
         loading.style.display = 'none';
       }
-    }
-
-    function createScreenerCard(s) {
-      const div = document.createElement('div');
-      div.className = 'screener-card';
-      div.innerHTML = `<h3>${s.name}</h3>`;
-      return div;
     }
   </script>
 </body>

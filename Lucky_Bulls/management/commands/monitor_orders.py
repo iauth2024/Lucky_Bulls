@@ -1,159 +1,312 @@
 import time
 import logging
+import sys
+import io
 from django.core.management.base import BaseCommand
-from Lucky_Bulls.models import TradingAccount, MonitorControl
+from Lucky_Bulls.models import TradingAccount, MonitorControl, OrderMapping
 from dhanhq import dhanhq
 from django.db import transaction
-from datetime import datetime
+from datetime import datetime, time as dt_time
+from decimal import Decimal
 
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
     handlers=[
-        logging.FileHandler("monitor_orders.log"),  # Log to a file for production
-        logging.StreamHandler(),  # Also output to console
+        logging.FileHandler("monitor_orders.log", encoding='utf-8'),
+        logging.StreamHandler(),
     ],
 )
+logger = logging.getLogger(__name__)
 
 class Command(BaseCommand):
     help = "Monitor orders and copy them with a multiplier from master to child accounts"
 
     def add_arguments(self, parser):
-        parser.add_argument("--poll-interval", type=int, default=5, help="Polling interval in seconds when ON")
-        parser.add_argument("--off-interval", type=int, default=36000, help="Sleep interval in seconds when OFF (10 hours)")
+        parser.add_argument("--poll-interval", type=int, default=5,
+                          help="Polling interval in seconds when market is open")
+        parser.add_argument("--off-interval", type=int, default=3600,
+                          help="Sleep interval in seconds when market is closed (1 hour)")
+        parser.add_argument("--max-retries", type=int, default=3,
+                          help="Maximum retries for failed API calls")
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.retry_count = 0
+        # Load processed orders from OrderMapping to persist across restarts
+        self.processed_orders = set(
+            OrderMapping.objects.values_list('master_order_id', flat=True)
+        )
+        self.order_mapping = {}
+        
+        # Fix Windows console encoding
+        if sys.stdout.encoding != 'UTF-8':
+            sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+            sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 
     def is_market_open(self):
+        """Check if market is open (9:15 AM to 3:30 PM, Monday to Friday)"""
         now = datetime.now()
-        is_weekday = now.weekday() < 5
-        is_within_hours = (now.hour == 9 and now.minute >= 0) or (9 < now.hour < 15) or (now.hour == 15 and now.minute <= 35)
-        return is_weekday and is_within_hours
+        weekday = now.weekday()  # 0-4 = Monday-Friday
+        current_time = now.time()
+        
+        market_open = dt_time(9, 15)
+        market_close = dt_time(15, 30)
+        
+        return weekday < 5 and market_open <= current_time <= market_close
 
     def is_monitor_active(self):
-        control, _ = MonitorControl.objects.get_or_create(id=1, defaults={'is_active': True})
-        return control.is_active
-
-    def copy_order(self, order_details, multiplier, dhan_client):
+        """Check if monitoring is enabled in database"""
         try:
-            mapped_order = order_details.copy()
-            if "quantity" in mapped_order:
-                mapped_order["quantity"] = int(mapped_order["quantity"] * multiplier)
+            control = MonitorControl.objects.get(id=1)
+            return control.is_active
+        except MonitorControl.DoesNotExist:
+            MonitorControl.objects.create(id=1, is_active=True)
+            return True
 
-            order_params = {
-                "security_id": mapped_order.get("securityId"),
-                "exchange_segment": mapped_order.get("exchangeSegment"),
-                "transaction_type": mapped_order.get("transactionType"),
-                "quantity": mapped_order.get("quantity", 0),
-                "price": mapped_order.get("price", 0),
-                "trigger_price": mapped_order.get("triggerPrice", 0),
-                "product_type": mapped_order.get("productType"),
-                "order_type": mapped_order.get("orderType"),
-                "validity": mapped_order.get("validity", "DAY"),
-                "disclosed_quantity": mapped_order.get("disclosedQuantity", 0),
-            }
-
-            if not self.is_market_open() or mapped_order.get("afterMarketOrder", False):
-                order_params["after_market_order"] = True
-                order_params["amo_time"] = "OPEN"
-
-            order_params = {k: v for k, v in order_params.items() if v is not None}
-            response = dhan_client.place_order(**order_params)
-            logging.info(f"✅ Order placed successfully: {response}")
-            return response
+    def get_dhan_client(self, account):
+        """Initialize and return DhanHQ client with proper error handling"""
+        try:
+            return dhanhq(account.client_id, account.token)
         except Exception as e:
-            logging.error(f"🚨 Error placing order: {e}")
+            logger.error("Failed to initialize Dhan client for %s: %s", account.name, str(e))
             return None
 
-    def handle(self, *args, **options):
-        poll_interval = options["poll_interval"]
-        off_interval = options["off_interval"]  # 10 hours default
-        self.order_mapping = {}
-        self.master_order_history = {}
-        processed_orders = set()
+    def validate_order(self, order_details):
+        """Validate order details before processing"""
+        required_fields = ['securityId', 'exchangeSegment', 'transactionType',
+                         'quantity', 'orderType', 'productType']
+        
+        for field in required_fields:
+            if field not in order_details:
+                logger.error("Missing required field in order: %s", field)
+                return False
+        
+        try:
+            if int(order_details['quantity']) <= 0:
+                logger.error("Invalid quantity: %s", order_details['quantity'])
+                return False
+        except (ValueError, TypeError):
+            logger.error("Quantity must be a positive integer: %s", order_details['quantity'])
+            return False
+            
+        return True
 
-        logging.info(f"🚀 Starting order monitoring with poll interval: {poll_interval}s, off interval: {off_interval}s")
+    def get_holdings_data(self, dhan_client):
+        """Get holdings data with proper field name handling"""
+        try:
+            holdings_response = dhan_client.get_holdings()
+            if not isinstance(holdings_response, dict) or holdings_response.get('status') != 'success':
+                logger.warning("Failed to get holdings: %s", holdings_response)
+                return {}
 
-        while True:
-            if not self.is_monitor_active():
-                logging.info(f"⏸️ Monitoring is OFF. Sleeping for {off_interval} seconds to avoid API limits.")
-                time.sleep(off_interval)
-                continue
+            holdings_data = holdings_response.get('data', [])
+            holdings = {}
+            
+            for h in holdings_data:
+                symbol = h.get('tradingSymbol') or h.get('securityId') or h.get('symbol') or h.get('Symbol')
+                quantity = h.get('quantity') or h.get('netQty') or h.get('totalQty') or h.get('Total Quantity')
+                
+                if symbol and quantity is not None:
+                    holdings[symbol] = quantity
+                    
+            return holdings
+            
+        except Exception as e:
+            logger.error("Error getting holdings data: %s", str(e))
+            return {}
 
-            if not self.is_market_open():
-                logging.info(f"🌙 Market is closed. Sleeping for {poll_interval} seconds.")
-                time.sleep(poll_interval)
-                continue
+    def copy_order_to_child(self, master_order, child_account, multiplier=1):
+        """Copy order to child account with multiplier applied"""
+        if child_account.is_master:
+            logger.warning("Attempted to copy order to master account %s, skipping", child_account.name)
+            return None
+        
+        try:
+            child_dhan = self.get_dhan_client(child_account)
+            if not child_dhan:
+                return None
 
-            try:
-                with transaction.atomic():
-                    main_account = TradingAccount.objects.select_for_update().filter(is_master=True).first()
-                    if not main_account:
-                        logging.warning("⚠️ No master account found.")
-                        break
+            child_order = master_order.copy()
+            # Convert multiplier to Decimal for consistent type handling
+            multiplier = Decimal(str(multiplier)) if not isinstance(multiplier, Decimal) else multiplier
+            
+            child_order['quantity'] = int(Decimal(str(child_order['quantity'])) * multiplier)
+            
+            if not self.validate_order(child_order):
+                return None
 
-                    main_dhan = dhanhq(main_account.client_id, main_account.token)
-                    child_accounts = TradingAccount.objects.filter(is_child=True, parent_account=main_account)
+            order_params = {
+                "security_id": child_order['securityId'],
+                "exchange_segment": child_order['exchangeSegment'],
+                "transaction_type": child_order['transactionType'],
+                "quantity": child_order['quantity'],
+                "order_type": child_order['orderType'],
+                "product_type": child_order['productType'],
+                "price": child_order.get('price', 0),
+                "trigger_price": child_order.get('triggerPrice', 0),
+                "validity": child_order.get('validity', 'DAY'),
+                "after_market_order": not self.is_market_open()
+            }
 
-                    master_holdings_response = main_dhan.get_holdings()
-                    master_holdings = (
-                        {h["securityId"]: h.get("totalQty", 0) for h in master_holdings_response["data"]}
-                        if master_holdings_response.get("status") == "success" else {}
-                    )
+            response = child_dhan.place_order(**order_params)
+            if response.get('status') == 'success':
+                logger.info("Order copied to %s (Qty: %s)", child_account.name, child_order['quantity'])
+                return response['data']['orderId']
+            else:
+                logger.error("Failed to copy order to %s: %s", 
+                           child_account.name, response.get('remarks', 'Unknown error'))
+                return None
 
-                    orders_response = main_dhan.get_order_list()
-                    if orders_response.get("status") != "success" or "data" not in orders_response:
-                        logging.warning(f"⚠️ No valid orders found: {orders_response}")
-                        time.sleep(poll_interval)
+        except Exception as e:
+            logger.error("Error copying order to %s: %s", child_account.name, str(e))
+            return None
+
+    def process_master_orders(self, master_dhan, master_account, child_accounts):
+        """Fetch and process orders from master account"""
+        try:
+            orders_response = master_dhan.get_order_list()
+            if not isinstance(orders_response, dict) or orders_response.get('status') != 'success':
+                logger.warning("Failed to fetch orders: %s", orders_response.get('remarks', 'Unknown error'))
+                return
+
+            logger.info("Fetched %s orders from master account", len(orders_response.get('data', [])))
+            master_holdings = self.get_holdings_data(master_dhan)
+
+            for order in orders_response.get('data', []):
+                try:
+                    if not all(key in order for key in ['orderId', 'securityId', 'transactionType', 'quantity']):
+                        logger.warning("Skipping order with missing required fields: %s", order)
                         continue
 
-                    orders = orders_response["data"]
-                    current_master_orders = {order["orderId"]: order for order in orders}
+                    order_id = order['orderId']
+                    if order_id in self.processed_orders:
+                        logger.info("Skipping already processed order: %s", order_id)
+                        continue
+                        
+                    if order.get('orderStatus') != 'PENDING':
+                        logger.info("Skipping non-pending order %s with status %s", 
+                                  order_id, order.get('orderStatus'))
+                        continue
 
-                    for order in orders:
-                        order_id = order.get("orderId")
-                        security_id = order.get("securityId")
-                        transaction_type = order.get("transactionType")
-                        quantity = order.get("quantity", 0)
+                    logger.info("Processing new order: %s", order_id)
+                    if order['transactionType'] == 'SELL':
+                        symbol = order.get('tradingSymbol') or order.get('securityId')
+                        if symbol not in master_holdings:
+                            logger.info("Skipping sell order - No holding for %s", symbol)
+                            continue
 
-                        if order_id not in processed_orders and order.get("orderStatus") == "PENDING":
-                            logging.info(f"🔄 Processing new pending order: {order}")
-                            child_order_ids = {}
-                            for child_account in child_accounts:
-                                child_dhan = dhanhq(child_account.client_id, child_account.token)
-                                child_holdings_response = child_dhan.get_holdings()
-                                child_positions_response = child_dhan.get_positions()
+                    for child in child_accounts:
+                        if child.id == master_account.id:
+                            logger.warning("Skipping master account %s as child", child.name)
+                            continue
+                        if OrderMapping.objects.filter(
+                            master_order_id=order_id,
+                            child_client_id=child.client_id
+                        ).exists():
+                            logger.info("Order %s already copied to child %s", order_id, child.name)
+                            continue
 
-                                child_holdings = (
-                                    {h["securityId"]: h.get("availableQty", 0) for h in child_holdings_response["data"]}
-                                    if child_holdings_response.get("status") == "success" else {}
+                        if order['transactionType'] == 'SELL':
+                            child_holdings = self.get_holdings_data(self.get_dhan_client(child))
+                            symbol = order.get('tradingSymbol') or order.get('securityId')
+                            if symbol not in child_holdings:
+                                logger.info("Skipping sell order for %s - No holding", child.name)
+                                continue
+
+                        logger.debug("Attempting to copy order %s to child %s with multiplier %s (type: %s)", 
+                                    order_id, child.name, child.multiplier, type(child.multiplier))
+                        
+                        copied_order_id = self.copy_order_to_child(
+                            order, 
+                            child, 
+                            multiplier=child.multiplier
+                        )
+                        
+                        if copied_order_id:
+                            # Mark as processed to prevent reprocessing, even if OrderMapping fails
+                            self.processed_orders.add(order_id)
+                            logger.info("Marked order %s as processed after copy to %s", order_id, child.name)
+                            
+                            try:
+                                # Convert multiplier to Decimal for OrderMapping
+                                multiplier = Decimal(str(child.multiplier))
+                                OrderMapping.objects.create(
+                                    master_order_id=order_id,
+                                    child_client_id=child.client_id,
+                                    child_order_id=copied_order_id,
+                                    multiplier=multiplier,
+                                    original_quantity=int(order['quantity']),
+                                    remaining_quantity=int(Decimal(str(order['quantity'])) * multiplier)
                                 )
-                                child_positions = (
-                                    {p["securityId"]: p.get("netQty", 0) for p in child_positions_response["data"]}
-                                    if child_positions_response.get("status") == "success" else {}
-                                )
+                                logger.info("Successfully created OrderMapping for order %s to child %s", 
+                                           order_id, child.name)
+                            except Exception as e:
+                                logger.error("Failed to create OrderMapping for order %s to child %s: %s", 
+                                            order_id, child.name, str(e))
+                                continue
 
-                                if transaction_type == "SELL":
-                                    master_quantity = master_holdings.get(security_id, 0)
-                                    child_quantity = child_holdings.get(security_id, 0)
-                                    child_position_qty = child_positions.get(security_id, 0)
+                except Exception as e:
+                    logger.error("Error processing order %s: %s", order.get('orderId', 'unknown'), str(e))
 
-                                    if security_id not in child_holdings and security_id not in child_positions:
-                                        logging.info(f"Skipping sell order for child {child_account.client_id} - Symbol not found")
-                                        continue
+        except Exception as e:
+            logger.error("Error processing master orders: %s", str(e))
 
-                                    if master_quantity > 0 and (child_quantity > 0 or child_position_qty > 0):
-                                        base_quantity = child_quantity if child_quantity > 0 else child_position_qty
-                                        proportional_sell_qty = int((base_quantity / master_quantity) * quantity)
-                                        if proportional_sell_qty > 0:
-                                            order["quantity"] = proportional_sell_qty
-                                            response = self.copy_order(order, 1, child_dhan)
-                                            if response and response.get("status") == "success":
-                                                child_order_ids[child_account.client_id] = response["data"]["orderId"]
+    def handle(self, *args, **options):
+        self.poll_interval = options['poll_interval']
+        self.off_interval = options['off_interval']
+        self.max_retries = options['max_retries']
+        
+        logger.info("Starting order monitor (Poll: %ss, Off: %ss)", self.poll_interval, self.off_interval)
 
-                            self.order_mapping[order_id] = {"child_orders": child_order_ids, "original_details": order.copy()}
-                            self.master_order_history[order_id] = order.copy()
-                            processed_orders.add(order_id)
+        while True:
+            try:
+                if not self.is_monitor_active():
+                    logger.info("Monitoring paused. Sleeping for %ss", self.off_interval)
+                    time.sleep(self.off_interval)
+                    continue
+
+                if not self.is_market_open():
+                    logger.info("Market closed. Sleeping for %ss", self.poll_interval)
+                    time.sleep(self.poll_interval)
+                    continue
+
+                with transaction.atomic():
+                    master_account = TradingAccount.objects.select_for_update().filter(
+                        is_master=True
+                    ).first()
+                    
+                    if not master_account:
+                        logger.error("No master account found")
+                        time.sleep(self.poll_interval)
+                        continue
+
+                    child_accounts = list(TradingAccount.objects.filter(
+                        is_child=True, 
+                        parent_account=master_account
+                    ).exclude(id=master_account.id))
+                    logger.info("Master account: %s, Child accounts: %s", 
+                               master_account.name if master_account else "None", 
+                               [child.name for child in child_accounts])
+
+                    master_dhan = self.get_dhan_client(master_account)
+                    if not master_dhan:
+                        time.sleep(self.poll_interval)
+                        continue
+
+                    self.process_master_orders(master_dhan, master_account, child_accounts)
+                    self.retry_count = 0
 
             except Exception as e:
-                logging.error(f"❌ An error occurred: {e}")
-            time.sleep(poll_interval)
+                self.retry_count += 1
+                logger.error("Critical error (Retry %s/%s): %s", 
+                           self.retry_count, self.max_retries, str(e))
+                
+                if self.retry_count >= self.max_retries:
+                    logger.error("Max retries reached. Exiting...")
+                    break
+                
+                time.sleep(min(60, self.poll_interval * self.retry_count))
+
+            time.sleep(self.poll_interval)

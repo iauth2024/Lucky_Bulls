@@ -1,42 +1,49 @@
-from django.core.management.base import BaseCommand
-from your_app.models import MonitorControl
 import time
+import logging
+from django.core.management.base import BaseCommand
+from django.core.management import call_command
+from Lucky_Bulls.models import MonitorControl
+
+# Setup logger
+logger = logging.getLogger("monitor_worker")
+logger.setLevel(logging.INFO)
+
+handler = logging.FileHandler("monitor_worker.log")
+console = logging.StreamHandler()
+
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+console.setFormatter(formatter)
+
+logger.addHandler(handler)
+logger.addHandler(console)
 
 class Command(BaseCommand):
-    help = 'Background worker for handling alerts and copy trading based on toggles.'
+    help = 'Runs alerts and copy trading monitors based on toggle states.'
 
-    def handle(self, *args, **kwargs):
-        self.stdout.write(self.style.SUCCESS("🔁 Monitor Worker Started..."))
+    def handle(self, *args, **options):
+        logger.info("🔁 Monitor Worker Started.")
 
         while True:
             try:
-                self.run_alerts_if_enabled()
-                self.run_copy_trading_if_enabled()
-
-                # Wait for 1 minute before next check
-                time.sleep(60)
-
+                self.run_if_enabled("alerts", "send_alerts", "🔔 Alerts Monitor Running...")
+                self.run_if_enabled("copy_trading", "monitor_orders", "📈 Copy Trading Monitor Running...")
             except Exception as e:
-                self.stderr.write(self.style.ERROR(f"❌ Error: {e}"))
-                time.sleep(10)  # Retry after 10s
+                logger.exception(f"❌ Unexpected error in monitor loop: {e}")
 
-    def is_enabled(self, monitor_type):
-        try:
-            toggle = MonitorControl.objects.get(monitor_type=monitor_type)
-            return toggle.is_active
-        except MonitorControl.DoesNotExist:
-            return False
+            time.sleep(60)  # wait before checking again
 
-    def run_alerts_if_enabled(self):
-        if self.is_enabled("alerts"):
-            self.stdout.write("🔔 Alerts Monitor Running...")
-            # Add your alert logic here
+    def run_if_enabled(self, monitor_type, command_name, log_message):
+        is_active = self.get_monitor_status(monitor_type)
+        if is_active:
+            logger.info(log_message)
+            try:
+                call_command(command_name)
+            except Exception as e:
+                logger.error(f"🚨 Failed running {command_name}: {e}")
         else:
-            self.stdout.write("🔕 Alerts Monitor Disabled")
+            logger.info(f"⏸️ {monitor_type.replace('_', ' ').title()} Monitor Disabled")
 
-    def run_copy_trading_if_enabled(self):
-        if self.is_enabled("copy_trading"):
-            self.stdout.write("📈 Copy Trading Monitor Running...")
-            # Add your copy trading logic here
-        else:
-            self.stdout.write("📉 Copy Trading Monitor Disabled")
+    def get_monitor_status(self, monitor_type):
+        control, _ = MonitorControl.objects.get_or_create(monitor_type=monitor_type, defaults={'is_active': False})
+        return control.is_active

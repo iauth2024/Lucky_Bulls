@@ -531,7 +531,7 @@ def screener_results(request):
 
         if screener_name == "ALL":
             for screener in screeners:
-                response = fetch_screener_data({"scan_clause": screener.condition}, screener.name)
+                response = fetch_screener_data({"scan_clause": screener.condition})
                 if response:
                     for stock in response:
                         symbol = stock.get("nsecode") or stock.get("symbol") or stock.get("ticker")
@@ -635,6 +635,10 @@ def screener_results(request):
         )
 
 
+
+
+
+
 def get_performance_data(symbol, days):
     """
     Helper function to get performance data for a stock over a given period.
@@ -735,6 +739,7 @@ def performance_page(request):
     }
     
     return render(request, 'performance.html', context)
+
 
 
 
@@ -844,38 +849,139 @@ def fetch_all_screeners(request):
         
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=500)
-def fetch_screener_data(screener):
+import requests
+from bs4 import BeautifulSoup as bs
+import datetime
+import pandas as pd
+from django.utils.timezone import now
+from django.db import transaction
+import logging
+
+logger = logging.getLogger(__name__)
+
+def fetch_screener_data(screener, screener_name=None):
+    """
+    Fetch data from Chartink screener and process alerts
+    Args:
+        screener: Either a Screener model instance or a condition dictionary/string
+        screener_name: Name of the screener (optional if screener is model instance)
+    Returns:
+        List of dictionaries containing stock data
+    """
     try:
-        with requests.session() as s:
-            r_data = s.get("https://chartink.com/screener/process")
+        # Extract condition and name based on input type
+        if hasattr(screener, 'condition'):  # It's a Screener model instance
+            condition = screener.condition
+            screener_name = screener.name
+            screener_instance = screener
+        else:  # It's a raw condition
+            condition = screener
+            screener_name = screener_name or "Custom Screener"
+            screener_instance = None
+
+        if not condition:
+            logger.warning(f"Empty condition for screener: {screener_name}")
+            return []
+
+        with requests.Session() as s:
+            # Get CSRF token
+            r_data = s.get("https://chartink.com", timeout=10)
+            r_data.raise_for_status()
             soup = bs(r_data.content, "lxml")
-            meta = soup.find("meta", {"name": "csrf-token"})["content"]
+            meta_tag = soup.find("meta", {"name": "csrf-token"})
 
-            headers = {"x-csrf-token": meta}
-            payload = {"scan_clause": screener.condition}
-            response = s.post("https://chartink.com/backtest/process", 
-                            headers=headers, 
-                            data=payload).json()
+            if not meta_tag:
+                logger.warning(f"No CSRF token found for {screener_name}")
+                return []
 
-            dates = response["metaData"][0]["tradeTimes"]
-            stocks = response["aggregatedStockList"]
+            csrf_token = meta_tag["content"]
+            headers = {
+                "x-csrf-token": csrf_token,
+                "Content-Type": "application/x-www-form-urlencoded",
+            }
+            
+            # Post request with scan clause
+            response = s.post(
+                "https://chartink.com/screener/process",
+                headers=headers,
+                data={"scan_clause": condition},
+                timeout=15
+            )
+            response.raise_for_status()
+            data = response.json()
 
-            final_data = []
-            for i in range(len(dates)):
-                stk = []
-                if stocks[i]:
-                    for j in range(len(stocks[i])):
-                        if j % 3 == 0:
-                            stk.append(stocks[i][j])
-                    final_data.append({
-                        "Date": datetime.datetime.fromtimestamp(dates[i] / 1000).strftime('%Y-%m-%d'),
-                        "Stocks": ', '.join(stk)
-                    })
+            if not data or "data" not in data:
+                logger.warning(f"No data returned for screener: {screener_name}")
+                return []
 
-            return final_data
+            # Process stock data
+            stock_list = pd.DataFrame(data["data"])
+            required_columns = ["sr", "nsecode", "name", "bsecode", "per_chg", "close", "volume"]
+            
+            # Ensure all required columns exist
+            for col in required_columns:
+                if col not in stock_list.columns:
+                    stock_list[col] = None
+
+            stock_list["screener_name"] = screener_name
+            stock_list = stock_list[required_columns + ["screener_name"]]
+
+            # Process alerts if we have a Screener instance
+            if screener_instance:
+                process_alerts(stock_list, screener_instance, screener_name)
+
+            return stock_list.to_dict(orient="records")
+            
+    except requests.exceptions.RequestException as e:
+        logger.error(f"Network error fetching screener '{screener_name}': {e}")
     except Exception as e:
-        print(f"Error fetching data for screener {screener.id}: {str(e)}")
-        return []
+        logger.error(f"Error processing screener '{screener_name}': {e}")
+    return []
+
+
+def process_alerts(stock_list, screener_instance, screener_name):
+    """Helper function to process performance alerts"""
+    performances_to_update = []
+    
+    for _, row in stock_list.iterrows():
+        symbol = row["nsecode"]
+        close_price = row["close"]
+
+        performance, created = Performance.objects.get_or_create(
+            symbol=symbol,
+            screener=screener_instance,
+            defaults={
+                "triggered_at": now(),
+                "initial_price": close_price,
+                "alert_sent": False,
+            }
+        )
+
+        if created or not performance.alert_sent:
+            stock_details = (
+                f"Symbol: {symbol}\n"
+                f"Close Price: ₹{close_price}\n"
+                f"Triggered At: {performance.triggered_at}\n"
+                f"Screener: {screener_name}"
+            )
+            try:
+                if send_telegram_alert(symbol, screener_name, stock_details):
+                    performance.alert_sent = True
+                    performance.alert_sent_at = now()
+                    performances_to_update.append(performance)
+                    logger.info(f"Alert sent for {symbol} in {screener_name}")
+                else:
+                    logger.warning(f"Telegram API returned False for {symbol}")
+            except Exception as e:
+                logger.error(f"Telegram error for {symbol}: {e}")
+                continue
+
+    if performances_to_update:
+        with transaction.atomic():
+            Performance.objects.bulk_update(
+                performances_to_update, 
+                ["alert_sent", "alert_sent_at"]
+            )
     
 from django.shortcuts import render
 from .models import HalalStock
@@ -954,54 +1060,103 @@ def fetch_chartink_data(request, screener_id):
         return JsonResponse({'error': str(e)}, status=500)
 
 def fetch_screener_data(screener):
+    """
+    Fetch stock data from Chartink screener with improved error handling and logging
+    Args:
+        screener: Screener model instance containing the condition
+    Returns:
+        List of dictionaries with date and stocks data
+    """
     try:
-        with requests.session() as s:
-            r_data = s.get("https://chartink.com/screener/process")
-            if r_data.status_code != 200:
-                logger.error(f"Failed GET screener/process: {r_data.status_code}")
+        # Validate screener input
+        if not hasattr(screener, 'condition') or not screener.condition:
+            logger.error(f"Invalid screener object or empty condition for screener: {getattr(screener, 'id', 'unknown')}")
+            return []
+
+        with requests.Session() as s:
+            # Configure session with timeout and retry
+            s.timeout = 15
+            retry_adapter = requests.adapters.HTTPAdapter(max_retries=3)
+            s.mount("https://", retry_adapter)
+
+            # 1. Get CSRF token
+            try:
+                r_data = s.get("https://chartink.com/screener/process")
+                r_data.raise_for_status()
+            except requests.exceptions.RequestException as e:
+                logger.error(f"Failed to fetch CSRF token: {str(e)}")
                 return []
 
+            # 2. Parse CSRF token
             soup = bs(r_data.content, "lxml")
             meta_tag = soup.find("meta", {"name": "csrf-token"})
             if not meta_tag:
-                logger.error("CSRF token not found in page!")
+                logger.error("CSRF token meta tag not found in response")
                 return []
 
-            meta = meta_tag.get("content")
-            headers = {"x-csrf-token": meta}
+            csrf_token = meta_tag.get("content")
+            if not csrf_token:
+                logger.error("Empty CSRF token content")
+                return []
+
+            # 3. Make POST request with scan clause
+            headers = {
+                "x-csrf-token": csrf_token,
+                "Content-Type": "application/x-www-form-urlencoded",
+            }
             payload = {"scan_clause": screener.condition}
-            
-            r_post = s.post("https://chartink.com/backtest/process", headers=headers, data=payload)
-            if r_post.status_code != 200:
-                logger.error(f"POST failed: {r_post.status_code}")
-                return []
-            
-            response = r_post.json()
-            if "metaData" not in response or "aggregatedStockList" not in response:
-                logger.error(f"Unexpected response: {response}")
+
+            try:
+                r_post = s.post(
+                    "https://chartink.com/backtest/process",
+                    headers=headers,
+                    data=payload,
+                    timeout=15
+                )
+                r_post.raise_for_status()
+            except requests.exceptions.RequestException as e:
+                logger.error(f"POST request failed: {str(e)}")
                 return []
 
+            # 4. Process response
+            try:
+                response = r_post.json()
+            except ValueError as e:
+                logger.error(f"Invalid JSON response: {str(e)}")
+                return []
+
+            if not all(key in response for key in ["metaData", "aggregatedStockList"]):
+                logger.error(f"Missing required fields in response: {response.keys()}")
+                return []
+
+            # 5. Format final data
+            final_data = []
             dates = response["metaData"][0]["tradeTimes"]
             stocks = response["aggregatedStockList"]
 
-            final_data = []
-            for i in range(len(dates)):
-                stk = []
-                if stocks[i]:
-                    for j in range(len(stocks[i])):
-                        if j % 3 == 0:
-                            stk.append(stocks[i][j])
-                    final_data.append({
-                        "Date": datetime.datetime.fromtimestamp(dates[i] / 1000).strftime('%Y-%m-%d'),
-                        "Stocks": ', '.join(stk)
-                    })
+            for i, date_timestamp in enumerate(dates):
+                try:
+                    if not stocks[i]:
+                        continue
 
+                    # Extract every 3rd element (stock symbols)
+                    stock_symbols = [stocks[i][j] for j in range(0, len(stocks[i]), 3)]
+                    
+                    final_data.append({
+                        "Date": datetime.datetime.fromtimestamp(date_timestamp / 1000).strftime('%Y-%m-%d'),
+                        "Stocks": ', '.join(stock_symbols),
+                        "Count": len(stock_symbols)
+                    })
+                except Exception as e:
+                    logger.warning(f"Error processing date index {i}: {str(e)}")
+                    continue
+
+            logger.info(f"Successfully fetched {len(final_data)} days of data for screener {screener.id}")
             return final_data
 
     except Exception as e:
-        logger.error(f"Error fetching data for screener {screener.id}: {str(e)}")
+        logger.error(f"Unexpected error in fetch_screener_data: {str(e)}", exc_info=True)
         return []
-
 @require_GET
 def fetch_halal_stocks(request):
     try:

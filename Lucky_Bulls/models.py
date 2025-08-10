@@ -2,7 +2,18 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from django.utils.timezone import now
 from django.contrib.auth.models import User
+class ModifiedOrder(models.Model):
+    # Assuming fields based on context, adjust as needed
+    dhan_client_id = models.CharField(max_length=50)
+    order_id = models.CharField(max_length=50)
+    master_order_id = models.CharField(max_length=50, null=True, blank=True)
+    new_quantity = models.IntegerField()
+    new_price = models.FloatField(null=True, blank=True)
+    new_trigger_price = models.FloatField(null=True, blank=True)
+    modified_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f"Modified Order {self.order_id} for {self.dhan_client_id}"
 # Trading Account Model
 class TradingAccount(models.Model):
     name = models.CharField(max_length=100)
@@ -13,11 +24,16 @@ class TradingAccount(models.Model):
     parent_account = models.ForeignKey(
         'self', on_delete=models.SET_NULL, null=True, blank=True, related_name='children'
     )
-    multiplier = models.FloatField(
-        null=True, blank=True, help_text="Multiplier for child accounts"
-    )
+    # In models.py
+    multiplier = models.DecimalField(max_digits=2, decimal_places=2,default=1.00 )
+    
     # user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tradingaccounts')
-
+    amo_time = models.CharField(
+    max_length=10,
+    default='OPEN',
+    choices=[('OPEN', 'Market Open'), ('OPEN_30', '30 Minutes After Open'), ('OPEN_60', '60 Minutes After Open')],
+    blank=True
+)
     allowed_ips = models.JSONField(default=list, blank=True)  # Store allowed IPs
     restrict_login = models.BooleanField(default=True, help_text="Restrict login based on IP")
 
@@ -126,15 +142,3 @@ class ScreenerHistory(models.Model):
 
 from django.db import models
 
-class ModifiedOrder(models.Model):
-    # Assuming fields based on context, adjust as needed
-    dhan_client_id = models.CharField(max_length=50)
-    order_id = models.CharField(max_length=50)
-    master_order_id = models.CharField(max_length=50, null=True, blank=True)
-    new_quantity = models.IntegerField()
-    new_price = models.FloatField(null=True, blank=True)
-    new_trigger_price = models.FloatField(null=True, blank=True)
-    modified_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"Modified Order {self.order_id} for {self.dhan_client_id}"

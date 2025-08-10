@@ -1,0 +1,2060 @@
+2025-08-08 09:32:20,687 - INFO - Starting order monitor (Poll: 5s, Off: 3600s)
+2025-08-08 09:32:42,012 - INFO - Starting order monitor (Poll: 5s, Off: 3600s)
+2025-08-08 09:35:52,635 - INFO - Starting order monitor (Poll: 5s, Off: 3600s)
+2025-08-08 09:35:55,439 - ERROR - Critical error (Retry 1/3): Cannot resolve keyword 'is_active' into field. Choices are: allowed_ips, amo_time, children, client_id, id, is_child, is_master, multiplier, name, parent_account, parent_account_id, restrict_login, token
+2025-08-08 09:36:05,769 - ERROR - Critical error (Retry 2/3): Cannot resolve keyword 'is_active' into field. Choices are: allowed_ips, amo_time, children, client_id, id, is_child, is_master, multiplier, name, parent_account, parent_account_id, restrict_login, token
+2025-08-08 09:36:21,065 - ERROR - Critical error (Retry 3/3): Cannot resolve keyword 'is_active' into field. Choices are: allowed_ips, amo_time, children, client_id, id, is_child, is_master, multiplier, name, parent_account, parent_account_id, restrict_login, token
+2025-08-08 09:36:21,069 - ERROR - Max retries reached. Exiting...
+2025-08-08 09:38:20,776 - INFO - Starting order monitor (Poll: 5s, Off: 3600s)
+2025-08-08 09:38:25,938 - INFO - Processing new order: 312508084254
+2025-08-08 09:38:26,193 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:38:33,314 - INFO - Processing new order: 312508084254
+2025-08-08 09:38:33,558 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:38:40,619 - INFO - Processing new order: 312508084254
+2025-08-08 09:38:40,867 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:38:48,084 - INFO - Processing new order: 312508084254
+2025-08-08 09:38:48,348 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:38:55,037 - INFO - Processing new order: 312508084254
+2025-08-08 09:38:55,285 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:39:02,075 - INFO - Processing new order: 312508084254
+2025-08-08 09:39:02,284 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:39:09,143 - INFO - Processing new order: 312508084254
+2025-08-08 09:39:09,360 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:39:16,259 - INFO - Processing new order: 312508084254
+2025-08-08 09:39:16,507 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:39:23,444 - INFO - Processing new order: 312508084254
+2025-08-08 09:39:23,666 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:39:30,583 - INFO - Processing new order: 312508084254
+2025-08-08 09:39:30,803 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:39:37,780 - INFO - Processing new order: 312508084254
+2025-08-08 09:39:38,036 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:39:44,712 - INFO - Processing new order: 312508084254
+2025-08-08 09:39:44,950 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:39:51,627 - INFO - Processing new order: 312508084254
+2025-08-08 09:39:51,849 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:39:58,471 - INFO - Processing new order: 312508084254
+2025-08-08 09:39:58,738 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:40:05,359 - INFO - Processing new order: 312508084254
+2025-08-08 09:40:05,589 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:40:12,393 - INFO - Processing new order: 312508084254
+2025-08-08 09:40:12,612 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:40:19,345 - INFO - Processing new order: 312508084254
+2025-08-08 09:40:19,578 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:40:26,469 - INFO - Processing new order: 312508084254
+2025-08-08 09:40:26,715 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:40:33,382 - INFO - Processing new order: 312508084254
+2025-08-08 09:40:33,590 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:40:40,550 - INFO - Processing new order: 312508084254
+2025-08-08 09:40:40,798 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:40:47,603 - INFO - Processing new order: 312508084254
+2025-08-08 09:40:47,827 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:40:54,722 - INFO - Processing new order: 312508084254
+2025-08-08 09:40:54,953 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:41:01,804 - INFO - Processing new order: 312508084254
+2025-08-08 09:41:02,144 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:41:08,917 - INFO - Processing new order: 312508084254
+2025-08-08 09:41:09,180 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:41:15,914 - INFO - Processing new order: 312508084254
+2025-08-08 09:41:16,186 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:41:23,115 - INFO - Processing new order: 312508084254
+2025-08-08 09:41:23,345 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:41:30,233 - INFO - Processing new order: 312508084254
+2025-08-08 09:41:30,464 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:41:37,225 - INFO - Processing new order: 312508084254
+2025-08-08 09:41:37,467 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:41:44,361 - INFO - Processing new order: 312508084254
+2025-08-08 09:41:44,600 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:41:51,381 - INFO - Processing new order: 312508084254
+2025-08-08 09:41:51,596 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:41:58,390 - INFO - Processing new order: 312508084254
+2025-08-08 09:41:58,624 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:42:05,384 - INFO - Processing new order: 312508084254
+2025-08-08 09:42:05,624 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:42:12,429 - INFO - Processing new order: 312508084254
+2025-08-08 09:42:12,619 - ERROR - Error copying order to As: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:42:23,389 - INFO - Starting order monitor (Poll: 5s, Off: 3600s)
+2025-08-08 09:42:28,360 - INFO - Processing new order: 312508084254
+2025-08-08 09:42:28,609 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:42:35,883 - INFO - Processing new order: 312508084254
+2025-08-08 09:42:36,112 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:42:43,592 - INFO - Processing new order: 312508084254
+2025-08-08 09:42:43,860 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:42:51,280 - INFO - Processing new order: 312508084254
+2025-08-08 09:42:51,524 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:42:58,382 - INFO - Processing new order: 312508084254
+2025-08-08 09:42:58,653 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:43:05,354 - INFO - Processing new order: 312508084254
+2025-08-08 09:43:05,625 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:43:12,419 - INFO - Processing new order: 312508084254
+2025-08-08 09:43:12,642 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:43:20,190 - INFO - Processing new order: 312508084254
+2025-08-08 09:43:20,411 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:43:27,743 - INFO - Processing new order: 312508084254
+2025-08-08 09:43:27,975 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:43:34,731 - INFO - Processing new order: 312508084254
+2025-08-08 09:43:34,976 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:43:41,666 - INFO - Processing new order: 312508084254
+2025-08-08 09:43:41,895 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:43:48,597 - INFO - Processing new order: 312508084254
+2025-08-08 09:43:48,834 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:43:55,596 - INFO - Processing new order: 312508084254
+2025-08-08 09:43:55,833 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:44:02,500 - INFO - Processing new order: 312508084254
+2025-08-08 09:44:02,753 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:44:09,379 - INFO - Processing new order: 312508084254
+2025-08-08 09:44:09,585 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:44:16,306 - INFO - Processing new order: 312508084254
+2025-08-08 09:44:16,507 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:44:23,190 - INFO - Processing new order: 312508084254
+2025-08-08 09:44:23,437 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:44:30,143 - INFO - Processing new order: 312508084254
+2025-08-08 09:44:30,393 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:44:37,019 - INFO - Processing new order: 312508084254
+2025-08-08 09:44:37,254 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:44:43,929 - INFO - Processing new order: 312508084254
+2025-08-08 09:44:44,121 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:44:50,872 - INFO - Processing new order: 312508084254
+2025-08-08 09:44:51,104 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:44:57,888 - INFO - Processing new order: 312508084254
+2025-08-08 09:44:58,103 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:45:04,744 - INFO - Processing new order: 312508084254
+2025-08-08 09:45:04,978 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:45:11,826 - INFO - Processing new order: 312508084254
+2025-08-08 09:45:12,056 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:45:19,185 - INFO - Processing new order: 312508084254
+2025-08-08 09:45:19,384 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:45:26,442 - INFO - Processing new order: 312508084254
+2025-08-08 09:45:26,610 - ERROR - Error copying order to As: name 'child' is not defined
+2025-08-08 09:45:33,640 - INFO - Processing new order: 312508084254
+2025-08-08 09:45:41,572 - INFO - Starting order monitor (Poll: 5s, Off: 3600s)
+2025-08-08 09:45:47,524 - INFO - Processing new order: 312508084254
+2025-08-08 09:45:48,133 - ERROR - Security 419 not in HalalStock
+2025-08-08 09:45:55,675 - INFO - Processing new order: 312508084254
+2025-08-08 09:45:56,188 - ERROR - Security 419 not in HalalStock
+2025-08-08 09:46:02,923 - INFO - Processing new order: 312508084254
+2025-08-08 09:46:03,379 - ERROR - Security 419 not in HalalStock
+2025-08-08 09:46:10,425 - INFO - Processing new order: 312508084254
+2025-08-08 09:46:11,076 - ERROR - Security 419 not in HalalStock
+2025-08-08 09:46:17,845 - INFO - Processing new order: 312508084254
+2025-08-08 09:46:18,315 - ERROR - Security 419 not in HalalStock
+2025-08-08 09:46:25,565 - INFO - Processing new order: 312508084254
+2025-08-08 09:46:26,230 - ERROR - Security 419 not in HalalStock
+2025-08-08 09:46:33,323 - INFO - Processing new order: 312508084254
+2025-08-08 09:46:33,890 - ERROR - Security 419 not in HalalStock
+2025-08-08 09:46:40,895 - INFO - Processing new order: 312508084254
+2025-08-08 09:46:41,366 - ERROR - Security 419 not in HalalStock
+2025-08-08 09:46:48,555 - INFO - Processing new order: 312508084254
+2025-08-08 09:46:49,169 - ERROR - Security 419 not in HalalStock
+2025-08-08 09:46:56,068 - INFO - Processing new order: 312508084254
+2025-08-08 09:46:56,578 - ERROR - Security 419 not in HalalStock
+2025-08-08 09:47:03,544 - INFO - Processing new order: 312508084254
+2025-08-08 09:47:04,058 - ERROR - Security 419 not in HalalStock
+2025-08-08 09:47:10,845 - INFO - Processing new order: 312508084254
+2025-08-08 09:47:11,504 - ERROR - Security 419 not in HalalStock
+2025-08-08 09:47:18,471 - INFO - Processing new order: 312508084254
+2025-08-08 09:47:19,055 - ERROR - Security 419 not in HalalStock
+2025-08-08 09:47:25,821 - INFO - Processing new order: 312508084254
+2025-08-08 09:47:26,293 - ERROR - Security 419 not in HalalStock
+2025-08-08 09:47:33,015 - INFO - Processing new order: 312508084254
+2025-08-08 09:47:33,535 - ERROR - Security 419 not in HalalStock
+2025-08-08 09:48:03,287 - ERROR - Critical error (Retry 1/3): server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+2025-08-08 09:48:13,336 - ERROR - Critical error (Retry 2/3): connection already closed
+2025-08-08 09:48:28,344 - ERROR - Critical error (Retry 3/3): connection already closed
+2025-08-08 09:48:28,345 - ERROR - Max retries reached. Exiting...
+2025-08-08 09:49:30,212 - INFO - Starting order monitor (Poll: 5s, Off: 3600s)
+2025-08-08 09:49:34,472 - INFO - Processing new order: 312508084254
+2025-08-08 09:49:34,974 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:49:34,988 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:49:41,994 - INFO - Processing new order: 312508084254
+2025-08-08 09:49:42,484 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:49:42,489 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:49:49,603 - INFO - Processing new order: 312508084254
+2025-08-08 09:49:50,213 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:49:50,224 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:49:57,744 - INFO - Processing new order: 312508084254
+2025-08-08 09:49:58,320 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:49:58,334 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:50:05,164 - INFO - Processing new order: 312508084254
+2025-08-08 09:50:05,695 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:50:05,697 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:50:12,840 - INFO - Processing new order: 312508084254
+2025-08-08 09:50:13,336 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:50:13,340 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:50:20,881 - INFO - Processing new order: 312508084254
+2025-08-08 09:50:21,383 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:50:21,384 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:50:29,067 - INFO - Processing new order: 312508084254
+2025-08-08 09:50:29,578 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:50:29,579 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:50:37,067 - INFO - Processing new order: 312508084254
+2025-08-08 09:50:37,552 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:50:37,556 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:50:44,501 - INFO - Processing new order: 312508084254
+2025-08-08 09:50:45,061 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:50:45,067 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:50:51,753 - INFO - Processing new order: 312508084254
+2025-08-08 09:50:52,347 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:50:52,350 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:50:59,077 - INFO - Processing new order: 312508084254
+2025-08-08 09:50:59,573 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:50:59,574 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:51:06,354 - INFO - Processing new order: 312508084254
+2025-08-08 09:51:06,852 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:51:06,854 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:51:13,537 - INFO - Processing new order: 312508084254
+2025-08-08 09:51:13,962 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:51:13,963 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:51:20,951 - INFO - Processing new order: 312508084254
+2025-08-08 09:51:21,567 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:51:21,573 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:51:28,616 - INFO - Processing new order: 312508084254
+2025-08-08 09:51:29,149 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:51:29,155 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:51:35,974 - INFO - Processing new order: 312508084254
+2025-08-08 09:51:36,504 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:51:36,511 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:51:43,876 - INFO - Processing new order: 312508084254
+2025-08-08 09:51:44,390 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:51:44,393 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:51:51,478 - INFO - Processing new order: 312508084254
+2025-08-08 09:51:52,055 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:51:52,056 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:51:58,872 - INFO - Processing new order: 312508084254
+2025-08-08 09:51:59,372 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:51:59,374 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:52:07,600 - INFO - Processing new order: 312508084254
+2025-08-08 09:52:08,315 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:52:08,318 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:52:15,922 - INFO - Processing new order: 312508084254
+2025-08-08 09:52:16,957 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:52:16,968 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:52:23,949 - INFO - Processing new order: 312508084254
+2025-08-08 09:52:24,659 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:52:24,661 - ERROR - Error processing order 312508084254: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:54:51,877 - INFO - Processing new order: 7125080810724
+2025-08-08 09:54:52,653 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:54:52,658 - ERROR - Error processing order 7125080810724: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:55:02,176 - INFO - Processing new order: 7125080810724
+2025-08-08 09:55:02,990 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:55:02,990 - ERROR - Error processing order 7125080810724: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:55:09,843 - INFO - Processing new order: 7125080810724
+2025-08-08 09:55:10,271 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:55:10,271 - ERROR - Error processing order 7125080810724: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:55:17,196 - INFO - Processing new order: 7125080810724
+2025-08-08 09:55:17,629 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:55:17,629 - ERROR - Error processing order 7125080810724: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:55:24,830 - INFO - Processing new order: 7125080810724
+2025-08-08 09:55:25,311 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:55:25,312 - ERROR - Error processing order 7125080810724: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:55:32,031 - INFO - Processing new order: 7125080810724
+2025-08-08 09:55:32,472 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:55:32,472 - ERROR - Error processing order 7125080810724: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:55:39,500 - INFO - Processing new order: 7125080810724
+2025-08-08 09:55:39,918 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:55:39,918 - ERROR - Error processing order 7125080810724: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 09:55:46,865 - INFO - Processing new order: 7125080810724
+2025-08-08 09:55:47,404 - INFO - Order copied to As (Qty: 8)
+2025-08-08 09:55:47,408 - ERROR - Error processing order 7125080810724: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 10:04:24,291 - INFO - Starting order monitor (Poll: 5s, Off: 3600s)
+2025-08-08 10:04:28,759 - INFO - Processing new order: 7125080810724
+2025-08-08 10:04:29,521 - INFO - Order copied to As (Qty: 8)
+2025-08-08 10:04:29,526 - ERROR - Error processing order 7125080810724: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 10:04:36,722 - INFO - Processing new order: 7125080810724
+2025-08-08 10:04:37,504 - INFO - Order copied to As (Qty: 8)
+2025-08-08 10:04:37,507 - ERROR - Error processing order 7125080810724: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 10:04:44,827 - INFO - Processing new order: 7125080810724
+2025-08-08 10:04:45,584 - INFO - Order copied to As (Qty: 8)
+2025-08-08 10:04:45,589 - ERROR - Error processing order 7125080810724: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 10:09:21,533 - INFO - Starting order monitor (Poll: 5s, Off: 3600s)
+2025-08-08 10:09:23,043 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 10:09:23,263 - INFO - Fetched 8 orders from master account
+2025-08-08 10:09:23,340 - INFO - Processing new order: 7125080810724
+2025-08-08 10:09:24,111 - INFO - Order copied to As (Qty: 8)
+2025-08-08 10:09:24,114 - ERROR - Error processing order 7125080810724: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 10:09:24,116 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 10:09:24,120 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 10:09:24,122 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 10:09:24,126 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 10:09:24,131 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 10:09:24,133 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 10:09:24,136 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 10:09:31,070 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 10:09:31,247 - INFO - Fetched 8 orders from master account
+2025-08-08 10:09:31,336 - INFO - Processing new order: 7125080810724
+2025-08-08 10:09:32,228 - INFO - Order copied to As (Qty: 8)
+2025-08-08 10:09:32,230 - ERROR - Error processing order 7125080810724: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 10:09:32,231 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 10:09:32,231 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 10:09:32,232 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 10:09:32,233 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 10:09:32,235 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 10:09:32,236 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 10:09:32,239 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 10:09:39,226 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 10:09:39,453 - INFO - Fetched 8 orders from master account
+2025-08-08 10:09:39,539 - INFO - Processing new order: 7125080810724
+2025-08-08 10:09:40,265 - INFO - Order copied to As (Qty: 8)
+2025-08-08 10:09:40,273 - ERROR - Error processing order 7125080810724: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 10:09:40,275 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 10:09:40,279 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 10:09:40,282 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 10:09:40,284 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 10:09:40,292 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 10:09:40,293 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 10:09:40,297 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 10:09:47,609 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 10:09:47,813 - INFO - Fetched 8 orders from master account
+2025-08-08 10:09:47,883 - INFO - Processing new order: 7125080810724
+2025-08-08 10:09:48,662 - INFO - Order copied to As (Qty: 8)
+2025-08-08 10:09:48,665 - ERROR - Error processing order 7125080810724: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 10:09:48,668 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 10:09:48,669 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 10:09:48,674 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 10:09:48,674 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 10:09:48,674 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 10:09:48,681 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 10:09:48,684 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 10:09:55,400 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 10:09:55,654 - INFO - Fetched 8 orders from master account
+2025-08-08 10:09:55,744 - INFO - Processing new order: 7125080810724
+2025-08-08 10:09:56,548 - INFO - Order copied to As (Qty: 8)
+2025-08-08 10:09:56,549 - ERROR - Error processing order 7125080810724: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 10:09:56,549 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 10:09:56,550 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 10:09:56,550 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 10:09:56,551 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 10:09:56,551 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 10:09:56,551 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 10:09:56,552 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 10:10:03,386 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 10:10:03,620 - INFO - Fetched 8 orders from master account
+2025-08-08 10:10:03,698 - INFO - Processing new order: 7125080810724
+2025-08-08 10:10:04,561 - INFO - Order copied to As (Qty: 8)
+2025-08-08 10:10:04,562 - ERROR - Error processing order 7125080810724: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2025-08-08 10:10:04,562 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 10:10:04,562 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 10:10:04,564 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 10:10:04,564 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 10:10:04,564 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 10:10:04,564 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 10:10:04,569 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:16:09,787 - INFO - Starting order monitor (Poll: 5s, Off: 3600s)
+2025-08-08 11:16:10,939 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:16:11,219 - INFO - Fetched 8 orders from master account
+2025-08-08 11:16:11,328 - INFO - Processing new order: 7125080810724
+2025-08-08 11:16:12,533 - INFO - Order copied to As (Qty: 8)
+2025-08-08 11:16:12,548 - INFO - Marked order 7125080810724 as processed after copy to As
+2025-08-08 11:16:12,846 - INFO - Successfully created OrderMapping for order 7125080810724 to child As
+2025-08-08 11:16:12,847 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:16:12,847 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:16:12,848 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:16:12,848 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:16:12,849 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:16:12,849 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:16:12,849 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:16:19,218 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:16:19,538 - INFO - Fetched 8 orders from master account
+2025-08-08 11:16:19,662 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:16:19,662 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:16:19,662 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:16:19,662 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:16:19,662 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:16:19,662 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:16:19,662 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:16:19,662 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:16:26,064 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:16:26,464 - INFO - Fetched 8 orders from master account
+2025-08-08 11:16:26,564 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:16:26,564 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:16:26,564 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:16:26,564 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:16:26,564 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:16:26,564 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:16:26,564 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:16:26,564 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:16:33,260 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:16:33,542 - INFO - Fetched 8 orders from master account
+2025-08-08 11:16:33,652 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:16:33,652 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:16:33,652 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:16:33,652 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:16:33,652 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:16:33,652 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:16:33,652 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:16:33,652 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:16:40,015 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:16:40,296 - INFO - Fetched 8 orders from master account
+2025-08-08 11:16:40,445 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:16:40,450 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:16:40,450 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:16:40,450 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:16:40,450 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:16:40,450 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:16:40,450 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:16:40,450 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:16:46,784 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:16:47,115 - INFO - Fetched 8 orders from master account
+2025-08-08 11:16:47,197 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:16:47,197 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:16:47,197 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:16:47,197 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:16:47,197 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:16:47,197 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:16:47,197 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:16:47,197 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:16:53,613 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:16:53,898 - INFO - Fetched 8 orders from master account
+2025-08-08 11:16:53,996 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:16:53,996 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:16:53,996 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:16:54,012 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:16:54,012 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:16:54,012 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:16:54,012 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:16:54,012 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:17:00,422 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:17:00,857 - INFO - Fetched 8 orders from master account
+2025-08-08 11:17:00,985 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:17:00,986 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:17:00,988 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:17:00,989 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:17:00,991 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:17:00,994 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:17:01,001 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:17:01,004 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:17:07,410 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:17:07,693 - INFO - Fetched 8 orders from master account
+2025-08-08 11:17:07,815 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:17:07,818 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:17:07,821 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:17:07,823 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:17:07,828 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:17:07,830 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:17:07,832 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:17:07,834 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:17:14,223 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:17:14,530 - INFO - Fetched 8 orders from master account
+2025-08-08 11:17:14,608 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:17:14,608 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:17:14,608 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:17:14,608 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:17:14,608 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:17:14,613 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:17:14,613 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:17:14,614 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:17:20,989 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:17:21,254 - INFO - Fetched 8 orders from master account
+2025-08-08 11:17:21,350 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:17:21,350 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:17:21,351 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:17:21,352 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:17:21,352 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:17:21,352 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:17:21,353 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:17:21,353 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:17:27,746 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:17:28,018 - INFO - Fetched 8 orders from master account
+2025-08-08 11:17:28,133 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:17:28,134 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:17:28,136 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:17:28,137 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:17:28,139 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:17:28,141 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:17:28,146 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:17:28,150 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:17:34,503 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:17:34,871 - INFO - Fetched 8 orders from master account
+2025-08-08 11:17:35,374 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:17:35,375 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:17:35,376 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:17:35,376 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:17:35,377 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:17:35,377 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:17:35,378 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:17:35,378 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:17:42,387 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:17:42,646 - INFO - Fetched 8 orders from master account
+2025-08-08 11:17:42,717 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:17:42,717 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:17:42,717 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:17:42,726 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:17:42,726 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:17:42,727 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:17:42,727 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:17:42,728 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:17:49,059 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:17:49,351 - INFO - Fetched 8 orders from master account
+2025-08-08 11:17:49,443 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:17:49,444 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:17:49,444 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:17:49,445 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:17:49,445 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:17:49,445 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:17:49,446 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:17:49,446 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:17:55,824 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:17:57,088 - INFO - Fetched 8 orders from master account
+2025-08-08 11:17:57,168 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:17:57,169 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:17:57,169 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:17:57,170 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:17:57,170 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:17:57,171 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:17:57,171 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:17:57,172 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:18:03,929 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:18:04,387 - INFO - Fetched 8 orders from master account
+2025-08-08 11:18:04,490 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:18:04,496 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:18:04,496 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:18:04,497 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:18:04,497 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:18:04,498 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:18:04,498 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:18:04,499 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:18:10,892 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:18:11,175 - INFO - Fetched 8 orders from master account
+2025-08-08 11:18:11,275 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:18:11,275 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:18:11,275 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:18:11,290 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:18:11,290 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:18:11,298 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:18:11,299 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:18:11,301 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:18:18,168 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:18:18,460 - INFO - Fetched 8 orders from master account
+2025-08-08 11:18:18,570 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:18:18,570 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:18:18,571 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:18:18,571 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:18:18,572 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:18:18,572 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:18:18,573 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:18:18,573 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:18:24,966 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:18:25,207 - INFO - Fetched 8 orders from master account
+2025-08-08 11:18:25,292 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:18:25,292 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:18:25,292 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:18:25,292 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:18:25,292 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:18:25,292 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:18:25,292 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:18:25,292 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:18:31,778 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:18:32,095 - INFO - Fetched 8 orders from master account
+2025-08-08 11:18:32,211 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:18:32,212 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:18:32,212 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:18:32,213 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:18:32,213 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:18:32,214 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:18:32,214 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:18:32,215 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:18:38,568 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:18:38,899 - INFO - Fetched 8 orders from master account
+2025-08-08 11:18:39,007 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:18:39,007 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:18:39,007 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:18:39,007 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:18:39,007 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:18:39,007 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:18:39,007 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:18:39,020 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:18:45,374 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:18:46,108 - INFO - Fetched 8 orders from master account
+2025-08-08 11:18:46,212 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:18:46,212 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:18:46,213 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:18:46,213 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:18:46,213 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:18:46,214 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:18:46,214 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:18:46,215 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:18:52,575 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:18:52,956 - INFO - Fetched 8 orders from master account
+2025-08-08 11:18:53,050 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:18:53,050 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:18:53,051 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:18:53,051 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:18:53,051 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:18:53,052 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:18:53,053 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:18:53,053 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:19:00,145 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:19:00,417 - INFO - Fetched 8 orders from master account
+2025-08-08 11:19:00,555 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:19:00,555 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:19:00,556 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:19:00,556 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:19:00,557 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:19:00,557 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:19:00,558 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:19:00,558 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:19:06,942 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:19:07,533 - INFO - Fetched 8 orders from master account
+2025-08-08 11:19:07,922 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:19:07,922 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:19:07,942 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:19:07,953 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:19:07,975 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:19:07,977 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:19:07,979 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:19:07,979 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:19:14,345 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:19:14,651 - INFO - Fetched 8 orders from master account
+2025-08-08 11:19:14,774 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:19:14,779 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:19:14,780 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:19:14,781 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:19:14,782 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:19:14,784 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:19:14,785 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:19:14,786 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:19:21,143 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:19:22,056 - INFO - Fetched 8 orders from master account
+2025-08-08 11:19:22,162 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:19:22,162 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:19:22,162 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:19:22,173 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:19:22,175 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:19:22,177 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:19:22,177 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:19:22,178 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:19:28,492 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:19:28,770 - INFO - Fetched 8 orders from master account
+2025-08-08 11:19:28,856 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:19:28,856 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:19:28,856 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:19:28,856 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:19:28,856 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:19:28,856 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:19:28,856 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:19:28,856 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:19:35,201 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:19:36,176 - INFO - Fetched 8 orders from master account
+2025-08-08 11:19:36,287 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:19:36,287 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:19:36,288 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:19:36,289 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:19:36,289 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:19:36,289 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:19:36,290 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:19:36,290 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:19:42,966 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:19:43,266 - INFO - Fetched 8 orders from master account
+2025-08-08 11:19:43,355 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:19:43,355 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:19:43,355 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:19:43,355 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:19:43,371 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:19:43,375 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:19:43,377 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:19:43,379 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:19:50,374 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:19:50,983 - INFO - Fetched 8 orders from master account
+2025-08-08 11:19:51,088 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:19:51,088 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:19:51,088 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:19:51,088 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:19:51,088 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:19:51,088 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:19:51,088 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:19:51,088 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:19:57,809 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:19:58,067 - INFO - Fetched 8 orders from master account
+2025-08-08 11:19:58,161 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:19:58,162 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:19:58,162 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:19:58,162 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:19:58,162 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:19:58,162 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:19:58,163 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:19:58,163 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:20:04,574 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:20:04,864 - INFO - Fetched 8 orders from master account
+2025-08-08 11:20:04,952 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:20:04,952 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:20:04,952 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:20:04,952 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:20:04,952 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:20:04,952 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:20:04,952 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:20:04,967 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:20:11,289 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:20:11,736 - INFO - Fetched 8 orders from master account
+2025-08-08 11:20:11,836 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:20:11,852 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:20:11,852 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:20:11,852 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:20:11,852 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:20:11,852 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:20:11,852 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:20:11,852 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:20:18,502 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:20:18,768 - INFO - Fetched 8 orders from master account
+2025-08-08 11:20:18,880 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:20:18,881 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:20:18,881 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:20:18,882 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:20:18,882 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:20:18,882 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:20:18,883 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:20:18,883 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:20:25,250 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:20:25,524 - INFO - Fetched 8 orders from master account
+2025-08-08 11:20:25,648 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:20:25,648 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:20:25,648 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:20:25,648 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:20:25,648 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:20:25,648 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:20:25,663 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:20:25,665 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:20:32,061 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:20:32,370 - INFO - Fetched 8 orders from master account
+2025-08-08 11:20:32,451 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:20:32,451 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:20:32,467 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:20:32,467 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:20:32,467 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:20:32,467 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:20:32,476 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:20:32,478 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:20:38,803 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:20:39,102 - INFO - Fetched 8 orders from master account
+2025-08-08 11:20:39,203 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:20:39,203 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:20:39,203 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:20:39,203 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:20:39,203 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:20:39,203 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:20:39,203 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:20:39,203 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:20:45,588 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:20:45,834 - INFO - Fetched 8 orders from master account
+2025-08-08 11:20:45,973 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:20:45,976 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:20:45,978 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:20:45,979 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:20:45,980 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:20:45,982 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:20:45,991 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:20:45,994 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:20:52,336 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:20:52,666 - INFO - Fetched 8 orders from master account
+2025-08-08 11:20:53,086 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:20:53,088 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:20:53,089 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:20:53,090 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:20:53,092 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:20:53,094 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:20:53,095 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:20:53,097 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:20:59,521 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:20:59,768 - INFO - Fetched 8 orders from master account
+2025-08-08 11:20:59,899 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:20:59,900 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:20:59,901 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:20:59,901 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:20:59,902 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:20:59,902 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:20:59,903 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:20:59,903 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:21:06,259 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:21:06,553 - INFO - Fetched 8 orders from master account
+2025-08-08 11:21:06,691 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:21:06,693 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:21:06,694 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:21:06,695 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:21:06,697 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:21:06,698 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:21:06,701 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:21:06,703 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:21:13,098 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:21:13,450 - INFO - Fetched 8 orders from master account
+2025-08-08 11:21:13,568 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:21:13,569 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:21:13,569 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:21:13,569 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:21:13,570 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:21:13,570 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:21:13,571 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:21:13,571 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:21:19,903 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:21:20,761 - INFO - Fetched 8 orders from master account
+2025-08-08 11:21:20,882 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:21:20,883 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:21:20,884 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:21:20,884 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:21:20,885 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:21:20,886 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:21:20,887 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:21:20,888 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:21:27,282 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:21:27,613 - INFO - Fetched 8 orders from master account
+2025-08-08 11:21:27,728 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:21:27,728 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:21:27,744 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:21:27,744 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:21:27,744 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:21:27,744 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:21:27,752 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:21:27,756 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:21:34,139 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:21:34,416 - INFO - Fetched 8 orders from master account
+2025-08-08 11:21:34,514 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:21:34,514 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:21:34,514 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:21:34,514 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:21:34,529 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:21:34,529 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:21:34,529 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:21:34,529 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:21:41,345 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:21:41,600 - INFO - Fetched 8 orders from master account
+2025-08-08 11:21:41,714 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:21:41,714 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:21:41,729 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:21:41,729 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:21:41,732 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:21:41,732 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:21:41,734 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:21:41,735 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:21:48,182 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:21:48,832 - INFO - Fetched 8 orders from master account
+2025-08-08 11:21:49,250 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:21:49,250 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:21:49,250 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:21:49,250 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:21:49,271 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:21:49,279 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:21:49,280 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:21:49,284 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:21:55,614 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:21:56,011 - INFO - Fetched 8 orders from master account
+2025-08-08 11:21:56,095 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:21:56,096 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:21:56,097 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:21:56,098 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:21:56,098 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:21:56,099 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:21:56,099 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:21:56,099 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:22:02,495 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:22:03,252 - INFO - Fetched 8 orders from master account
+2025-08-08 11:22:03,347 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:22:03,347 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:22:03,348 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:22:03,348 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:22:03,349 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:22:03,349 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:22:03,350 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:22:03,350 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:22:09,733 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:22:10,000 - INFO - Fetched 8 orders from master account
+2025-08-08 11:22:10,092 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:22:10,093 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:22:10,093 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:22:10,094 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:22:10,095 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:22:10,096 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:22:10,097 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:22:10,099 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:22:16,482 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:22:17,473 - INFO - Fetched 8 orders from master account
+2025-08-08 11:22:17,564 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:22:17,566 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:22:17,567 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:22:17,568 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:22:17,569 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:22:17,570 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:22:17,570 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:22:17,570 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:22:23,849 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:22:24,162 - INFO - Fetched 8 orders from master account
+2025-08-08 11:22:24,263 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:22:24,264 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:22:24,264 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:22:24,265 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:22:24,265 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:22:24,266 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:22:24,267 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:22:24,267 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:22:30,651 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:22:30,938 - INFO - Fetched 8 orders from master account
+2025-08-08 11:22:31,034 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:22:31,034 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:22:31,034 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:22:31,034 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:22:31,034 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:22:31,034 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:22:31,034 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:22:31,034 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:22:37,402 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:22:39,249 - INFO - Fetched 8 orders from master account
+2025-08-08 11:22:39,365 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:22:39,365 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:22:39,366 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:22:39,366 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:22:39,368 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:22:39,368 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:22:39,369 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:22:39,369 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:22:45,786 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:22:46,780 - INFO - Fetched 8 orders from master account
+2025-08-08 11:22:46,884 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:22:46,884 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:22:46,884 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:22:46,884 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:22:46,884 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:22:46,884 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:22:46,884 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:22:46,884 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:22:53,260 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:22:53,514 - INFO - Fetched 8 orders from master account
+2025-08-08 11:22:53,650 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:22:53,653 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:22:53,655 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:22:53,657 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:22:53,675 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:22:53,676 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:22:53,676 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:22:53,681 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:22:59,957 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:23:00,235 - INFO - Fetched 8 orders from master account
+2025-08-08 11:23:00,324 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:23:00,340 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:23:00,353 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:23:00,357 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:23:00,364 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:23:00,365 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:23:00,366 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:23:00,366 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:23:07,053 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:23:07,368 - INFO - Fetched 8 orders from master account
+2025-08-08 11:23:07,482 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:23:07,496 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:23:07,524 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:23:07,524 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:23:07,525 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:23:07,527 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:23:07,529 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:23:07,530 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:23:13,919 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:23:14,195 - INFO - Fetched 8 orders from master account
+2025-08-08 11:23:14,279 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:23:14,279 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:23:14,279 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:23:14,279 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:23:14,279 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:23:14,279 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:23:14,292 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:23:14,294 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:23:20,692 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:23:21,009 - INFO - Fetched 8 orders from master account
+2025-08-08 11:23:21,151 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:23:21,151 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:23:21,166 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:23:21,168 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:23:21,171 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:23:21,174 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:23:21,184 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:23:21,185 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:23:27,531 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:23:27,850 - INFO - Fetched 8 orders from master account
+2025-08-08 11:23:27,970 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:23:27,971 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:23:27,972 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:23:27,973 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:23:27,973 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:23:27,974 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:23:27,979 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:23:27,980 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:23:34,626 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:23:34,923 - INFO - Fetched 8 orders from master account
+2025-08-08 11:23:35,044 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:23:35,044 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:23:35,044 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:23:35,044 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:23:35,044 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:23:35,044 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:23:35,044 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:23:35,044 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:23:42,270 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:23:42,615 - INFO - Fetched 8 orders from master account
+2025-08-08 11:23:42,732 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:23:42,733 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:23:42,734 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:23:42,735 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:23:42,736 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:23:42,736 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:23:42,737 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:23:42,738 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:23:49,105 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:23:49,456 - INFO - Fetched 8 orders from master account
+2025-08-08 11:23:49,574 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:23:49,574 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:23:49,574 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:23:49,574 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:23:49,574 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:23:49,574 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:23:49,574 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:23:49,574 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:23:55,931 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:23:56,269 - INFO - Fetched 8 orders from master account
+2025-08-08 11:23:56,392 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:23:56,392 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:23:56,392 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:23:56,392 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:23:56,392 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:23:56,392 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:23:56,392 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:23:56,392 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:24:02,724 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:24:03,041 - INFO - Fetched 8 orders from master account
+2025-08-08 11:24:03,157 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:24:03,157 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:24:03,157 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:24:03,157 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:24:03,157 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:24:03,157 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:24:03,157 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:24:03,157 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:24:09,523 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:24:09,879 - INFO - Fetched 8 orders from master account
+2025-08-08 11:24:10,002 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:24:10,002 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:24:10,002 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:24:10,002 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:24:10,002 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:24:10,002 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:24:10,018 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:24:10,021 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:24:16,411 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:24:16,682 - INFO - Fetched 8 orders from master account
+2025-08-08 11:24:16,792 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:24:16,792 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:24:16,792 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:24:16,792 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:24:16,792 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:24:16,792 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:24:16,792 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:24:16,809 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:24:23,602 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:24:25,540 - INFO - Fetched 8 orders from master account
+2025-08-08 11:24:25,642 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:24:25,642 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:24:25,642 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:24:25,642 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:24:25,642 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:24:25,642 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:24:25,642 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:24:25,642 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:24:32,059 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:24:32,327 - INFO - Fetched 8 orders from master account
+2025-08-08 11:24:32,455 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:24:32,459 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:24:32,459 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:24:32,459 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:24:32,459 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:24:32,459 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:24:32,459 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:24:32,467 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:24:38,819 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:24:39,083 - INFO - Fetched 8 orders from master account
+2025-08-08 11:24:39,234 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:24:39,234 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:24:39,234 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:24:39,234 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:24:39,247 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:24:39,248 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:24:39,249 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:24:39,252 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:24:45,624 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:24:45,883 - INFO - Fetched 8 orders from master account
+2025-08-08 11:24:45,988 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:24:45,988 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:24:45,988 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:24:45,988 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:24:45,988 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:24:45,988 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:24:45,988 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:24:45,988 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:24:52,405 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:24:52,943 - INFO - Fetched 8 orders from master account
+2025-08-08 11:24:53,037 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:24:53,037 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:24:53,053 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:24:53,053 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:24:53,053 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:24:53,053 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:24:53,058 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:24:53,060 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:24:59,454 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:24:59,815 - INFO - Fetched 8 orders from master account
+2025-08-08 11:24:59,921 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:24:59,921 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:24:59,921 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:24:59,921 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:24:59,921 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:24:59,921 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:24:59,921 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:24:59,921 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:25:06,377 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:25:06,636 - INFO - Fetched 8 orders from master account
+2025-08-08 11:25:06,770 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:25:06,770 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:25:06,770 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:25:06,770 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:25:06,786 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:25:06,786 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:25:06,786 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:25:06,786 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:25:13,130 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:25:13,440 - INFO - Fetched 8 orders from master account
+2025-08-08 11:25:13,521 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:25:13,521 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:25:13,521 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:25:13,521 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:25:13,521 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:25:13,521 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:25:13,521 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:25:13,521 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:25:19,975 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:25:21,242 - INFO - Fetched 8 orders from master account
+2025-08-08 11:25:21,357 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:25:21,357 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:25:21,357 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:25:21,357 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:25:21,357 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:25:21,357 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:25:21,357 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:25:21,357 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:25:27,757 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:25:28,154 - INFO - Fetched 8 orders from master account
+2025-08-08 11:25:28,269 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:25:28,284 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:25:28,284 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:25:28,284 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:25:28,284 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:25:28,284 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:25:28,284 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:25:28,284 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:25:34,686 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:25:34,954 - INFO - Fetched 8 orders from master account
+2025-08-08 11:25:35,082 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:25:35,082 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:25:35,082 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:25:35,088 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:25:35,088 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:25:35,089 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:25:35,089 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:25:35,089 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:25:41,497 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:25:41,753 - INFO - Fetched 8 orders from master account
+2025-08-08 11:25:41,840 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:25:41,844 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:25:41,845 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:25:41,845 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:25:41,855 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:25:41,857 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:25:41,862 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:25:41,864 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:25:48,717 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:25:49,006 - INFO - Fetched 8 orders from master account
+2025-08-08 11:25:49,119 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:25:49,121 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:25:49,121 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:25:49,121 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:25:49,121 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:25:49,121 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:25:49,129 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:25:49,130 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:25:55,534 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:25:55,803 - INFO - Fetched 8 orders from master account
+2025-08-08 11:25:55,917 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:25:55,917 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:25:55,917 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:25:55,917 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:25:55,917 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:25:55,917 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:25:55,932 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:25:55,944 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:26:02,333 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:26:02,640 - INFO - Fetched 8 orders from master account
+2025-08-08 11:26:02,734 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:26:02,734 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:26:02,734 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:26:02,734 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:26:02,734 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:26:02,734 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:26:02,744 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:26:02,745 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:26:09,167 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:26:09,433 - INFO - Fetched 8 orders from master account
+2025-08-08 11:26:09,565 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:26:09,565 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:26:09,580 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:26:09,580 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:26:09,588 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:26:09,590 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:26:09,591 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:26:09,594 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:26:15,967 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:26:16,252 - INFO - Fetched 8 orders from master account
+2025-08-08 11:26:16,361 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:26:16,362 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:26:16,364 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:26:16,367 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:26:16,375 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:26:16,378 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:26:16,394 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:26:16,398 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:26:22,720 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:26:28,936 - INFO - Fetched 8 orders from master account
+2025-08-08 11:26:29,042 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:26:29,045 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:26:29,047 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:26:29,049 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:26:29,053 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:26:29,058 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:26:29,061 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:26:29,064 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:26:35,433 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:26:37,301 - INFO - Fetched 8 orders from master account
+2025-08-08 11:26:37,416 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:26:37,417 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:26:37,417 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:26:37,417 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:26:37,417 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:26:37,417 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:26:37,417 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:26:37,417 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:26:44,088 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:26:44,350 - INFO - Fetched 8 orders from master account
+2025-08-08 11:26:44,465 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:26:44,465 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:26:44,480 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:26:44,480 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:26:44,480 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:26:44,480 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:26:44,480 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:26:44,487 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:26:51,128 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:26:51,405 - INFO - Fetched 8 orders from master account
+2025-08-08 11:26:51,519 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:26:51,519 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:26:51,520 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:26:51,521 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:26:51,521 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:26:51,522 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:26:51,522 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:26:51,523 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:26:57,968 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:26:58,231 - INFO - Fetched 8 orders from master account
+2025-08-08 11:26:58,331 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:26:58,331 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:26:58,331 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:26:58,331 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:26:58,331 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:26:58,331 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:26:58,345 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:26:58,350 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:27:04,728 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:27:05,185 - INFO - Fetched 8 orders from master account
+2025-08-08 11:27:05,281 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:27:05,282 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:27:05,282 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:27:05,283 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:27:05,283 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:27:05,283 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:27:05,283 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:27:05,283 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:27:12,169 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:27:12,481 - INFO - Fetched 8 orders from master account
+2025-08-08 11:27:12,599 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:27:12,599 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:27:12,599 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:27:12,599 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:27:12,599 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:27:12,599 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:27:12,599 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:27:12,615 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:27:19,018 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:27:20,283 - INFO - Fetched 8 orders from master account
+2025-08-08 11:27:20,367 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:27:20,381 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:27:20,383 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:27:20,385 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:27:20,388 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:27:20,402 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:27:20,404 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:27:20,405 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:27:26,794 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:27:27,082 - INFO - Fetched 8 orders from master account
+2025-08-08 11:27:27,202 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:27:27,202 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:27:27,202 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:27:27,202 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:27:27,202 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:27:27,202 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:27:27,202 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:27:27,202 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:27:33,582 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:27:33,846 - INFO - Fetched 8 orders from master account
+2025-08-08 11:27:33,971 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:27:33,972 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:27:33,973 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:27:33,974 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:27:33,974 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:27:33,975 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:27:33,975 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:27:33,976 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:27:40,686 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:27:42,077 - INFO - Fetched 8 orders from master account
+2025-08-08 11:27:42,156 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:27:42,157 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:27:42,158 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:27:42,158 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:27:42,159 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:27:42,159 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:27:42,160 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:27:42,160 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:27:48,574 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:27:48,832 - INFO - Fetched 8 orders from master account
+2025-08-08 11:27:48,948 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:27:48,948 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:27:48,948 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:27:48,948 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:27:48,948 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:27:48,948 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:27:48,962 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:27:48,963 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:27:55,423 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:27:55,667 - INFO - Fetched 8 orders from master account
+2025-08-08 11:27:55,765 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:27:55,766 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:27:55,766 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:27:55,767 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:27:55,768 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:27:55,768 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:27:55,768 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:27:55,769 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:28:02,459 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:28:03,095 - INFO - Fetched 8 orders from master account
+2025-08-08 11:28:03,199 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:28:03,200 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:28:03,202 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:28:03,203 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:28:03,204 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:28:03,206 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:28:03,208 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:28:03,209 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:28:09,664 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:28:09,921 - INFO - Fetched 8 orders from master account
+2025-08-08 11:28:10,053 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:28:10,054 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:28:10,054 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:28:10,055 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:28:10,055 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:28:10,055 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:28:10,056 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:28:10,056 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:28:16,467 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:28:16,719 - INFO - Fetched 8 orders from master account
+2025-08-08 11:28:16,840 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:28:16,840 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:28:16,840 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:28:16,840 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:28:16,853 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:28:16,854 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:28:16,865 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:28:16,870 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:28:23,173 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:28:23,514 - INFO - Fetched 8 orders from master account
+2025-08-08 11:28:23,596 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:28:23,597 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:28:23,597 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:28:23,597 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:28:23,597 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:28:23,597 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:28:23,597 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:28:23,597 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:28:29,971 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:28:30,258 - INFO - Fetched 8 orders from master account
+2025-08-08 11:28:30,406 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:28:30,406 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:28:30,406 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:28:30,406 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:28:30,406 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:28:30,417 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:28:30,420 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:28:30,423 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:28:36,763 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:28:37,040 - INFO - Fetched 8 orders from master account
+2025-08-08 11:28:37,127 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:28:37,127 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:28:37,127 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:28:37,127 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:28:37,127 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:28:37,127 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:28:37,127 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:28:37,127 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:28:43,446 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:28:45,305 - INFO - Fetched 8 orders from master account
+2025-08-08 11:28:45,442 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:28:45,442 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:28:45,442 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:28:45,442 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:28:45,442 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:28:45,442 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:28:45,453 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:28:45,455 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:28:51,841 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:28:52,108 - INFO - Fetched 8 orders from master account
+2025-08-08 11:28:52,194 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:28:52,194 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:28:52,194 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:28:52,194 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:28:52,194 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:28:52,194 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:28:52,194 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:28:52,194 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:28:58,608 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:28:58,934 - INFO - Fetched 8 orders from master account
+2025-08-08 11:28:59,025 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:28:59,025 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:28:59,041 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:28:59,041 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:28:59,071 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:28:59,085 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:28:59,086 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:28:59,087 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:29:05,445 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:29:05,978 - INFO - Fetched 8 orders from master account
+2025-08-08 11:29:06,074 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:29:06,076 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:29:06,076 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:29:06,078 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:29:06,080 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:29:06,080 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:29:06,081 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:29:06,082 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:29:12,486 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:29:12,749 - INFO - Fetched 8 orders from master account
+2025-08-08 11:29:12,841 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:29:12,841 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:29:12,841 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:29:12,857 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:29:12,857 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:29:12,857 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:29:12,858 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:29:12,858 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:29:19,256 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:29:19,814 - INFO - Fetched 8 orders from master account
+2025-08-08 11:29:19,916 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:29:19,917 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:29:19,917 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:29:19,918 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:29:19,919 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:29:19,920 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:29:19,921 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:29:19,921 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:29:26,377 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:29:26,636 - INFO - Fetched 8 orders from master account
+2025-08-08 11:29:26,758 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:29:26,758 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:29:26,759 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:29:26,760 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:29:26,760 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:29:26,762 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:29:26,762 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:29:26,763 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:29:33,173 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:29:33,436 - INFO - Fetched 8 orders from master account
+2025-08-08 11:29:33,524 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:29:33,525 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:29:33,525 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:29:33,526 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:29:33,527 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:29:33,527 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:29:33,528 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:29:33,528 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:29:39,971 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:29:40,236 - INFO - Fetched 8 orders from master account
+2025-08-08 11:29:40,315 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:29:40,317 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:29:40,319 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:29:40,321 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:29:40,323 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:29:40,335 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:29:40,336 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:29:40,337 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:29:46,691 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:29:47,037 - INFO - Fetched 8 orders from master account
+2025-08-08 11:29:47,126 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:29:47,126 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:29:47,127 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:29:47,128 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:29:47,128 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:29:47,128 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:29:47,129 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:29:47,129 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:29:53,812 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:29:54,439 - INFO - Fetched 8 orders from master account
+2025-08-08 11:29:54,522 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:29:54,532 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:29:54,532 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:29:54,532 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:29:54,532 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:29:54,533 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:29:54,533 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:29:54,533 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:30:01,132 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:30:01,439 - INFO - Fetched 8 orders from master account
+2025-08-08 11:30:01,579 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:30:01,579 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:30:01,580 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:30:01,580 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:30:01,581 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:30:01,581 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:30:01,581 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:30:01,582 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:30:07,982 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:30:08,378 - INFO - Fetched 8 orders from master account
+2025-08-08 11:30:08,492 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:30:08,495 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:30:08,495 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:30:08,496 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:30:08,496 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:30:08,496 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:30:08,497 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:30:08,497 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:30:14,981 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:30:15,283 - INFO - Fetched 8 orders from master account
+2025-08-08 11:30:15,404 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:30:15,404 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:30:15,404 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:30:15,404 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:30:15,404 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:30:15,404 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:30:15,404 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:30:15,404 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:30:21,816 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:30:22,081 - INFO - Fetched 8 orders from master account
+2025-08-08 11:30:22,272 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:30:22,272 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:30:22,272 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:30:22,272 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:30:22,272 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:30:22,272 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:30:22,276 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:30:22,276 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:30:28,654 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:30:28,932 - INFO - Fetched 8 orders from master account
+2025-08-08 11:30:29,043 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:30:29,043 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:30:29,043 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:30:29,043 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:30:29,043 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:30:29,043 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:30:29,043 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:30:29,043 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:30:35,764 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:30:36,353 - INFO - Fetched 8 orders from master account
+2025-08-08 11:30:36,442 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:30:36,445 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:30:36,447 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:30:36,448 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:30:36,450 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:30:36,460 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:30:36,462 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:30:36,463 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:30:43,342 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:30:43,609 - INFO - Fetched 8 orders from master account
+2025-08-08 11:30:43,740 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:30:43,741 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:30:43,742 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:30:43,743 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:30:43,745 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:30:43,746 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:30:43,747 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:30:43,748 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:30:50,161 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:30:51,109 - INFO - Fetched 8 orders from master account
+2025-08-08 11:30:51,203 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:30:51,203 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:30:51,203 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:30:51,203 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:30:51,203 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:30:51,203 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:30:51,203 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:30:51,210 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:30:57,665 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:30:57,939 - INFO - Fetched 8 orders from master account
+2025-08-08 11:30:58,082 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:30:58,083 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:30:58,083 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:30:58,084 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:30:58,084 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:30:58,084 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:30:58,086 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:30:58,086 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:31:04,493 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:31:04,782 - INFO - Fetched 8 orders from master account
+2025-08-08 11:31:04,883 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:31:04,883 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:31:04,884 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:31:04,884 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:31:04,887 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:31:04,888 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:31:04,889 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:31:04,890 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:31:11,341 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:31:12,230 - INFO - Fetched 8 orders from master account
+2025-08-08 11:31:12,323 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:31:12,323 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:31:12,324 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:31:12,325 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:31:12,325 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:31:12,325 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:31:12,325 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:31:12,327 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:31:18,653 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:31:19,586 - INFO - Fetched 8 orders from master account
+2025-08-08 11:31:19,683 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:31:19,684 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:31:19,685 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:31:19,685 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:31:19,685 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:31:19,685 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:31:19,685 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:31:19,685 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:31:26,093 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:31:26,462 - INFO - Fetched 8 orders from master account
+2025-08-08 11:31:26,574 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:31:26,574 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:31:26,574 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:31:26,574 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:31:26,574 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:31:26,574 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:31:26,574 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:31:26,582 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:31:32,898 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:31:33,167 - INFO - Fetched 8 orders from master account
+2025-08-08 11:31:33,282 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:31:33,283 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:31:33,284 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:31:33,284 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:31:33,284 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:31:33,284 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:31:33,284 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:31:33,284 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:31:39,660 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:31:40,337 - INFO - Fetched 8 orders from master account
+2025-08-08 11:31:40,447 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:31:40,448 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:31:40,448 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:31:40,450 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:31:40,451 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:31:40,451 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:31:40,452 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:31:40,453 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:31:46,782 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:31:47,056 - INFO - Fetched 8 orders from master account
+2025-08-08 11:31:47,178 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:31:47,181 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:31:47,195 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:31:47,196 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:31:47,196 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:31:47,205 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:31:47,206 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:31:47,207 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:31:53,579 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:31:53,926 - INFO - Fetched 8 orders from master account
+2025-08-08 11:31:54,048 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:31:54,072 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:31:54,077 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:31:54,120 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:31:54,125 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:31:54,130 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:31:54,175 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:31:54,220 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:32:00,621 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:32:01,940 - INFO - Fetched 8 orders from master account
+2025-08-08 11:32:02,083 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:32:02,084 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:32:02,084 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:32:02,085 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:32:02,085 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:32:02,086 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:32:02,086 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:32:02,086 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:32:08,450 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:32:08,719 - INFO - Fetched 8 orders from master account
+2025-08-08 11:32:08,801 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:32:08,802 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:32:08,802 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:32:08,803 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:32:08,803 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:32:08,803 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:32:08,804 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:32:08,804 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:32:15,150 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:32:15,408 - INFO - Fetched 8 orders from master account
+2025-08-08 11:32:15,490 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:32:15,491 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:32:15,491 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:32:15,492 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:32:15,492 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:32:15,492 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:32:15,492 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:32:15,493 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:32:22,300 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:32:22,567 - INFO - Fetched 8 orders from master account
+2025-08-08 11:32:22,679 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:32:22,679 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:32:22,694 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:32:22,694 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:32:22,705 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:32:22,727 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:32:22,741 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:32:22,743 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:32:29,615 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:32:30,516 - INFO - Fetched 8 orders from master account
+2025-08-08 11:32:30,605 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:32:30,646 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:32:30,661 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:32:30,662 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:32:30,666 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:32:30,666 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:32:30,667 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:32:30,667 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:32:36,968 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:32:37,737 - INFO - Fetched 8 orders from master account
+2025-08-08 11:32:42,548 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:32:42,549 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:32:42,549 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:32:42,550 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:32:42,551 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:32:42,551 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:32:42,552 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:32:42,553 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:32:49,302 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:32:49,599 - INFO - Fetched 8 orders from master account
+2025-08-08 11:32:49,681 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:32:49,683 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:32:49,684 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:32:49,685 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:32:49,685 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:32:49,686 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:32:49,687 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:32:49,688 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:32:56,094 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:32:56,569 - INFO - Fetched 8 orders from master account
+2025-08-08 11:32:56,693 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:32:56,693 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:32:56,693 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:32:56,693 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:32:56,693 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:32:56,693 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:32:56,720 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:32:56,721 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:33:03,051 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:33:03,368 - INFO - Fetched 8 orders from master account
+2025-08-08 11:33:03,518 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:33:03,518 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:33:03,518 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:33:03,518 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:33:03,518 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:33:03,518 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:33:03,518 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:33:03,518 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:33:09,935 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:33:11,254 - INFO - Fetched 8 orders from master account
+2025-08-08 11:33:11,360 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:33:11,360 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:33:11,375 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:33:11,375 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:33:11,375 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:33:11,375 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:33:11,375 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:33:11,375 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:33:17,809 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:33:18,085 - INFO - Fetched 8 orders from master account
+2025-08-08 11:33:18,209 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:33:18,209 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:33:18,209 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:33:18,209 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:33:18,209 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:33:18,209 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:33:18,209 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:33:18,209 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:33:24,484 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:33:25,017 - INFO - Fetched 8 orders from master account
+2025-08-08 11:33:25,125 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:33:25,125 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:33:25,125 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:33:25,125 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:33:25,125 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:33:25,125 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:33:25,125 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:33:25,125 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:33:31,524 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:33:32,612 - INFO - Fetched 8 orders from master account
+2025-08-08 11:33:32,712 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:33:32,712 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:33:32,712 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:33:32,712 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:33:32,712 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:33:32,728 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:33:32,733 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:33:32,735 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:33:39,124 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:33:40,178 - INFO - Fetched 8 orders from master account
+2025-08-08 11:33:40,276 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:33:40,276 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:33:40,276 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:33:40,276 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:33:40,276 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:33:40,276 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:33:40,276 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:33:40,276 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:33:46,729 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:33:47,076 - INFO - Fetched 8 orders from master account
+2025-08-08 11:33:47,162 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:33:47,162 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:33:47,162 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:33:47,162 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:33:47,162 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:33:47,162 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:33:47,162 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:33:47,162 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:33:53,531 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:33:53,805 - INFO - Fetched 8 orders from master account
+2025-08-08 11:33:54,233 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:33:54,233 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:33:54,246 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:33:54,246 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:33:54,255 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:33:54,257 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:33:54,268 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:33:54,269 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:34:00,599 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:34:00,951 - INFO - Fetched 8 orders from master account
+2025-08-08 11:34:01,089 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:34:01,091 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:34:01,095 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:34:01,097 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:34:01,099 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:34:01,100 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:34:01,102 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:34:01,104 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:34:07,452 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:34:07,729 - INFO - Fetched 8 orders from master account
+2025-08-08 11:34:07,809 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:34:07,809 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:34:07,809 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:34:07,809 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:34:07,809 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:34:07,809 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:34:07,809 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:34:07,809 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:34:14,209 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:34:14,477 - INFO - Fetched 8 orders from master account
+2025-08-08 11:34:14,559 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:34:14,562 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:34:14,562 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:34:14,563 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:34:14,563 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:34:14,564 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:34:14,564 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:34:14,564 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:34:20,927 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:34:21,208 - INFO - Fetched 8 orders from master account
+2025-08-08 11:34:21,327 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:34:21,327 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:34:21,327 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:34:21,327 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:34:21,327 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:34:21,327 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:34:21,343 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:34:21,346 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:34:27,716 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:34:28,011 - INFO - Fetched 8 orders from master account
+2025-08-08 11:34:28,100 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:34:28,102 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:34:28,104 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:34:28,105 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:34:28,105 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:34:28,114 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:34:28,129 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:34:28,133 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:34:34,392 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:34:34,626 - INFO - Fetched 8 orders from master account
+2025-08-08 11:34:34,709 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:34:34,709 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:34:34,709 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:34:34,725 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:34:34,725 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:34:34,726 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:34:34,726 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:34:34,727 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:34:41,097 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:34:42,126 - INFO - Fetched 8 orders from master account
+2025-08-08 11:34:42,238 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:34:42,238 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:34:42,238 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:34:42,238 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:34:42,238 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:34:42,265 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:34:42,306 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:34:42,356 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:34:48,720 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:34:49,490 - INFO - Fetched 8 orders from master account
+2025-08-08 11:34:49,597 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:34:49,597 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:34:49,598 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:34:49,598 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:34:49,599 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:34:49,599 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:34:49,600 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:34:49,600 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:34:55,895 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:34:57,464 - INFO - Fetched 8 orders from master account
+2025-08-08 11:34:57,573 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:34:57,573 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:34:57,573 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:34:57,573 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:34:57,573 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:34:57,573 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:34:57,573 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:34:57,573 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:35:03,928 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:35:04,439 - INFO - Fetched 8 orders from master account
+2025-08-08 11:35:04,564 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:35:04,564 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:35:04,565 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:35:04,565 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:35:04,566 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:35:04,566 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:35:04,566 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:35:04,567 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:35:10,956 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:35:11,863 - INFO - Fetched 8 orders from master account
+2025-08-08 11:35:11,970 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:35:11,970 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:35:11,970 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:35:11,970 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:35:11,970 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:35:11,986 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:35:11,986 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:35:11,986 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:35:18,377 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:35:19,308 - INFO - Fetched 8 orders from master account
+2025-08-08 11:35:19,406 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:35:19,406 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:35:19,406 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:35:19,406 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:35:19,406 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:35:19,406 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:35:19,406 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:35:19,406 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:35:25,839 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:35:26,104 - INFO - Fetched 8 orders from master account
+2025-08-08 11:35:26,209 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:35:26,210 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:35:26,211 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:35:26,212 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:35:26,213 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:35:26,214 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:35:26,214 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:35:26,215 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:35:32,606 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:35:32,855 - INFO - Fetched 8 orders from master account
+2025-08-08 11:35:32,972 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:35:32,972 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:35:32,972 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:35:32,972 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:35:32,972 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:35:32,972 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:35:32,972 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:35:32,972 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:35:39,407 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:35:39,956 - INFO - Fetched 8 orders from master account
+2025-08-08 11:35:40,047 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:35:40,047 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:35:40,048 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:35:40,049 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:35:40,049 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:35:40,050 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:35:40,051 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:35:40,052 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:35:46,790 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:35:47,076 - INFO - Fetched 8 orders from master account
+2025-08-08 11:35:47,187 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:35:47,188 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:35:47,190 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:35:47,191 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:35:47,192 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:35:47,192 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:35:47,193 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:35:47,195 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:35:53,838 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:35:54,725 - INFO - Fetched 8 orders from master account
+2025-08-08 11:35:54,826 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:35:54,826 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:35:54,826 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:35:54,826 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:35:54,826 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:35:54,826 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:35:54,826 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:35:54,826 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:36:01,277 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:36:02,555 - INFO - Fetched 8 orders from master account
+2025-08-08 11:36:02,765 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:36:02,780 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:36:02,780 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:36:02,780 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:36:02,780 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:36:02,791 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:36:02,794 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:36:02,794 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:36:09,174 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:36:09,585 - INFO - Fetched 8 orders from master account
+2025-08-08 11:36:09,678 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:36:09,678 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:36:09,678 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:36:09,678 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:36:09,678 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:36:09,678 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:36:09,691 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:36:09,693 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:36:16,058 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:36:16,388 - INFO - Fetched 8 orders from master account
+2025-08-08 11:36:16,514 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:36:16,514 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:36:16,514 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:36:16,515 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:36:16,515 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:36:16,516 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:36:16,516 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:36:16,516 - INFO - Skipping non-pending order 952508087287 with status CANCELLED
+2025-08-08 11:36:23,243 - INFO - Master account: AB, Child accounts: ['As']
+2025-08-08 11:36:23,516 - INFO - Fetched 8 orders from master account
+2025-08-08 11:36:23,600 - INFO - Skipping already processed order: 7125080810724
+2025-08-08 11:36:23,600 - INFO - Skipping non-pending order 312508084254 with status CANCELLED
+2025-08-08 11:36:23,600 - INFO - Skipping non-pending order 452508087550 with status CANCELLED
+2025-08-08 11:36:23,600 - INFO - Skipping non-pending order 252508087528 with status CANCELLED
+2025-08-08 11:36:23,600 - INFO - Skipping non-pending order 152508087644 with status CANCELLED
+2025-08-08 11:36:23,600 - INFO - Skipping non-pending order 352508087415 with status CANCELLED
+2025-08-08 11:36:23,600 - INFO - Skipping non-pending order 652508087379 with status CANCELLED
+2025-08-08 11:36:23,600 - INFO - Skipping non-pending order 952508087287 with status CANCELLED

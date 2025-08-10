@@ -1,247 +1,370 @@
 {% extends 'base.html' %}
 {% load custom_filters %}
+{% load humanize %}
 
 {% block content %}
 <div class="container-fluid px-4">
-    <!-- Header with Home Button -->
+    <!-- Header with Home Button and Refresh Button -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="display-4 text-primary"><i class="fas fa-chart-line"></i> Trading Dashboard</h1>
-        <a href="/" class="btn btn-outline-primary btn-lg">
-            <i class="fas fa-home"></i> Home
-        </a>
+        <div>
+            <a href="/" class="btn btn-outline-primary btn-lg me-2">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <button id="refreshData" class="btn btn-primary btn-lg">
+                <i class="fas fa-sync-alt"></i> Refresh Data
+            </button>
+        </div>
     </div>
     
-    <!-- Fund Limits Card -->
-    <div class="card mb-4 border-0 shadow-lg">
-        <div class="card-header bg-gradient-primary text-white">
-            <div class="d-flex justify-content-between align-items-center">
-                <h3 class="mb-0"><i class="fas fa-wallet"></i> Fund Limits</h3>
-                <span class="badge bg-light text-primary">Updated: {% now "jS F Y H:i" %}</span>
+    <!-- Account Status Summary -->
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card bg-primary text-white mb-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-white-50">Master Account</h6>
+                            <h3 class="mb-0">
+                                ₹{{ master_account.fund_limits|default:"0"|intcomma }}
+                            </h3>
+                        </div>
+                        <i class="fas fa-crown fa-2x"></i>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="card-body">
-            {% if master_account %}
-                <div class="row mb-4">
-                    <div class="col-md-6">
-                        <div class="card bg-light border-primary mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title text-primary">
-                                    <i class="fas fa-crown"></i> Master Account
-                                </h5>
-                                <p class="card-text"><strong>Name:</strong> {{ master_account.name }}</p>
-                                <p class="card-text"><strong>Client ID:</strong> {{ master_account.client_id }}</p>
-                            </div>
-                            <div class="card-footer bg-primary text-white">
-                                <h4 class="mb-0">
-                                    <i class="fas fa-rupee-sign"></i> {{ master_account.fund_limits|default:"0" }}
-                                </h4>
-                            </div>
+        <div class="col-md-4">
+            <div class="card bg-success text-white mb-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-white-50">Total Child Accounts</h6>
+                            <h3 class="mb-0">{{ child_accounts|length }}</h3>
                         </div>
+                        <i class="fas fa-users fa-2x"></i>
                     </div>
                 </div>
-            {% endif %}
-            
-            <h4 class="mb-3 text-muted">Child Accounts</h4>
-            <div class="row">
-                {% for account in child_accounts %}
-                <div class="col-md-4 mb-4">
-                    <div class="card border-{% cycle 'warning' 'danger' 'success' %} h-100">
-                        <div class="card-header bg-gradient-{% cycle 'warning' 'danger' 'success' %} text-white">
-                            <h5 class="mb-0">
-                                <i class="fas fa-user"></i> {{ account.name }}
-                            </h5>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-info text-white mb-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-white-50">Last Updated</h6>
+                            <h3 class="mb-0">{% now "H:i" %}</h3>
                         </div>
-                        <div class="card-body">
-                            <p class="card-text"><strong>Client ID:</strong> {{ account.client_id }}</p>
-                        </div>
-                        <div class="card-footer bg-{% cycle 'warning' 'danger' 'success' %} text-white">
-                            <h4 class="mb-0">
-                                <i class="fas fa-rupee-sign"></i> {{ account.fund_limits|default:"0" }}
-                            </h4>
-                        </div>
+                        <i class="fas fa-clock fa-2x"></i>
                     </div>
                 </div>
-                {% endfor %}
             </div>
         </div>
     </div>
     
-    <!-- Orders Card -->
-    <div class="card mb-4 border-0 shadow-lg">
-        <div class="card-header bg-gradient-info text-white">
-            <h3 class="mb-0"><i class="fas fa-exchange-alt"></i> Orders</h3>
-        </div>
-        <div class="card-body p-0">
-            <div class="table-responsive">
-                <table class="table table-hover mb-0">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th><i class="fas fa-user"></i> Account</th>
-                            <th><i class="fas fa-tag"></i> Symbol</th>
-                            <th><i class="fas fa-tasks"></i> Order Type</th>
-                            <th><i class="fas fa-random"></i> Transaction</th>
-                            <th><i class="fas fa-boxes"></i> Quantity</th>
-                            <th><i class="fas fa-money-bill-wave"></i> Price</th>
-                            <th><i class="fas fa-info-circle"></i> Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% if master_account and master_account.orders %}
-                            {% for order in master_account.orders %}
-                                <tr class="table-primary">
-                                    <td><span class="badge bg-primary">Master</span></td>
-                                    <td>{{ order.tradingSymbol|default:"-" }}</td>
-                                    <td>{{ order.orderType|default:"-" }}</td>
-                                    <td>{{ order.transactionType|default:"-" }}</td>
-                                    <td>{{ order.quantity|default:0 }}</td>
-                                    <td><span class="badge bg-light text-dark">₹{{ order.price|default:0 }}</span></td>
-                                    <td>
-                                        <span class="badge bg-{% if order.orderStatus == 'complete' %}success{% else %}warning{% endif %}">
-                                            {{ order.orderStatus|default:"-"|title }}
-                                        </span>
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        {% endif %}
-                        
-                        {% for account in child_accounts %}
-                            {% for order in account.orders %}
-                                <tr class="table-{% cycle 'warning' 'danger' 'success' %}">
-                                    <td><span class="badge bg-{% cycle 'warning' 'danger' 'success' %}">{{ account.name }}</span></td>
-                                    <td>{{ order.tradingSymbol|default:"-" }}</td>
-                                    <td>{{ order.orderType|default:"-" }}</td>
-                                    <td>{{ order.transactionType|default:"-" }}</td>
-                                    <td>{{ order.quantity|default:0 }}</td>
-                                    <td><span class="badge bg-light text-dark">₹{{ order.price|default:0 }}</span></td>
-                                    <td>
-                                        <span class="badge bg-{% if order.orderStatus == 'complete' %}success{% else %}warning{% endif %}">
-                                            {{ order.orderStatus|default:"-"|title }}
-                                        </span>
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <!-- Positions Card -->
-    <div class="card mb-4 border-0 shadow-lg">
-        <div class="card-header bg-gradient-success text-white">
-            <h3 class="mb-0"><i class="fas fa-chart-bar"></i> Positions</h3>
-        </div>
-        <div class="card-body p-0">
-            <div class="table-responsive">
-                <table class="table table-striped mb-0">
-                    <thead>
-                        <tr class="bg-dark text-white">
-                            <th>Account</th>
-                            <th>Symbol</th>
-                            <th>Buy Qty</th>
-                            <th>Sell Qty</th>
-                            <th>Realized Profit</th>
-                            <th>Unrealized Profit</th>
-                            <th>Net</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% if master_account and master_account.positions %}
-                            {% for position in master_account.positions %}
-                                <tr>
-                                    <td><span class="badge bg-primary">Master</span></td>
-                                    <td>{{ position|get_item:"tradingSymbol"|default:"-" }}</td>
-                                    <td>{{ position|get_item:"buyQty"|default:0 }}</td>
-                                    <td>{{ position|get_item:"sellQty"|default:0 }}</td>
-                                    <td class="text-success font-weight-bold">₹{{ position|get_item:"realizedProfit"|default:0 }}</td>
-                                    <td class="{% if position|get_item:'unrealizedProfit' >= 0 %}text-success{% else %}text-danger{% endif %} font-weight-bold">
-                                        ₹{{ position|get_item:"unrealizedProfit"|default:0 }}
-                                    </td>
-                                    <td class="{% if position|get_item:'net' >= 0 %}text-success{% else %}text-danger{% endif %} font-weight-bold">
-                                        ₹{{ position|get_item:"net"|default:0 }}
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        {% endif %}
-                        
-                        {% for account in child_accounts %}
-                            {% for position in account.positions %}
-                                <tr>
-                                    <td><span class="badge bg-{% cycle 'warning' 'danger' 'success' %}">{{ account.name }}</span></td>
-                                    <td>{{ position|get_item:"tradingSymbol"|default:"-" }}</td>
-                                    <td>{{ position|get_item:"buyQty"|default:0 }}</td>
-                                    <td>{{ position|get_item:"sellQty"|default:0 }}</td>
-                                    <td class="text-success font-weight-bold">₹{{ position|get_item:"realizedProfit"|default:0 }}</td>
-                                    <td class="{% if position|get_item:'unrealizedProfit' >= 0 %}text-success{% else %}text-danger{% endif %} font-weight-bold">
-                                        ₹{{ position|get_item:"unrealizedProfit"|default:0 }}
-                                    </td>
-                                    <td class="{% if position|get_item:'net' >= 0 %}text-success{% else %}text-danger{% endif %} font-weight-bold">
-                                        ₹{{ position|get_item:"net"|default:0 }}
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <!-- Holdings Card -->
+    <!-- Account Details List -->
     <div class="card mb-4 border-0 shadow-lg">
         <div class="card-header bg-gradient-secondary text-white">
-            <h3 class="mb-0"><i class="fas fa-box-open"></i> Holdings</h3>
+            <h3 class="mb-0"><i class="fas fa-list-alt"></i> Account Details</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <!-- Master Account Details -->
+                <div class="col-md-6 mb-4">
+                    <div class="card border-primary h-100">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-crown"></i> Master Account Details</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><strong>Name:</strong></span>
+                                    <span>{{ master_account.name|default:"-" }}</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><strong>Client ID:</strong></span>
+                                    <span>{{ master_account.client_id|default:"-" }}</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><strong>Fund Limits:</strong></span>
+                                    <span class="badge bg-primary">₹{{ master_account.fund_limits|default:"0"|intcomma }}</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><strong>Available Margin:</strong></span>
+                                    <span>₹{{ master_account.available_margin|default:"0"|intcomma }}</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><strong>Utilized Margin:</strong></span>
+                                    <span>₹{{ master_account.utilized_margin|default:"0"|intcomma }}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Child Accounts Details -->
+                <div class="col-md-6 mb-4">
+                    <div class="card border-success h-100">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0"><i class="fas fa-users"></i> Child Accounts Summary</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-sm table-hover">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Client ID</th>
+                                            <th>Funds</th>
+                                            <th>Multiplier</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for account in child_accounts %}
+                                        <tr>
+                                            <td>{{ account.name|truncatechars:15 }}</td>
+                                            <td>{{ account.client_id }}</td>
+                                            <td>₹{{ account.fund_limits|default:"0"|intcomma }}</td>
+                                            <td><span class="badge bg-secondary">{{ account.multiplier|default:1 }}x</span></td>
+                                        </tr>
+                                        {% empty %}
+                                        <tr>
+                                            <td colspan="4" class="text-center text-muted">No child accounts configured</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   
+    
+    <!-- Orders Card with Tabs -->
+    <div class="card mb-4 border-0 shadow-lg">
+        <div class="card-header bg-gradient-info text-white">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="mb-0"><i class="fas fa-exchange-alt"></i> Orders</h3>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-sm btn-outline-light active" data-bs-toggle="tab" data-bs-target="#all-orders">All</button>
+                    <button type="button" class="btn btn-sm btn-outline-light" data-bs-toggle="tab" data-bs-target="#pending-orders">Pending</button>
+                    <button type="button" class="btn btn-sm btn-outline-light" data-bs-toggle="tab" data-bs-target="#completed-orders">Completed</button>
+                </div>
+            </div>
         </div>
         <div class="card-body p-0">
-            <div class="table-responsive">
-                <table class="table table-bordered mb-0">
-                    <thead>
-                        <tr class="bg-dark text-white">
-                            <th>Account</th>
-                            <th>Symbol</th>
-                            <th>Quantity</th>
-                            <th>Avg Cost</th>
-                            <th>Current Value</th>
-                            <th>P&L</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% if master_account and master_account.holdings %}
-                            {% for holding in master_account.holdings %}
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="all-orders">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead class="thead-dark">
                                 <tr>
-                                    <td><span class="badge bg-primary">Master</span></td>
-                                    <td>{{ holding|get_item:"Symbol"|default:"-" }}</td>
-                                    <td>{{ holding|get_item:"Total Quantity"|default:0 }}</td>
-                                    <td>₹{{ holding|get_item:"Average Cost Price"|default:0 }}</td>
-                                    <td>₹{{ holding|get_item:"Current Value"|default:0 }}</td>
-                                    <td class="{% if holding|get_item:'P&L' >= 0 %}text-success{% else %}text-danger{% endif %} font-weight-bold">
-                                        ₹{{ holding|get_item:"P&L"|default:0 }}
-                                    </td>
+                                    <th><i class="fas fa-user"></i> Account</th>
+                                    <th><i class="fas fa-tag"></i> Symbol</th>
+                                    <th><i class="fas fa-tasks"></i> Type</th>
+                                    <th><i class="fas fa-random"></i> Side</th>
+                                    <th><i class="fas fa-boxes"></i> Qty</th>
+                                    <th><i class="fas fa-money-bill-wave"></i> Price</th>
+                                    <th><i class="fas fa-info-circle"></i> Status</th>
+                                    <th><i class="fas fa-clock"></i> Time</th>
                                 </tr>
-                            {% endfor %}
-                        {% endif %}
-                        
-                        {% for account in child_accounts %}
-                            {% for holding in account.holdings %}
-                                <tr>
-                                    <td><span class="badge bg-{% cycle 'warning' 'danger' 'success' %}">{{ account.name }}</span></td>
-                                    <td>{{ holding|get_item:"Symbol"|default:"-" }}</td>
-                                    <td>{{ holding|get_item:"Total Quantity"|default:0 }}</td>
-                                    <td>₹{{ holding|get_item:"Average Cost Price"|default:0 }}</td>
-                                    <td>₹{{ holding|get_item:"Current Value"|default:0 }}</td>
-                                    <td class="{% if holding|get_item:'P&L' >= 0 %}text-success{% else %}text-danger{% endif %} font-weight-bold">
-                                        ₹{{ holding|get_item:"P&L"|default:0 }}
-                                    </td>
+                            </thead>
+                            <tbody>
+                                {% if master_account and master_account.orders %}
+                                    {% for order in master_account.orders %}
+                                        <tr class="table-primary">
+                                            <td><span class="badge bg-primary">Master</span></td>
+                                            <td>{{ order.tradingSymbol|default:"-" }}</td>
+                                            <td>{{ order.orderType|default:"-" }}</td>
+                                            <td>
+                                                <span class="badge bg-{% if order.transactionType == 'BUY' %}success{% else %}danger{% endif %}">
+                                                    {{ order.transactionType|default:"-" }}
+                                                </span>
+                                            </td>
+                                            <td>{{ order.quantity|default:0|intcomma }}</td>
+                                            <td>₹{{ order.price|default:0|floatformat:2 }}</td>
+                                            <td>
+                                                <span class="badge bg-{% if order.orderStatus == 'complete' %}success{% elif order.orderStatus == 'rejected' %}danger{% else %}warning{% endif %}">
+                                                    {{ order.orderStatus|default:"-"|title }}
+                                                </span>
+                                            </td>
+                                            <td>{{ order.orderTimestamp|default:"-"|slice:":19" }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% endif %}
+                                
+                                {% for account in child_accounts %}
+                                    {% for order in account.orders %}
+                                        <tr class="table-{% cycle 'warning' 'danger' 'success' 'info' %}">
+                                            <td><span class="badge bg-{% cycle 'warning' 'danger' 'success' 'info' %}">{{ account.name|truncatechars:10 }}</span></td>
+                                            <td>{{ order.tradingSymbol|default:"-" }}</td>
+                                            <td>{{ order.orderType|default:"-" }}</td>
+                                            <td>
+                                                <span class="badge bg-{% if order.transactionType == 'BUY' %}success{% else %}danger{% endif %}">
+                                                    {{ order.transactionType|default:"-" }}
+                                                </span>
+                                            </td>
+                                            <td>{{ order.quantity|default:0|intcomma }}</td>
+                                            <td>₹{{ order.price|default:0|floatformat:2 }}</td>
+                                            <td>
+                                                <span class="badge bg-{% if order.orderStatus == 'complete' %}success{% elif order.orderStatus == 'rejected' %}danger{% else %}warning{% endif %}">
+                                                    {{ order.orderStatus|default:"-"|title }}
+                                                </span>
+                                            </td>
+                                            <td>{{ order.orderTimestamp|default:"-"|slice:":19" }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Additional tab panes would go here -->
+            </div>
+        </div>
+    </div>
+
+   
+<!-- Positions and Holdings in a 2-column layout -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card mb-4 border-0 shadow-lg h-100">
+                <div class="card-header bg-gradient-success text-white">
+                    <h3 class="mb-0"><i class="fas fa-chart-bar"></i> Positions</h3>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-striped mb-0">
+                            <thead>
+                                <tr class="bg-dark text-white">
+                                    <th>Account</th>
+                                    <th>Symbol</th>
+                                    <th>Net Qty</th>
+                                    <th>Avg Price</th>
+                                    <th>P&L</th>
                                 </tr>
-                            {% endfor %}
-                        {% endfor %}
-                    </tbody>
-                </table>
+                            </thead>
+                            <tbody>
+                                {% if master_account and master_account.positions %}
+                                    {% for position in master_account.positions %}
+                                        <tr>
+                                            <td><span class="badge bg-primary">Master</span></td>
+                                            <td>{{ position|get_item:"tradingSymbol"|default:"-" }}</td>
+                                            <td class="{% if position|get_item:'netQty' > 0 %}text-success{% elif position|get_item:'netQty' < 0 %}text-danger{% endif %}">
+                                                {{ position|get_item:"netQty"|default:0 }}
+                                            </td>
+                                            <td>₹{{ position|get_item:"avgPrice"|default:0|floatformat:2 }}</td>
+                                            <td class="{% if position|get_item:'net' >= 0 %}text-success{% else %}text-danger{% endif %} fw-bold">
+                                                ₹{{ position|get_item:"net"|default:0|floatformat:2 }}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% endif %}
+                                
+                                {% for account in child_accounts %}
+                                    {% for position in account.positions %}
+                                        <tr>
+                                            <td><span class="badge bg-{% cycle 'warning' 'danger' 'success' 'info' %}">{{ account.name|truncatechars:10 }}</span></td>
+                                            <td>{{ position|get_item:"tradingSymbol"|default:"-" }}</td>
+                                            <td class="{% if position|get_item:'netQty' > 0 %}text-success{% elif position|get_item:'netQty' < 0 %}text-danger{% endif %}">
+                                                {{ position|get_item:"netQty"|default:0 }}
+                                            </td>
+                                            <td>₹{{ position|get_item:"avgPrice"|default:0|floatformat:2 }}</td>
+                                            <td class="{% if position|get_item:'net' >= 0 %}text-success{% else %}text-danger{% endif %} fw-bold">
+                                                ₹{{ position|get_item:"net"|default:0|floatformat:2 }}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="card mb-4 border-0 shadow-lg h-100">
+                <div class="card-header bg-gradient-secondary text-white">
+                    <h3 class="mb-0"><i class="fas fa-box-open"></i> Holdings</h3>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-bordered mb-0">
+                            <thead>
+                                <tr class="bg-dark text-white">
+                                    <th>Account</th>
+                                    <th>Symbol</th>
+                                    <th>Qty</th>
+                                    <th>Value</th>
+                                    <th>P&L</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if master_account and master_account.holdings %}
+                                    {% for holding in master_account.holdings %}
+                                        <tr>
+                                            <td><span class="badge bg-primary">Master</span></td>
+                                            <td>{{ holding|get_item:"Symbol"|default:"-" }}</td>
+                                            <td>{{ holding|get_item:"Total Quantity"|default:0|intcomma }}</td>
+                                            <td>₹{{ holding|get_item:"Current Value"|default:0|floatformat:2 }}</td>
+                                            <td class="{% if holding|get_item:'P&L' >= 0 %}text-success{% else %}text-danger{% endif %} fw-bold">
+                                                ₹{{ holding|get_item:"P&L"|default:0|floatformat:2 }}
+                                            </td>
+                                        </tr>
+                                    {% empty %}
+                                        <tr>
+                                            <td colspan="5" class="text-center text-muted">No holdings found for master account</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% endif %}
+                                
+                                {% for account in child_accounts %}
+                                    {% for holding in account.holdings %}
+                                        <tr>
+                                            <td><span class="badge bg-{% cycle 'warning' 'danger' 'success' 'info' %}">{{ account.name|truncatechars:10 }}</span></td>
+                                            <td>{{ holding|get_item:"Symbol"|default:"-" }}</td>
+                                            <td>{{ holding|get_item:"Total Quantity"|default:0|intcomma }}</td>
+                                            <td>₹{{ holding|get_item:"Current Value"|default:0|floatformat:2 }}</td>
+                                            <td class="{% if holding|get_item:'P&L' >= 0 %}text-success{% else %}text-danger{% endif %} fw-bold">
+                                                ₹{{ holding|get_item:"P&L"|default:0|floatformat:2 }}
+                                            </td>
+                                        </tr>
+                                    {% empty %}
+                                        <tr>
+                                            <td colspan="5" class="text-center text-muted">No holdings found for {{ account.name }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% empty %}
+                                    <tr>
+                                        <td colspan="5" class="text-center text-muted">No child accounts configured</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Refresh data button functionality
+    document.getElementById('refreshData').addEventListener('click', function() {
+        location.reload();
+    });
+    
+    // Auto-refresh every 60 seconds
+    setTimeout(function() {
+        location.reload();
+    }, 60000);
+});
+</script>
 
 <style>
     .card-header {
@@ -267,10 +390,23 @@
     }
     .table th {
         border-top: none;
+        white-space: nowrap;
     }
     .badge {
         font-size: 0.8em;
         padding: 0.5em 0.75em;
+    }
+    .progress {
+        background-color: #e9ecef;
+    }
+    .dropdown-toggle::after {
+        display: none;
+    }
+    .table-responsive {
+        min-height: 300px;
+    }
+    .list-group-item {
+        padding: 0.75rem 1.25rem;
     }
 </style>
 {% endblock %}

@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'django_rq',
-    'whitenoise.runserver_nostatic',  # WhiteNoise for static files
+    'whitenoise.runserver_nostatic',
+    'django.contrib.humanize',  # WhiteNoise for static files
     
     'Lucky_Bulls',  # Your custom app
 ]
