@@ -28,6 +28,7 @@ ALLOWED_HOSTS = [
    
     'lucky-bulls.onrender.com',
     'lucky-bulls-zscb.onrender.com',  # ✅ NEW Render URL
+   '.onrender.com',
     '127.0.0.1',
     'localhost',
 ]
