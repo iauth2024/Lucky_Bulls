@@ -490,7 +490,10 @@
           .map(([stock, _]) => stock);
         
         // Display stock symbols instead of count
-        const displayedStocks = stocks.join(', ');
+        if (stocks.length > 0) {
+          const displayedStocks = stocks.length > 3 
+            ? `${stocks.slice(0, 3).join(', ')} +${stocks.length - 3} more` 
+            : stocks.join(', ');
           
           cell.innerHTML = `
             <div class="tooltip">
