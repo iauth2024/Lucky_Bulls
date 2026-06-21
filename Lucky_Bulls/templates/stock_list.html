@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; }
     :root {
       --primary-color: #4361ee;
       --secondary-color: #3f37c9;
@@ -43,8 +42,6 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
-      flex-wrap: wrap;
-      gap: 10px;
     }
     .screener-selector {
       padding: 10px;
@@ -52,7 +49,7 @@
       border-radius: 6px;
       border: 1px solid var(--border-color);
       background-color: var(--card-color);
-      min-width: 200px;
+      width: 300px;
       cursor: pointer;
     }
     .refresh-btn {
@@ -64,12 +61,13 @@
       cursor: pointer;
       font-weight: 500;
       transition: background-color 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
     }
-    .refresh-btn:hover { background-color: var(--secondary-color); }
-    .lucky-bulls-section { margin-bottom: 40px; }
+    .refresh-btn:hover {
+      background-color: var(--secondary-color);
+    }
+    .lucky-bulls-section {
+      margin-bottom: 40px;
+    }
     .lucky-bulls-card {
       background-color: var(--card-color);
       border-radius: 8px;
@@ -77,7 +75,11 @@
       padding: 25px;
       margin-bottom: 30px;
     }
-    .loading { display: none; text-align: center; padding: 20px; }
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
     .spinner {
       border: 4px solid rgba(0, 0, 0, 0.1);
       border-radius: 50%;
@@ -87,8 +89,15 @@
       animation: spin 1s linear infinite;
       margin: 0 auto 10px;
     }
-    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    .no-results { text-align: center; padding: 30px; color: #666; }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .no-results {
+      text-align: center;
+      padding: 30px;
+      color: #666;
+    }
     .lucky-bulls-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -96,16 +105,15 @@
       margin-top: 20px;
     }
     .lucky-stock {
-      background: #f5f7fa;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
       border-radius: 8px;
       padding: 15px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       position: relative;
-      transition: 0.2s;
     }
     .lucky-stock.halal {
       border-left: 4px solid var(--success-color);
-      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      background: linear-gradient(135deg,rgb(17, 231, 35) 0%,rgb(51, 88, 52) 100%);
     }
     .stock-name {
       font-weight: 700;
@@ -114,10 +122,15 @@
       margin-bottom: 5px;
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
     }
-    .stock-count { font-size: 14px; color: #555; }
-    .stock-screeners { margin-top: 10px; font-size: 14px; }
+    .stock-count {
+      font-size: 14px;
+      color: #666;
+    }
+    .stock-screeners {
+      margin-top: 10px;
+      font-size: 14px;
+    }
     .screener-badge {
       display: inline-block;
       background-color: rgba(67, 97, 238, 0.1);
@@ -148,17 +161,18 @@
       line-height: 20px;
       font-size: 14px;
       margin-right: 5px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 4px rgba(228, 12, 12, 0.9);
     }
     .halal-label {
-      background-color: rgba(76, 175, 80, 0.15);
+      background-color: rgba(76, 175, 80, 0.1);
       color: var(--success-color);
       padding: 2px 8px;
       border-radius: 4px;
       font-size: 12px;
       margin-left: 8px;
-      font-weight: 500;
     }
+    
+    /* Screener Table Styles */
     .screener-table-container {
       overflow-x: auto;
       margin-top: 20px;
@@ -171,13 +185,12 @@
       width: 100%;
       border-collapse: collapse;
       font-size: 14px;
-      min-width: 600px;
     }
-    .screener-table th, .screener-table td {
-      padding: 12px 8px;
+    .screener-table th, 
+    .screener-table td {
+      padding: 12px 15px;
       text-align: left;
       border-bottom: 1px solid var(--border-color);
-      vertical-align: top;
     }
     .screener-table th {
       background-color: var(--primary-color);
@@ -185,75 +198,55 @@
       font-weight: 500;
       position: sticky;
       top: 0;
-      white-space: nowrap;
     }
-    .screener-table tr:hover { background-color: rgba(67, 97, 238, 0.03); }
+    .screener-table tr:hover {
+      background-color: rgba(67, 97, 238, 0.05);
+    }
     .screener-name-cell {
       font-weight: 500;
       color: var(--primary-color);
       white-space: nowrap;
-      min-width: 100px;
+    }
+    .date-header {
+      white-space: nowrap;
+      text-align: center !important;
     }
     .stock-cell {
-      max-width: 280px;
-      word-break: break-word;
-      line-height: 1.5;
+      max-width: 300px;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-    .stock-cell .tooltip {
-      position: relative;
+    .stock-count {
       display: inline-block;
-      cursor: default;
-    }
-    .stock-cell .tooltip .tooltiptext {
-      visibility: hidden;
-      width: 240px;
-      background-color: #333;
-      color: #fff;
+      min-width: 20px;
       text-align: center;
-      border-radius: 6px;
-      padding: 6px 10px;
-      position: absolute;
-      z-index: 10;
-      bottom: 130%;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      transition: opacity 0.25s;
-      font-size: 12px;
-      font-weight: 400;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      pointer-events: none;
-      white-space: normal;
-      word-break: break-word;
+      font-weight: bold;
     }
-    .stock-cell .tooltip:hover .tooltiptext {
-      visibility: visible;
-      opacity: 1;
+    .positive {
+      color: var(--success-color);
     }
-    .positive { color: var(--success-color); font-weight: 500; }
-    .negative { color: var(--danger-color); font-weight: 500; }
-    .neutral { color: var(--warning-color); }
+    .negative {
+      color: var(--danger-color);
+    }
+    .neutral {
+      color: var(--warning-color);
+    }
     .screener-table-controls {
       display: flex;
       justify-content: space-between;
       margin-bottom: 15px;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
     }
     .date-range-selector {
       display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
+      gap: 10px;
     }
     .date-range-btn {
-      padding: 5px 12px;
+      padding: 5px 10px;
       border-radius: 4px;
       border: 1px solid var(--border-color);
       background-color: var(--card-color);
       cursor: pointer;
-      font-size: 13px;
-      transition: 0.15s;
     }
     .date-range-btn.active {
       background-color: var(--primary-color);
@@ -264,260 +257,312 @@
       padding: 8px 12px;
       border-radius: 4px;
       border: 1px solid var(--border-color);
-      min-width: 200px;
-      font-size: 14px;
+      min-width: 250px;
     }
-    .lucky-bulls-stats { font-weight: 500; margin-bottom: 10px; }
-    @media (max-width: 700px) {
-      .dashboard-header { flex-direction: column; align-items: stretch; }
-      .screener-selector { width: 100%; }
-      .screener-table-controls { flex-direction: column; align-items: stretch; }
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 200px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -100px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
     }
   </style>
 </head>
 <body>
-<div class="container">
-  <h2>📊 Chartink Screener Dashboard</h2>
+  <div class="container">
+    <h2>Chartink Screener Dashboard</h2>
 
-  <div class="dashboard-header">
-    <select class="screener-selector" id="screener-selector">
-      <option value="">Select a Screener</option>
-      <option value="all" selected>All Screeners</option>
-    </select>
-    <button class="refresh-btn" id="refresh-screener">
-      <i class="fas fa-sync-alt"></i> Refresh
-    </button>
-  </div>
-
-  <div class="lucky-bulls-section">
-    <h3>🐂 Lucky Bulls – Top Stocks (≥3 appearances, last 7 days) <span style="font-size:0.8rem;font-weight:400;color:#666;">(Halal prioritized)</span></h3>
-    <div class="lucky-bulls-card">
-      <div class="loading" id="lucky-bulls-loading">
-        <div class="spinner"></div>
-        <p>Identifying Lucky Bulls...</p>
-      </div>
-      <div id="lucky-bulls-content"></div>
+    <div class="dashboard-header">
+      <select class="screener-selector" id="screener-selector">
+        <option value="">Select a Screener</option>
+        <option value="all" selected>All Screeners</option>
+      </select>
+      <button class="refresh-btn" id="refresh-screener">
+        <i class="fas fa-sync-alt"></i> Refresh
+      </button>
     </div>
-  </div>
 
-  <div id="dashboard-content">
-    <div class="screener-table-container">
-      <div class="screener-table-controls">
-        <div class="date-range-selector">
-          <button class="date-range-btn active" data-days="7">7 Days</button>
-          <button class="date-range-btn" data-days="14">14 Days</button>
-          <button class="date-range-btn" data-days="30">30 Days</button>
-          <button class="date-range-btn" data-days="90">90 Days</button>
-          <button class="date-range-btn" data-days="0">All</button>
+    <div class="lucky-bulls-section">
+      <h3>Lucky Bulls - Top Stocks in Multiple Screeners (Last 7 Days)</h3>
+      <div class="lucky-bulls-card">
+        <div class="loading" id="lucky-bulls-loading">
+          <div class="spinner"></div>
+          <p>Identifying Lucky Bulls...</p>
         </div>
-        <input type="text" class="search-box" id="screener-search" placeholder="🔍 Search screeners or stocks...">
+        <div id="lucky-bulls-content"></div>
       </div>
-      <table class="screener-table" id="screener-data-table">
-        <thead><tr><th>Screener Name</th></tr></thead>
-        <tbody id="screener-data-body"></tbody>
-      </table>
+    </div>
+
+    <div id="dashboard-content">
+      <div class="screener-table-container">
+        <div class="screener-table-controls">
+          <div class="date-range-selector">
+            <button class="date-range-btn active" data-days="7">7 Days</button>
+            <button class="date-range-btn" data-days="14">14 Days</button>
+            <button class="date-range-btn" data-days="30">30 Days</button>
+            <button class="date-range-btn" data-days="90">90 Days</button>
+            <button class="date-range-btn" data-days="0">All</button>
+          </div>
+          <input type="text" class="search-box" id="screener-search" placeholder="Search screeners or stocks...">
+        </div>
+        <table class="screener-table" id="screener-data-table">
+          <thead>
+            <tr>
+              <th>Screener Name</th>
+              <!-- Dates will be inserted here by JavaScript -->
+            </tr>
+          </thead>
+          <tbody id="screener-data-body">
+            <!-- Data will be inserted here by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="loading" id="global-loading">
+      <div class="spinner"></div>
+      <p>Loading screener data...</p>
     </div>
   </div>
-  <div class="loading" id="global-loading"><div class="spinner"></div><p>Loading screener data...</p></div>
-</div>
 
-<script>
-  (function() {
-    // ---------- MOCK DATA (full stocks, no truncation) ----------
-    // Simulates real screener data with full stock lists.
-    const MOCK_SCREENERS = [
-      {
-        id: 'upper',
-        name: 'UPPER',
-        data: [
-          { Date: '2026-06-19', Stocks: 'BIRLACABLE, CAPLIPOINT, CGCL, TATACOMM', HalalStatus: { BIRLACABLE: true, CAPLIPOINT: false, CGCL: true, TATACOMM: false } },
-          { Date: '2026-06-18', Stocks: 'AEROENTER, LLOYDSENGG, SPAL, ICICIPRULI', HalalStatus: { AEROENTER: true, LLOYDSENGG: false, SPAL: true, ICICIPRULI: false } },
-          { Date: '2026-06-17', Stocks: 'YESBANK, LLOYDSENGG, AVL, TATAMOTORS, BAJAJ-AUTO', HalalStatus: { YESBANK: false, LLOYDSENGG: false, AVL: true, TATAMOTORS: false, BAJAJ_AUTO: false } },
-          { Date: '2026-06-16', Stocks: 'BHARATGEAR, PANAMAPET, CGCL, MARUTI', HalalStatus: { BHARATGEAR: true, PANAMAPET: true, CGCL: true, MARUTI: false } },
-          { Date: '2026-06-15', Stocks: 'AEROENTER, SANGHVIMOV, WABAG, TATACHEM', HalalStatus: { AEROENTER: true, SANGHVIMOV: false, WABAG: true, TATACHEM: false } }
-        ]
-      },
-      {
-        id: 'monthly',
-        name: 'MONTHLY',
-        data: [
-          { Date: '2026-06-19', Stocks: 'DEN, HYBRIDFIN', HalalStatus: { DEN: false, HYBRIDFIN: true } },
-          { Date: '2026-06-18', Stocks: 'SOUTHBANK, HYBRIDFIN', HalalStatus: { SOUTHBANK: false, HYBRIDFIN: true } },
-          { Date: '2026-06-17', Stocks: 'ROLLT', HalalStatus: { ROLLT: false } },
-          { Date: '2026-06-16', Stocks: 'ROLLT', HalalStatus: { ROLLT: false } },
-          { Date: '2026-06-15', Stocks: 'DEN', HalalStatus: { DEN: false } }
-        ]
-      },
-      {
-        id: 'rsi',
-        name: 'RSI',
-        data: [
-          { Date: '2026-06-19', Stocks: 'UNIPARTS', HalalStatus: { UNIPARTS: true } },
-          { Date: '2026-06-18', Stocks: 'ICIL, PANAMAPET', HalalStatus: { ICIL: false, PANAMAPET: true } },
-          { Date: '2026-06-17', Stocks: 'KIRLPNU', HalalStatus: { KIRLPNU: false } },
-          { Date: '2026-06-16', Stocks: 'RML, RPTECH', HalalStatus: { RML: false, RPTECH: false } },
-          { Date: '2026-06-15', Stocks: 'SPAL, AVL', HalalStatus: { SPAL: true, AVL: true } }
-        ]
-      },
-      {
-        id: 'hdt',
-        name: 'HDT',
-        data: [
-          { Date: '2026-06-19', Stocks: 'PALREDTEC, AARTECH, SBC', HalalStatus: { PALREDTEC: true, AARTECH: false, SBC: true } },
-          { Date: '2026-06-18', Stocks: 'ORIENTLTD, PALREDTEC, AARTECH', HalalStatus: { ORIENTLTD: false, PALREDTEC: true, AARTECH: false } },
-          { Date: '2026-06-17', Stocks: 'WELSPLSOL, SICALLOG, ORIENTLTD, TATAPOWER', HalalStatus: { WELSPLSOL: false, SICALLOG: true, ORIENTLTD: false, TATAPOWER: false } },
-          { Date: '2026-06-16', Stocks: 'MMTC, SICALLOG, OBCL, RIL', HalalStatus: { MMTC: false, SICALLOG: true, OBCL: false, RIL: false } },
-          { Date: '2026-06-15', Stocks: 'MOREPENLAB, SICALLOG, MAHESHWARI, TATASTEEL', HalalStatus: { MOREPENLAB: false, SICALLOG: true, MAHESHWARI: true, TATASTEEL: false } }
-        ]
-      },
-      {
-        id: 'hsm',
-        name: 'HSM',
-        data: [
-          { Date: '2026-06-19', Stocks: 'PANAMAPET, CUPID, INDSWFTLAB, ITC, HDFC', HalalStatus: { PANAMAPET: true, CUPID: false, INDSWFTLAB: true, ITC: false, HDFC: false } },
-          { Date: '2026-06-18', Stocks: 'KIRLPNU, ASTRAMICRO, STARHEALTH', HalalStatus: { KIRLPNU: false, ASTRAMICRO: true, STARHEALTH: false } },
-          { Date: '2026-06-17', Stocks: 'GAYAPROJ', HalalStatus: { GAYAPROJ: false } },
-          { Date: '2026-06-16', Stocks: 'CGCL, WABAG, RPTECH', HalalStatus: { CGCL: true, WABAG: true, RPTECH: false } },
-          { Date: '2026-06-15', Stocks: 'DIVGIITTS', HalalStatus: { DIVGIITTS: false } }
-        ]
-      }
-    ];
-
-    // Additional screener for more variety (to show full lists)
-    MOCK_SCREENERS.push({
-      id: 'momentum',
-      name: 'MOMENTUM',
-      data: [
-        { Date: '2026-06-19', Stocks: 'RELIANCE, TCS, INFY, HDFCBANK, ICICIBANK', HalalStatus: { RELIANCE: false, TCS: false, INFY: false, HDFCBANK: false, ICICIBANK: false } },
-        { Date: '2026-06-18', Stocks: 'BHARTIARTL, KOTAKBANK, SBIN, BAJFINANCE', HalalStatus: { BHARTIARTL: false, KOTAKBANK: false, SBIN: false, BAJFINANCE: false } },
-        { Date: '2026-06-17', Stocks: 'WIPRO, HCLTECH, TECHM, LTI', HalalStatus: { WIPRO: false, HCLTECH: false, TECHM: false, LTI: false } },
-        { Date: '2026-06-16', Stocks: 'ASIANPAINT, TITAN, NESTLE, HINDUNILVR', HalalStatus: { ASIANPAINT: false, TITAN: false, NESTLE: false, HINDUNILVR: false } },
-        { Date: '2026-06-15', Stocks: 'SUNPHARMA, DRREDDY, DIVISLAB, CIPLA', HalalStatus: { SUNPHARMA: false, DRREDDY: false, DIVISLAB: false, CIPLA: false } }
-      ]
-    });
-
-    // ---------- STATE ----------
+  <script>
     let allScreenersData = [];
     let currentDateRange = 7;
 
-    // ---------- DOM refs ----------
-    const selector = document.getElementById('screener-selector');
-    const refreshBtn = document.getElementById('refresh-screener');
-    const tableHead = document.querySelector('#screener-data-table thead tr');
-    const tableBody = document.getElementById('screener-data-body');
-    const luckyContent = document.getElementById('lucky-bulls-content');
-    const luckyLoading = document.getElementById('lucky-bulls-loading');
-    const searchBox = document.getElementById('screener-search');
+    document.addEventListener('DOMContentLoaded', () => {
+      loadAllScreenersForLuckyBulls();
+      setupEventListeners();
+    });
 
-    // ---------- helpers ----------
-    function formatDateHeader(dateStr) {
-      const d = new Date(dateStr);
-      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    function setupEventListeners() {
+      // Screener selector change
+      document.getElementById('screener-selector').addEventListener('change', function() {
+        const id = this.value;
+        if (id === 'all') {
+          loadAllScreeners();
+        } else if (id) {
+          loadScreenerByCacheOrFetch(id);
+        }
+      });
+
+      // Refresh button
+      document.getElementById('refresh-screener').addEventListener('click', function() {
+        const btn = this;
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-sync-alt fa-spin"></i> Refreshing...';
+        
+        const id = document.getElementById('screener-selector').value;
+        if (id === 'all') {
+          loadAllScreeners();
+        } else if (id) {
+          loadScreenerData(id);
+        }
+        
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fas fa-sync-alt"></i> Refresh';
+        }, 1000);
+      });
+
+      // Date range buttons
+      document.querySelectorAll('.date-range-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.date-range-btn').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          currentDateRange = parseInt(this.dataset.days);
+          updateScreenerTable();
+        });
+      });
+
+      // Search box
+      document.getElementById('screener-search').addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#screener-data-body tr');
+        
+        rows.forEach(row => {
+          const screenerName = row.querySelector('.screener-name-cell').textContent.toLowerCase();
+          let hasMatch = screenerName.includes(searchTerm);
+          
+          if (!hasMatch) {
+            // Check stock cells for matches
+            const stockCells = row.querySelectorAll('.stock-cell');
+            stockCells.forEach(cell => {
+              if (cell.textContent.toLowerCase().includes(searchTerm)) {
+                hasMatch = true;
+              }
+            });
+          }
+          
+          row.style.display = hasMatch ? '' : 'none';
+        });
+      });
     }
 
-    function getAllDatesWithinRange(screeners, rangeDays) {
-      const dateSet = new Set();
-      const cutoff = rangeDays > 0 ? new Date(Date.now() - rangeDays * 24 * 60 * 60 * 1000) : null;
+    function loadAllScreenersForLuckyBulls() {
+      fetch('/fetch-all-screeners/')
+        .then(res => res.json())
+        .then(data => {
+          allScreenersData = data;
+          loadScreenerList(data);
+          analyzeLuckyBulls(data);
+          updateScreenerTable();
+        })
+        .catch(() => {
+          analyzeLuckyBulls([]);
+        });
+    }
+
+    function loadScreenerList(screeners) {
+      const selector = document.getElementById('screener-selector');
+      selector.innerHTML = `<option value="">Select a Screener</option><option value="all" selected>All Screeners</option>`;
       screeners.forEach(s => {
-        if (s.data) {
-          s.data.forEach(day => {
-            const d = new Date(day.Date);
-            if (!cutoff || d >= cutoff) {
-              dateSet.add(day.Date);
+        const opt = document.createElement('option');
+        opt.value = s.id;
+        opt.textContent = s.name;
+        selector.appendChild(opt);
+      });
+    }
+
+    function updateScreenerTable() {
+  if (allScreenersData.length === 0) return;
+  
+  const tableHead = document.querySelector('#screener-data-table thead tr');
+  const tableBody = document.getElementById('screener-data-body');
+  
+  // Clear existing data
+  while (tableHead.children.length > 1) {
+    tableHead.removeChild(tableHead.lastChild);
+  }
+  tableBody.innerHTML = '';
+  
+  // Get unique dates from all screeners within the date range
+  const allDates = getAllDatesWithinRange();
+  if (allDates.length === 0) {
+    tableBody.innerHTML = `<tr><td colspan="${allDates.length + 1}" class="no-results">No data available for the selected date range</td></tr>`;
+    return;
+  }
+  
+  // Add date headers
+  allDates.forEach(date => {
+    const th = document.createElement('th');
+    th.className = 'date-header';
+    th.textContent = formatDateHeader(date);
+    tableHead.appendChild(th);
+  });
+  
+  // Add screener rows
+  allScreenersData.forEach(screener => {
+    const row = document.createElement('tr');
+    
+    // Screener name cell
+    const nameCell = document.createElement('td');
+    nameCell.className = 'screener-name-cell';
+    nameCell.textContent = screener.name;
+    row.appendChild(nameCell);
+    
+    // Add data for each date
+    allDates.forEach(date => {
+      const cell = document.createElement('td');
+      cell.className = 'stock-cell';
+      
+      const dayData = findDayData(screener.data, date);
+      if (dayData) {
+        const stocks = dayData.Stocks.split(',').map(s => s.trim()).filter(s => s);
+        const halalStocks = Object.entries(dayData.HalalStatus || {})
+          .filter(([_, isHalal]) => isHalal)
+          .map(([stock, _]) => stock);
+        
+        // Display stock symbols instead of count
+        const displayedStocks = stocks.join(', ');
+          
+          cell.innerHTML = `
+            <div class="tooltip">
+              ${displayedStocks}
+              ${halalStocks.length > 0 ? `<span class="halal-label">${halalStocks.length} Halal</span>` : ''}
+              <span class="tooltiptext">${stocks.join(', ')}</span>
+            </div>
+          `;
+        } else {
+          cell.textContent = '-';
+        }
+        
+        // Add color coding based on count (optional)
+        if (stocks.length > 10) {
+          cell.classList.add('positive');
+        } else if (stocks.length < 5) {
+          cell.classList.add('negative');
+        } else {
+          cell.classList.add('neutral');
+        }
+      } else {
+        cell.textContent = '-';
+      }
+      
+      row.appendChild(cell);
+    });
+    
+    tableBody.appendChild(row);
+  });
+}
+    
+    function getAllDatesWithinRange() {
+      const allDates = new Set();
+      const cutoffDate = currentDateRange > 0 ? 
+        new Date(Date.now() - currentDateRange * 24 * 60 * 60 * 1000) : 
+        null;
+      
+      allScreenersData.forEach(screener => {
+        if (screener.data) {
+          screener.data.forEach(day => {
+            const dayDate = new Date(day.Date);
+            if (!cutoffDate || dayDate >= cutoffDate) {
+              allDates.add(day.Date);
             }
           });
         }
       });
-      return Array.from(dateSet).sort((a,b) => new Date(b) - new Date(a));
+      
+      // Convert to array and sort by date (newest first)
+      return Array.from(allDates).sort((a, b) => new Date(b) - new Date(a));
     }
-
+    
     function findDayData(screenerData, date) {
       if (!screenerData) return null;
       return screenerData.find(day => day.Date === date);
     }
-
-    // ---------- render table ----------
-    function renderScreenerTable(screeners, rangeDays, searchTerm = '') {
-      if (!screeners || screeners.length === 0) {
-        tableBody.innerHTML = `<tr><td colspan="1" class="no-results">No screener data available.</td></tr>`;
-        return;
-      }
-
-      const dates = getAllDatesWithinRange(screeners, rangeDays);
-      if (dates.length === 0) {
-        tableBody.innerHTML = `<tr><td colspan="1" class="no-results">No data for selected range.</td></tr>`;
-        return;
-      }
-
-      // rebuild header: keep first column (Screener Name) + date columns
-      while (tableHead.children.length > 1) tableHead.removeChild(tableHead.lastChild);
-      dates.forEach(date => {
-        const th = document.createElement('th');
-        th.className = 'date-header';
-        th.textContent = formatDateHeader(date);
-        tableHead.appendChild(th);
+    
+    function formatDateHeader(dateStr) {
+      const date = new Date(dateStr);
+      return date.toLocaleDateString('en-US', { 
+        month: 'short', 
+        day: 'numeric',
+        year: date.getFullYear() !== new Date().getFullYear() ? '2-digit' : undefined
       });
-
-      // build rows
-      let html = '';
-      screeners.forEach(screener => {
-        // if search term filter
-        const nameMatch = screener.name.toLowerCase().includes(searchTerm.toLowerCase());
-        let hasStockMatch = false;
-        if (!nameMatch && screener.data) {
-          for (let day of screener.data) {
-            if (day.Stocks && day.Stocks.toLowerCase().includes(searchTerm.toLowerCase())) {
-              hasStockMatch = true;
-              break;
-            }
-          }
-        }
-        if (searchTerm && !nameMatch && !hasStockMatch) return; // skip
-
-        html += `<tr>`;
-        html += `<td class="screener-name-cell">${screener.name}</td>`;
-        dates.forEach(date => {
-          const dayData = findDayData(screener.data, date);
-          let cellContent = '-';
-          let tooltip = '';
-          let halalCount = 0;
-          if (dayData && dayData.Stocks) {
-            const stocks = dayData.Stocks.split(',').map(s => s.trim()).filter(Boolean);
-            if (stocks.length > 0) {
-              // show all stocks (no truncation)
-              const allStocks = stocks.join(', ');
-              // count halal
-              if (dayData.HalalStatus) {
-                halalCount = stocks.filter(s => dayData.HalalStatus[s] === true).length;
-              }
-              const halalLabel = halalCount > 0 ? ` <span class="halal-label">${halalCount} Halal</span>` : '';
-              cellContent = `<span class="tooltip">${allStocks}${halalLabel}<span class="tooltiptext">${allStocks}</span></span>`;
-            }
-          }
-          // color coding based on stock count
-          let countClass = '';
-          if (dayData && dayData.Stocks) {
-            const cnt = dayData.Stocks.split(',').filter(s => s.trim()).length;
-            if (cnt > 8) countClass = 'positive';
-            else if (cnt < 3) countClass = 'negative';
-            else countClass = 'neutral';
-          }
-          html += `<td class="stock-cell ${countClass}">${cellContent}</td>`;
-        });
-        html += `</tr>`;
-      });
-
-      if (html === '') {
-        tableBody.innerHTML = `<tr><td colspan="${dates.length + 1}" class="no-results">No matching screeners or stocks found.</td></tr>`;
-      } else {
-        tableBody.innerHTML = html;
-      }
     }
 
-    // ---------- Lucky Bulls (full stocks, no truncation) ----------
-    function analyzeLuckyBulls(screeners) {
-      luckyLoading.style.display = 'block';
-      luckyContent.innerHTML = '';
+    function analyzeLuckyBulls(allScreenerData) {
+      const loading = document.getElementById('lucky-bulls-loading');
+      const content = document.getElementById('lucky-bulls-content');
+
+      loading.style.display = 'block';
+      content.innerHTML = '';
 
       try {
         const sevenDaysAgo = new Date();
@@ -526,18 +571,16 @@
         const stockMap = {};
         const halalStocks = new Set();
 
-        screeners.forEach(screener => {
+        allScreenerData.forEach(screener => {
           if (screener.data) {
             screener.data.forEach(day => {
-              // collect halal
-              if (day.HalalStatus) {
-                Object.entries(day.HalalStatus).forEach(([stock, isHalal]) => {
-                  if (isHalal) halalStocks.add(stock);
-                });
-              }
+              Object.entries(day.HalalStatus || {}).forEach(([stock, isHalal]) => {
+                if (isHalal) halalStocks.add(stock);
+              });
+
               const dayDate = new Date(day.Date);
-              if (dayDate >= sevenDaysAgo && day.Stocks) {
-                const stocks = day.Stocks.split(',').map(s => s.trim()).filter(Boolean);
+              if (dayDate >= sevenDaysAgo) {
+                const stocks = day.Stocks.split(',').map(s => s.trim()).filter(s => s);
                 stocks.forEach(stock => {
                   if (!stockMap[stock]) {
                     stockMap[stock] = { count: 0, screeners: new Set() };
@@ -557,129 +600,34 @@
             screeners: Array.from(data.screeners),
             isHalal: halalStocks.has(stock)
           }))
-          .filter(item => item.count >= 3)
-          .sort((a,b) => {
+          .filter(item => item.count >= 3) // Changed from 7 to 3 for more results
+          .sort((a, b) => {
             if (a.isHalal && !b.isHalal) return -1;
             if (!a.isHalal && b.isHalal) return 1;
             return b.count - a.count;
           });
 
         if (luckyBulls.length === 0) {
-          luckyContent.innerHTML = `<div class="no-results"><p>No Lucky Bulls found (appeared ≥3 times in last 7 days).</p></div>`;
+          content.innerHTML = `<div class="no-results"><p>No Lucky Bulls found (appeared at least 3 times in last 7 days).</p></div>`;
         } else {
-          let html = `<div class="lucky-bulls-stats">✅ Found ${luckyBulls.length} stocks (appeared ≥3 times, Halal on top):</div><div class="lucky-bulls-grid">`;
+          let html = `<div class="lucky-bulls-stats"><p>Found ${luckyBulls.length} stocks (appeared ≥ 3 times, Halal on top):</p></div><div class="lucky-bulls-grid">`;
           luckyBulls.forEach(bull => {
-            const halalClass = bull.isHalal ? 'halal' : '';
-            const halalBadge = bull.isHalal ? '<span class="halal-tick"></span><span class="halal-label">Halal</span>' : '';
-            html += `<div class="lucky-stock ${halalClass}">
-              <div class="stock-name">${bull.stock} ${halalBadge}</div>
+            html += `<div class="lucky-stock ${bull.isHalal ? 'halal' : ''}">
+              <div class="stock-name">${bull.stock}${bull.isHalal ? '<span class="halal-tick" title="Halal Stock"></span><span class="halal-label">Halal</span>' : ''}</div>
               <div class="stock-count">Appeared ${bull.count} times</div>
               <div class="stock-screeners">${bull.screeners.map(s => `<span class="screener-badge">${s}</span>`).join('')}</div>
             </div>`;
           });
           html += `</div>`;
-          luckyContent.innerHTML = html;
+          content.innerHTML = html;
         }
-      } catch (e) {
-        console.error(e);
-        luckyContent.innerHTML = `<div class="no-results"><p>⚠️ Error analyzing Lucky Bulls. Please refresh.</p></div>`;
+      } catch (error) {
+        console.error('Error analyzing Lucky Bulls:', error);
+        content.innerHTML = `<div class="no-results"><p>Failed to analyze Lucky Bulls. Please try again.</p></div>`;
       } finally {
-        luckyLoading.style.display = 'none';
+        loading.style.display = 'none';
       }
     }
-
-    // ---------- load / refresh ----------
-    function loadAllScreeners() {
-      // simulate async fetch
-      allScreenersData = JSON.parse(JSON.stringify(MOCK_SCREENERS));
-      // update selector
-      const currentVal = selector.value;
-      selector.innerHTML = `<option value="">Select a Screener</option><option value="all" selected>All Screeners</option>`;
-      allScreenersData.forEach(s => {
-        const opt = document.createElement('option');
-        opt.value = s.id;
-        opt.textContent = s.name;
-        selector.appendChild(opt);
-      });
-      if (currentVal && currentVal !== 'all') {
-        selector.value = currentVal;
-      } else {
-        selector.value = 'all';
-      }
-
-      // render all
-      renderScreenerTable(allScreenersData, currentDateRange, searchBox.value);
-      analyzeLuckyBulls(allScreenersData);
-    }
-
-    function loadScreenerById(id) {
-      const found = allScreenersData.find(s => s.id === id);
-      if (found) {
-        renderScreenerTable([found], currentDateRange, searchBox.value);
-      } else {
-        renderScreenerTable([], currentDateRange, searchBox.value);
-      }
-    }
-
-    // ---------- event listeners ----------
-    function init() {
-      loadAllScreeners();
-
-      selector.addEventListener('change', function() {
-        const id = this.value;
-        if (id === 'all') {
-          renderScreenerTable(allScreenersData, currentDateRange, searchBox.value);
-        } else if (id) {
-          const found = allScreenersData.find(s => s.id === id);
-          if (found) renderScreenerTable([found], currentDateRange, searchBox.value);
-          else renderScreenerTable([], currentDateRange, searchBox.value);
-        }
-      });
-
-      refreshBtn.addEventListener('click', function() {
-        const orig = this.innerHTML;
-        this.disabled = true;
-        this.innerHTML = '<i class="fas fa-sync-alt fa-spin"></i> Refreshing...';
-        loadAllScreeners();
-        setTimeout(() => {
-          this.disabled = false;
-          this.innerHTML = orig;
-        }, 500);
-      });
-
-      document.querySelectorAll('.date-range-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-          document.querySelectorAll('.date-range-btn').forEach(b => b.classList.remove('active'));
-          this.classList.add('active');
-          currentDateRange = parseInt(this.dataset.days);
-          const id = selector.value;
-          if (id === 'all') renderScreenerTable(allScreenersData, currentDateRange, searchBox.value);
-          else if (id) {
-            const found = allScreenersData.find(s => s.id === id);
-            if (found) renderScreenerTable([found], currentDateRange, searchBox.value);
-            else renderScreenerTable([], currentDateRange, searchBox.value);
-          } else {
-            renderScreenerTable(allScreenersData, currentDateRange, searchBox.value);
-          }
-        });
-      });
-
-      searchBox.addEventListener('input', function() {
-        const term = this.value;
-        const id = selector.value;
-        if (id === 'all') renderScreenerTable(allScreenersData, currentDateRange, term);
-        else if (id) {
-          const found = allScreenersData.find(s => s.id === id);
-          if (found) renderScreenerTable([found], currentDateRange, term);
-          else renderScreenerTable([], currentDateRange, term);
-        } else {
-          renderScreenerTable(allScreenersData, currentDateRange, term);
-        }
-      });
-    }
-
-    init();
-  })();
-</script>
+  </script>
 </body>
-</html>
+</html> 
